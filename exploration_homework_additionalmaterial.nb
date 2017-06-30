@@ -1,0 +1,3049 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    159652,       3039]
+NotebookOptionsPosition[    157724,       2985]
+NotebookOutlinePosition[    158066,       3000]
+CellTagsIndexPosition[    158023,       2997]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"gas", "=", 
+  NamespaceBox["LinguisticAssistant",
+   DynamicModuleBox[{Typeset`query$$ = "noble gases", Typeset`boxes$$ = 
+    TemplateBox[{"\"noble gases\"", 
+      RowBox[{"EntityClass", "[", 
+        RowBox[{"\"Element\"", ",", "\"NobleGas\""}], "]"}], 
+      "\"EntityClass[\\\"Element\\\", \\\"NobleGas\\\"]\"", "\"elements\""}, 
+     "EntityClass"], Typeset`allassumptions$$ = {}, 
+    Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+    Typeset`querystate$$ = {
+    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+     0.5311991`7.17680232404011, "Messages" -> {}}}, 
+    DynamicBox[ToBoxes[
+      AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+       Dynamic[Typeset`query$$], 
+       Dynamic[Typeset`boxes$$], 
+       Dynamic[Typeset`allassumptions$$], 
+       Dynamic[Typeset`assumptions$$], 
+       Dynamic[Typeset`open$$], 
+       Dynamic[Typeset`querystate$$]], StandardForm],
+     ImageSizeCache->{279., {12., 26.}},
+     TrackedSymbols:>{
+      Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+       Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+    DynamicModuleValues:>{},
+    UndoTrackedVariables:>{Typeset`open$$}],
+   BaseStyle->{"Deploy"},
+   DeleteWithContents->True,
+   Editable->False,
+   SelectWithContents->True]}]], "Input",
+ CellChangeTimes->{{3.707303334833222*^9, 
+  3.7073033685787535`*^9}},ExpressionUUID->"cb1af2b8-dcce-471e-ab36-\
+a3acd6e93246"],
+
+Cell[BoxData[
+ TemplateBox[{"\"noble gases\"",RowBox[{"EntityClass", "[", 
+     RowBox[{"\"Element\"", ",", "\"NobleGas\""}], "]"}],
+   "\"EntityClass[\\\"Element\\\", \\\"NobleGas\\\"]\"","\"elements\""},
+  "EntityClass"]], "Output",
+ CellChangeTimes->{{3.7073033568021507`*^9, 
+  3.707303369313095*^9}},ExpressionUUID->"d4510d0b-9cef-47cb-b4c0-\
+437107ba388a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"props", "=", 
+  RowBox[{"gas", "[", "\"\<Properties\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.707303370948039*^9, 3.707303394711008*^9}, {
+  3.7073035455598774`*^9, 
+  3.7073035500756063`*^9}},ExpressionUUID->"c795de64-f05b-4db5-8522-\
+a5e8e57dea62"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"symbol\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Abbreviation\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Abbreviation\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"adiabatic index\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AdiabaticIndex\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AdiabaticIndex\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"allotropes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AllotropeNames\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AllotropeNames\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"allotropic multiplicities\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AllotropicMultiplicities\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AllotropicMultiplicities\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"alternate names\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AlternateNames\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AlternateNames\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic mass\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicMass\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicMass\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"block\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Block\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Block\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"boiling point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BoilingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BoilingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Brinell hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BrinellHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BrinellHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"bulk modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BulkModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BulkModulus\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"CAS number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CASNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CASNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"color\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Color\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Color\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"common compound names\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CommonCompounds\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CommonCompounds\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"covalent radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CovalentRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CovalentRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"critical pressure\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CriticalPressure\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CriticalPressure\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"critical temperature\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CriticalTemperature\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CriticalTemperature\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"crust abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrustAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrustAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"crust molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrustMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrustMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Bravais lattice\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrystalStructure\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructure\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice schematic\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrystalStructureImage\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructureImage\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"curie point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CuriePoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CuriePoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"Debye characteristic temperature\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DebyeCharacteristicTemperature\""}], 
+       "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"DebyeCharacteristicTemperature\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"decay mode\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DecayMode\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DecayMode\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"density\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Density\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Density\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"discovery country\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DiscoveryCountries\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryCountries\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"discovery year\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DiscoveryYear\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryYear\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electrical conductivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectricalConductivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectricalConductivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electrical type\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectricalType\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectricalType\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electron affinity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronAffinity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronAffinity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electron configuration\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"electron configuration string\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronConfigurationString\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronConfigurationString\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"number of electrons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electronegativity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Electronegativity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Electronegativity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"electron shell configuration\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronShellConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronShellConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"full electron configuration string\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"FullElectronConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"FullElectronConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar heat of fusion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"FusionHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"FusionHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"gas atomic multiplicities\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"GasAtomicMultiplicities\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"GasAtomicMultiplicities\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"group\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Group\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Group\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"human abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"HumanAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"HumanAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"human molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"HumanMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"HumanMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"icon color\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IconColor\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IconColor\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"image\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Image\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Image\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ionization energies\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IonizationEnergies\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IonizationEnergies\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope abundances\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeAbundances\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeAbundances\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope half-lives\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeHalfLives\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeHalfLives\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope lifetimes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeLifetimes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeLifetimes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"known isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"KnownIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"KnownIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"known oxidation states\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"KnownOxidationStates\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"KnownOxidationStates\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice angles\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LatticeAngles\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LatticeAngles\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice constants\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LatticeConstants\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LatticeConstants\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Lewis structure\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LewisDotStructureDiagram\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LewisDotStructureDiagram\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"liquid density\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LiquidDensity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LiquidDensity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"magnetic type\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MagneticType\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MagneticType\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"mass magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MassMagneticSusceptibility\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"MassMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"melting point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeltingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeltingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"memberships\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Memberships\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Memberships\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"meteorite abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeteoriteAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"meteorite molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeteoriteMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Mohs hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MohsHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MohsHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar heat capacity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarHeatCapacity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarHeatCapacity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarMagneticSusceptibility\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"MolarMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar mass\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarMass\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarMass\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar radioactivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarRadioactivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarRadioactivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar volume\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarVolume\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarVolume\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"most common oxidation states\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MostCommonOxidationStates\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MostCommonOxidationStates\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"name\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Name\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Name\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"N\[EAcute]el point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeelPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeelPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"number of neutrons per isotope\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"neutron cross\[Hyphen]section\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronCrossSection\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronCrossSection\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"neutron mass absorption\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronMassAbsorption\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronMassAbsorption\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"nuclear diameter\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NuclearDiameter\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NuclearDiameter\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"nuclear radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NuclearRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NuclearRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ocean abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"OceanAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"OceanAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ocean molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"OceanMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"OceanMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"period\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Period\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Period\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"phase at STP\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Phase\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Phase\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Poisson ratio\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"PoissonRatio\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"PoissonRatio\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"price\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Price\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Price\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"number of protons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ProtonCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ProtonCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"term symbol\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"QuantumNumbers\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"QuantumNumbers\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"refractive index\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"RefractiveIndex\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"RefractiveIndex\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"resistivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Resistivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Resistivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"series\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Series\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Series\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"shear modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ShearModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ShearModulus\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"solar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"solar molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolarMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolarMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar heat of solidification\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolidificationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolidificationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"sound speed\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SoundSpeed\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SoundSpeed\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"space group\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpaceGroup\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroup\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"IUCr space group number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpaceGroupNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroupNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific heat of fusion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificFusionHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificFusionHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific heat at STP\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific ionization energies\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificIonizationEnergies\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificIonizationEnergies\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific radioactivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificRadioactivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificRadioactivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific heat of solidification\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificSolidificationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificSolidificationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificVaporizationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificVaporizationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"stable isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"StableIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"StableIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"superconducting point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SuperconductingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SuperconductingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"tensile yield strength\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"TensileYieldStrength\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"TensileYieldStrength\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"thermal conductivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ThermalConductivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ThermalConductivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"thermal expansion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ThermalExpansion\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ThermalExpansion\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ultimate tensile strength\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UltimateTensileStrength\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UltimateTensileStrength\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"universe abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UniverseAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UniverseAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"universe molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UniverseMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UniverseMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"unstable isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UnstableIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UnstableIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"valence\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Valence\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Valence\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"number of valence electrons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ValenceElectronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ValenceElectronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"van der Waals radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VanDerWaalsRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VanDerWaalsRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VaporizationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VaporizationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Vickers hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VickersHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VickersHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"volume magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VolumeMagneticSusceptibility\""}], 
+       "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"VolumeMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"work function\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"WorkFunction\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"WorkFunction\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Young's modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"YoungModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"YoungModulus\\\"]\""},
+    "EntityProperty"]}], "}"}]], "Output",
+ CellChangeTimes->{3.7073033958828373`*^9, 
+  3.7073035514818172`*^9},ExpressionUUID->"e3d72589-c88b-4596-88a0-\
+1c09778323bd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gas", "[", "\"\<AdiabaticIndex\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.70730643136007*^9, 3.707306441860182*^9}, {
+  3.707306528473735*^9, 
+  3.707306531051887*^9}},ExpressionUUID->"e2ead31f-2c2e-4428-b176-\
+e020121dfbe7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["5", "3"], ",", 
+   FractionBox["5", "3"], ",", 
+   FractionBox["5", "3"], ",", 
+   FractionBox["5", "3"], ",", 
+   FractionBox["5", "3"], ",", 
+   FractionBox["5", "3"], ",", 
+   RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7073064421570783`*^9, 
+  3.7073065317237177`*^9},ExpressionUUID->"005f5766-9d0e-4318-b9a2-\
+201c00369bf2"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"gas", "[", "\"\<AdiabaticIndex\>\"", "]"}]], "Input",ExpressionUUID->"37ef1e07-9b7c-48a8-bf2e-d4d45e1e10bc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gas", "[", "\"\<Name\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7073035034708214`*^9, 
+  3.7073035083302836`*^9}},ExpressionUUID->"688a7ab1-b855-420f-a945-\
+6dee5ddd8971"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"helium\"\>", ",", "\<\"neon\"\>", ",", "\<\"argon\"\>", 
+   ",", "\<\"krypton\"\>", ",", "\<\"xenon\"\>", ",", "\<\"radon\"\>", 
+   ",", "\<\"oganesson\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.707303511007303*^9},ExpressionUUID->"c63a7139-b631-4316-9b14-\
+1857c00520ac"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"EntityValue", "[", 
+    RowBox[{"gas", ",", "props"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7073035158720613`*^9, 3.7073035550024033`*^9}, {
+  3.707303646092281*^9, 
+  3.7073036501860723`*^9}},ExpressionUUID->"46b9b7d5-fc81-45d3-a39f-\
+ad6a1d61cea9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Length", "@", "res"}], "\[IndentingNewLine]", 
+ RowBox[{"Length", "@", 
+  RowBox[{"gas", "[", "\"\<Name\>\"", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7073036684697638`*^9, 
+  3.707303694425843*^9}},ExpressionUUID->"1eaf3873-c8af-4eec-8756-\
+510585c86129"],
+
+Cell[BoxData["7"], "Output",
+ CellChangeTimes->{{3.707303672828854*^9, 
+  3.707303695550818*^9}},ExpressionUUID->"c7bed564-ad89-4c42-98d7-\
+92d13f13b749"],
+
+Cell[BoxData["7"], "Output",
+ CellChangeTimes->{{3.707303672828854*^9, 
+  3.707303695550818*^9}},ExpressionUUID->"24ec1e23-723d-460f-8778-\
+47da8630bace"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Thread", "[", 
+  RowBox[{"props", "\[Rule]", 
+   RowBox[{"res", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7073036562726307`*^9, 3.7073036605852156`*^9}, {
+  3.7073037090689526`*^9, 
+  3.7073037195221863`*^9}},ExpressionUUID->"58d1a6b4-bcdf-49b9-aafb-\
+91359b3cc10b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"symbol\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Abbreviation\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Abbreviation\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"He\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"adiabatic index\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AdiabaticIndex\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AdiabaticIndex\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    FractionBox["5", "3"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"allotropes\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AllotropeNames\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AllotropeNames\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"allotropic multiplicities\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AllotropicMultiplicities\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AllotropicMultiplicities\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"alternate names\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AlternateNames\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AlternateNames\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"atomic mass\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AtomicMass\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AtomicMass\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "4.002602`7.","\"u\"","unified atomic mass units","\"AtomicMassUnit\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"atomic number\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AtomicNumber\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AtomicNumber\\\"]\""},
+     "EntityProperty"], "\[Rule]", "2"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"atomic radius\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"AtomicRadius\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"AtomicRadius\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"31.`2.","\"pm\"","picometers","\"Picometers\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"block\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Block\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Block\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"s\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"boiling point\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"BoilingPoint\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"BoilingPoint\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     RowBox[{"-", "452.074`4.970297773335901"}],"\"\[Degree]F\"",
+      "degrees Fahrenheit","\"DegreesFahrenheit\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Brinell hardness\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"BrinellHardness\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"BrinellHardness\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"bulk modulus\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"BulkModulus\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"BulkModulus\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"CAS number\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CASNumber\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CASNumber\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"CAS7440-59-7\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"color\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Color\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Color\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"Colorless\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"common compound names\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CommonCompounds\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CommonCompounds\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     TemplateBox[{"\"liquid helium\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"Chemical\"", ",", "\"LiquidHelium\""}], "]"}],
+       "\"Entity[\\\"Chemical\\\", \\\"LiquidHelium\\\"]\"","\"chemical\""},
+      "Entity"], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"covalent radius\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CovalentRadius\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CovalentRadius\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"28.`2.","\"pm\"","picometers","\"Picometers\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"critical pressure\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CriticalPressure\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CriticalPressure\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"0.227`3.","\"MPa\"","megapascals","\"Megapascals\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"critical temperature\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CriticalTemperature\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CriticalTemperature\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"5.19`3.","\"K\"","kelvins","\"Kelvins\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"crust abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CrustAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CrustAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "5.5`2.*^-7",RowBox[{"\[InvisibleSpace]", "\" mass%\""}],"mass percent",
+      "\"MassPercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"crust molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CrustMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CrustMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "3.0000000000001`2.*^-6",RowBox[{"\[InvisibleSpace]", "\" mol%\""}],
+      "mole percent","\"MolePercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Bravais lattice\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CrystalStructure\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructure\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"face-centered cubic\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"Lattice\"", ",", "\"FaceCenteredCubic\""}], "]"}],
+      "\"Entity[\\\"Lattice\\\", \\\"FaceCenteredCubic\\\"]\"","\"lattice\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"lattice schematic\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CrystalStructureImage\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructureImage\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    Graphics3DBox[{
+      GraphicsComplex3DBox[{{-1, -1, -1}, {-1, -1, 1}, {-1, 1, -1}, {-1, 1, 
+       1}, {1, -1, -1}, {1, -1, 1}, {1, 1, -1}, {1, 1, 1}, {0, 0, 1}, {1, 0, 
+       0}, {0, 1, 0}, {-1, 0, 0}, {0, 0, -1}, {0, -1, 0}}, {{
+         {Opacity[0.1], EdgeForm[GrayLevel[0.8]], 
+          Polygon3DBox[{{8, 4, 2, 6}, {8, 6, 5, 7}, {8, 7, 3, 4}, {4, 3, 1, 
+           2}, {1, 3, 7, 5}, {2, 1, 5, 6}}]}}, {
+         {GrayLevel[0.8], 
+          Line3DBox[{{9, 8}, {9, 4}, {9, 2}, {9, 6}, {10, 8}, {10, 6}, {10, 
+           5}, {10, 7}, {11, 8}, {11, 7}, {11, 3}, {11, 4}, {12, 4}, {12, 
+           3}, {12, 1}, {12, 2}, {13, 1}, {13, 3}, {13, 7}, {13, 5}, {14, 
+           2}, {14, 1}, {14, 5}, {14, 6}}]}}}], {
+       {GrayLevel[0], Specularity[
+         GrayLevel[1], 5], SphereBox[{-1, -1, -1}, 0.06], 
+        SphereBox[{-1, -1, 1}, 0.06], SphereBox[{-1, 1, -1}, 0.06], 
+        SphereBox[{-1, 1, 1}, 0.06], SphereBox[{1, -1, -1}, 0.06], 
+        SphereBox[{1, -1, 1}, 0.06], SphereBox[{1, 1, -1}, 0.06], 
+        SphereBox[{1, 1, 1}, 0.06], SphereBox[{0, 0, 1}, 0.06], 
+        SphereBox[{1, 0, 0}, 0.06], SphereBox[{0, 1, 0}, 0.06], 
+        SphereBox[{-1, 0, 0}, 0.06], SphereBox[{0, 0, -1}, 0.06], 
+        SphereBox[{0, -1, 0}, 0.06]}}},
+     Boxed->False,
+     ViewPoint->NCache[{4, 
+        Rational[5, 3], 1}, {4, 1.6666666666666667`, 1}]]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"curie point\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"CuriePoint\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"CuriePoint\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Debye characteristic temperature\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"DebyeCharacteristicTemperature\""}], 
+        "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"DebyeCharacteristicTemperature\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"decay mode\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"DecayMode\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"DecayMode\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"density\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Density\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Density\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.0001785`4.",
+      RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+      FractionBox["\"Grams\"", 
+       SuperscriptBox["\"Centimeters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"discovery country\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"DiscoveryCountries\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryCountries\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"Sweden\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Country\"", ",", "\"Sweden\""}], "]"}],
+        "\"Entity[\\\"Country\\\", \\\"Sweden\\\"]\"","\"country\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"United Kingdom\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Country\"", ",", "\"UnitedKingdom\""}], "]"}],
+        "\"Entity[\\\"Country\\\", \\\"UnitedKingdom\\\"]\"","\"country\""},
+       "Entity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"discovery year\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"DiscoveryYear\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryYear\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{RowBox[{
+        StyleBox[
+        "\"Year: \"", FontColor -> GrayLevel[0.5], FontWeight -> Plain], 
+        "\"1895\""}],RowBox[{"DateObject", "[", 
+        RowBox[{
+          RowBox[{"{", "1895", "}"}], ",", "\"Year\"", ",", "\"Gregorian\"", 
+          ",", 
+          RowBox[{"-", "4.`"}]}], "]"}]},
+     "DateObject",
+     Editable->False]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"electrical conductivity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectricalConductivity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ElectricalConductivity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"electrical type\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectricalType\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ElectricalType\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"electron affinity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectronAffinity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ElectronAffinity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.`",RowBox[{
+       "\"Avogadro number\"", "\[ThinSpace]", "\"eV\"", "\[InvisibleSpace]", 
+        "\"/\"", "\[InvisibleSpace]", "\"mol\""}],
+      "Avogadro number electronvolts per mole",FractionBox[
+       RowBox[{"\"AvogadroNumber\"", " ", "\"Electronvolts\""}], "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"electron configuration\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectronConfiguration\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ElectronConfiguration\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"{", "2", "}"}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"electron configuration string\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectronConfigurationString\""}], 
+        "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronConfigurationString\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"1",TemplateBox[{
+        StyleBox["\"s\"", Italic, StripOnInput -> False], "2"}, "Superscript",
+        SyntaxForm -> SuperscriptBox]},
+     "RowDefault"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"number of electrons\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectronCount\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ElectronCount\\\"]\""},
+     "EntityProperty"], "\[Rule]", "2"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"electronegativity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Electronegativity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Electronegativity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"electron shell configuration\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ElectronShellConfiguration\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronShellConfiguration\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"full electron configuration string\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"FullElectronConfiguration\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"FullElectronConfiguration\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"1",TemplateBox[{
+        StyleBox["\"s\"", Italic, StripOnInput -> False], "2"}, "Superscript",
+        SyntaxForm -> SuperscriptBox]},
+     "RowDefault"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"molar heat of fusion\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"FusionHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"FusionHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.02`1.",
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"kilojoules per mole",FractionBox[
+      "\"Kilojoules\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"gas atomic multiplicities\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"GasAtomicMultiplicities\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"GasAtomicMultiplicities\\\"]\""},
+     "EntityProperty"], "\[Rule]", "1"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"group\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Group\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Group\\\"]\""},
+     "EntityProperty"], "\[Rule]", "18"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"human abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"HumanAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"HumanAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"human molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"HumanMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"HumanMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"icon color\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"IconColor\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"IconColor\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    InterpretationBox[
+     ButtonBox[
+      TooltipBox[
+       GraphicsBox[{{
+          {GrayLevel[0], RectangleBox[{0, 0}]}}, {
+          {GrayLevel[0], RectangleBox[{1, -1}]}}, {
+          {RGBColor[0.836713, 1., 1.], RectangleBox[{0, -1}, {2, 1}]}}},
+        AspectRatio->1,
+        Frame->True,
+        FrameStyle->RGBColor[
+         0.5578086666666667, 0.6666666666666667, 0.6666666666666667],
+        FrameTicks->None,
+        ImageSize->
+         Dynamic[{
+          Automatic, 1.35 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+           Magnification]}],
+        PlotRangePadding->None],
+       "RGBColor[0.836713, 1., 1.]"],
+      Appearance->None,
+      BaseStyle->{},
+      BaselinePosition->Baseline,
+      ButtonFunction:>With[{Typeset`box$ = EvaluationBox[]}, 
+        If[
+         Not[
+          AbsoluteCurrentValue["Deployed"]], 
+         SelectionMove[Typeset`box$, All, Expression]; 
+         FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+         FrontEnd`Private`$ColorSelectorInitialColor = 
+          RGBColor[0.836713, 1., 1.]; 
+         FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+         MathLink`CallFrontEnd[
+           FrontEnd`AttachCell[Typeset`box$, 
+            FrontEndResource["RGBColorValueSelector"], {0, {Left, Bottom}}, {
+            Left, Top}, 
+            "ClosingActions" -> {
+             "SelectionDeparture", "ParentChanged", "EvaluatorQuit"}]]]],
+      DefaultBaseStyle->{},
+      Evaluator->Automatic,
+      Method->"Preemptive"],
+     RGBColor[0.836713, 1., 1.],
+     Editable->False,
+     Selectable->False]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"image\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Image\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Image\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    GraphicsBox[
+     TagBox[RasterBox[CompressedData["
+1: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
+D3gIUQhLhD1kP0RVT9mgvsGL4hfMjr/ucWts7kudaMOrlYwehh7F+SuN9I1Z
+7VIPWh60Rp4+sXwqSNkZ7cRLAc+Cce5GKMn+xvOg3wJnQAnS87dhT5ZEqEFw
+A9kNE4N1ALFABpCnflewRpAvONOaz/ZJpWhwVujmKEGJX8lXSA5GYyvHZEvv
+l56q/x6ZE/31+ohBjtFJM3ZZlT3xs1X1Gw1lM8dqVCtV5YdZNfASZBN9nn6S
+ceDunDml9ZlZK8x57Oam34faJekN8u8aa/obTBtj68ob9d+H12w2TT8nrKhs
+Js1Xz9tuys/RzIVu+n+w/FD0PeDN3fHqbwmDT/o/fPnaV/Kia8XxRU73yqeC
+5+pddisFPSLd6Z85euWev/2y1HftBfe3gQHNPtnVyJcig3u+n38t9mpsvXai
+dIxkY+lN4TjtevrYxsih1dfDvkNDnx/0a/UJvydsm3imUwMPHgkKt2lQXN4T
+SDpJGIOziXbsoHNkr+FcCJN0ETc/d7MqneArIWQq9VwI3oK7T8zcrFgarkZx
+xA6N6Zc2lr2fgWPDsYxjwiVlpUw1EyH3wvf5aJt+t5DXMBXIE/zCK0q/TpdB
+KIKYgFeAHCADfp9vnRD9534PB2gP7Zwa7CXQh3vB7+s8FpIXcdVMExATfu8R
+ZChtEtUQESkQ6zllXDVYff49qlX6WdcUYbVdTWlje7RO/PztGuNe0zDZcnY9
+zoNMY2Qc5FjK80RPUHWIxzBfvF9UGLLGfl5fjO2eO6yQFNzJzkgj3IfQRPhx
+OFO9oga0KYWei94rAb317u1bPNB8uOXTCuqFUQ/8XUF9Rb1rq0q8+f2ckKs2
+qraMCl7cZ9FCcB+Y026Gr9RPlIO8uL6y2yhHYGCuMEKYCEiM3w86khc5g7ko
+fJnM0y3Dq91DNMPdx3xKmErLZz9gT2FVxgpKvpew1+lH8EW994gy1DF205zj
+deS/9szxAfhQsmEiPCK0ivUe8VGiUtQ9pCLBR95yelMGQd1VcXLJfQUxdxu9
+b65wvLB7sblp8t5lMXcT+My2srmJ+WT/aXCTfNFh8chG3WTVm/Z1rjf2E+Sb
+jPP97zy+Vb2MHBz+ZPQ8pwv1sbPjbJvi0tNnKc1Vi+It6k1vFyybHzQ0LJxs
+Dql/uJDcHNowtIBuNmh4sLDapNeQvODc/L7xxTx104MGs9kSrDGme+Ji+YMy
+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
+B0I4v/E2AhAdsEKYMOE6vBFewHGZ+g41UnaRS5VH3bFdg1FLq0Dotqm378vi
+3Mp8uTm+us91I1OK1WQ1zztWkh+l3o9XOnP2nLVGJo8Mv3/64xtlt4u6Yx8c
+f3h1HyXaEW+W1CG+wlLh+nSfSb3J1qVW2Te5S4KCT966mtqd/aSjVGIpvkut
+X2MdMyU5u7kZ+oFuOW9z/hP8s/Bm4pL+x3Mby9M5c+1roa9dx7+sj7ylnz24
+9vq1+ujDL5O9Qy8MPl94sfjc4ZN9d1in9ZL3M8pWojmpOl7s5QnzMs4yh36P
+jJqMiXr9iNZI98zuyxzX1vwOm74xh1si5dv3jMtxcqlxMfD10RMytiI8YV/w
+1BcJmO1GG/45/Z+/BElICgoCyngPviNQAbxTusDfLHgrevI0+Rm+tu6k+GS6
+qRNVMVWqM52YgxjuwUfZxjm8OYk3LG7lW4cpcioT8aTRkdDHEIzCW/GagBkk
+B2X/xTv/ejgAyZ9dvyhpGaEH6qCAAPMcm7qbgJ7bkfUqWNCHMJ+RwkL14tDZ
+WKxlHeoNR4V7JVGLd7xMImFwgc2JE0bqQQKawpqC1IwcjGXk44QkeBoMBYx2
+u8X9O2D9obvxAfgauAz2IqphDrA97M5UgdS3ZPo4k3jaTyfsbdK8kRt5w/8O
+09DhHJu88Fkb7MW6u29fVBfWiHZ9SbmWRvTA24Xswrm9x9CjAjc8VU3uW5Qn
+3XBaOSvA94h6CB+6dAfS54yAUfhRmB7sDDGIpEaWo8dpHtNj7gpbfThzpPNY
+6rHCmckuDOkz4mX6F0SDzKuYV+C4+Te64aXXRMsS3UEvmD7UtRN1DX0jGh4b
+mV7UbU1+1vZWtZqqenWCtDyw7PyIW8GVgur+ygzFDJcOdNKXJMEa2cCwYKHH
+zRfCL0V7RR3JNflkvbonSglQ7eKlFfBX4uMJRrcfSZZESO3lJqRB4scpDhYD
+xfhv8leRfT9CBdpd4nhvtzdAAh4ED6sGCfAJ58QIO7A5LbS1PDB8yDF1pSq2
+6uCMNKa/lmegO+tgtlG2vueXG5uWaQpLiiucAnQ6dOsINHwUz5EOQk/8/fqY
+/Fxsc1QFgH+3Iv0kqSDKCLXIX8+cytpwLUHvndG5qrNBTmE0I/mFg0Ues/5Y
+xzqjCanyRxVXmhninRIPBFPZvD/hqxbJ/1VQWiCCIZXBjtyOkAN/lhoK6P9H
+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
+Zr1Wsqsu5VSa2H2EE995AqUqbj2+Lb0RCW5LuSzgFGAByaM/V67r3xWegAmk
+v2/jGYE+Ek3gpT8n1SYbndp2YfaybI9jetiTpumC2rJamWnJ2v4az56V9Cfp
+xSkeF8wu0eiHSDJJVrKF05ykjodLweh+oEGOX3rhXwzbNCj9gz3ITFaN4kR1
+CrmxGrAd9ugyMDxaUv0qOCD8+WuK4rgS9dkjWLI6ygmpcokKsCku9kzC1L1N
+i882d5XG0Y/4Cnmi6GTp4CQDSAk8DXpAltTeXzk2QlwG80nIot+JkF9hO0fF
+S/lSXIz9AIeV+aZ8jlLv0zK3R56lg/zZSrkf52rqGuvn557VJdcH9hs95cxe
+fprkPnNjwKBawkVGmYiQIAYvnQnBeCABl8VJ9Itv/1/8XvAAzHY7HdQTWCBp
+kOuGITKX5K4+OnAJc5Xjhd0T34ymaS7M41rs26WahBrNnpXHCekWD5lcNS92
+6XpIsEoWsmnTGNN8gy2BabvZyhy7Pej/6tjOWJeCdNGdaidSZBOoFUJuIQTr
+KVYGj0aDXBPRmt5gkYiF18jilZLi2TasWd3bcapysIKkySmWNWHPvaOWnDYh
+Kv28E/yyPNJ0N+k8iGqQ3HgadP0NNLjTedASMMffuUyjTNJCnCfGwtbPWnJQ
+VmxdIvl+uBPRuYye22kv0glmGTCu2AvzgQ2XGl++oi50LvpYHnJvMKjgjJzm
+fW0nWiTpWbzzMQCcAl4C1ZCWtBP9tU3v/4s/AgHQV96JGR5C6RIwELoa68ul
+K6w/0r5sd83vhf+T0IyZ6ZpaldpLb1Vrqqsnu9+nVT7mfiB+jtf182EL8Uzx
+FPYTNIdoVmE1YDieBsUgCmT+aTP6fQHH2YNikGTfsbyySJtR5wkDBUVZ77BZ
+eoQbPjQ5XaMWYh+hMBpQrFFaNjuN9aobH39Ztq+CvDEq5kq8nl+POau1iNIs
+WpDfgceazor+DvEw0gVPg1chGvy19UW3ceUHbbacKBNZjIwVsWTxY8Eoz/Ci
+BO7c67WIs5FsjYs3Skyfelj1vPr9/MXG3kbPN5oVfpV7mwJjvBJovFNN2i3F
++JjoI3ChqAQAN5gNxAE6YBVQhn/ydp20/8UfgUjAdjeD/hSxGOF+VNRRHnln
+Re/HPZfbroW/qHuimmkxfbm2sCZtyrL6Q1VH1+Qj47SH96tdhM7dP3hHbE0s
+hF2b5iTNEOwGqIWnQRHIGv9zVDD+7dj2ychBmuhO3kQ+qQTqHaGCMAGrDftF
+z4OGq0fdaxxD5COcR8OLTUoHZuewHnWEE8LlBhVFDbSxzvEsfonmAVZBimZo
+El4NtAcdCz0TcRLy2g80qPmLb/93IIurxbkNQ3g5WAfKCxQx5DMMSAVwunOl
+X5jSaT+ErHoV8ChYdUyuBF52dCGiMb7p08xJTCTW6Dks7Uy6ZJK8M7Wrm+oY
++rDAJ/gs7AZe4FGDj4DY3e/wv76TPwqxgAPggr92IFFHxaJ6TJX3lCiqphtf
+/exW8cI/IyGTaRpT01cjNwWrbqma7yxODXxkl5DmxHQ24UCa6LwYD3sFzS2a
+Vtgl0Bi/SEJ/IxqE430y6F1d9DkpD9EIYZEQGxs/+4KnvRGL6dGa/BDqyNXX
+gsXKpQazTljrOs/x+LKe8sGGczHTcVhfW/MEK2fFeR4KPic0hg6kJyc2Q+ri
+afAKZMv9tnxnFK43nz2gtpuzucBZTSNDGyw5y/GCM95KS3FIGZ1l7E534+Sg
+fPZgTsk7x3qrhrz5voapRsrhvrzugsbCrjvvfXRPfFXCqtFQ5RE/x7dZOgxz
+BF1BJWjuO/EJf8WI6D8/EiApeAF//Z1kEmVNhLaIURhUbnrScVX9OmsvZSbF
+08PTNrVytR8nlarOV0l0FqZ0pCbFvXZMcvqmbSNSJ/qKTYyGgTYUZgIq4JeH
+/6d26vl9sV23Df2DhXuBrJCICqUt8ojNjOPOzTvGYmbitadCUZEnRh8XXyrt
+mgGxl7Gp4+Fl0eXf6huisXFGPhfNiKzyFMTRPbw9PN50avSHSLgIFndpcN9v
+pMHtj/4EOA1pNNuQo90kEScxF89ly2Pr1yIT8Rc7HP3cLsbxSYdBcm5K/TR1
+LR3mwmJF83IzajK3YqzycSNrjFF88N0zR1EWsejbdMV4BnoL0Icsza2eUBT/
+/NX/i98FScDZ3Sr0fSSlKFaifEtTpZMqqpldbsSeB/vaM+mzKKdFajdr7CcJ
+q05WBnQIpZxOMYztc+A9Q6V9T2RUJIftNg03zWuIQY7hn7NVIY3mF973V8N2
+RSkeXPX1baiSnSe6g/okPMxWyS59C34kwkymNiKULMp2NKbYtfT+TBNGHQuf
+GCr7Vp7RsBLdFjfubWrWajWtaIi+zNfJj6WfZlQhPomswdPgDUgX1fnFt//7
+0IG0jx1tOR1JC6eB1/Heoc9lKJJe5mTlWXZ/ozdj+KrmYciR8IfjPqUdZUGL
+JM20LcNz83VJ9Qd7nZ9czpxMrXfNvBKklSH4TpQFMQNjwGukFoACoPw3lIB/
+ntmkAZcAN/x1C9kh4lLi/TZflYfV6p+ir1+7YdCn9/Rsltm0CWQPrr5xqAyo
+XGg/9pAkBYg5Y490NNZ6KWwgsoc9guYSzTdwBqDCT4sbosCf3S3r9wICr4vy
+7J54YskGiOZRGNERdj5O+jusR50sqmqnQo9EDbyeLKoocXyrUuNQ+3E8rAxZ
+sb+hMPpp3LTXpqmJpZsyirdFwFMomnGCKZf4IrIZf/Dm8xviRX8EOa4mNidA
+tWsFyLJ/ojKjrhAyZeFjq7IMUqBTtn0653bO8+jgx6z3OezzEg1KjfWLT5qN
+W8zHQkoYygir1QIvhSpdeKgdeEiaCUHBgk9TLIY0Jfc/RU3434IfecheaIdy
+AenACeAkEAbxGCdcR2Oqf/Iv/zvIgLShndp6dhQaJHtJDx2vVz2qjsie9Mi5
+6dMvnMWfHTA9WStUSzm5UKlXSd0xlWzw0CHK53Syw5f9bsIjIrQch2jiaG7/
+4ENj/5PVEv8tQOCiFkVxcR7bOEoRTsRNXCVey77MRXk38egJyzOYG2FhUTMj
+NwtlitHTfLUZtdjxl2Uvy482BEXvj2u4C5pWmt9U9uIFBOaEtJiSmc8TOyHF
+8XLQG5JgB36HcW7vnEDAeLeSw3UqQ+LDxAP8voxPmOw1y4XOigiGO9sGnipr
+5bsflSQ2TVuzUhP53rN1tXVh1qiOuf5dl2RqfhpRwjEHI5fzypY8aby2yGh4
+AV4a6gESgMzvMM7/DrYr0BJDdjL8f/RZEAYLgBIABCuBht1/u+XtTQEFQVkw
+HDDa9U8if+iy8cdhe9UyIDl4A3+nmuoOaRzZuxMf94ZrZuZ8utF/m3kwL7sk
+p2U6AANgpCe9qq5U3mr3TG5Oro00tZOwt99vKawjHMd+iOYuNQ94fTd+mAkX
+0/v3wPZaCAAs+OhJACii2E9sQXRRAsuuyXXg7vJRPSshTHrYpai80eXi9FKJ
+GRPMC0ztOF85fQVnQ2M0SdxDryITMwsNNWG+BwIBwkeYHJgqUFkIB7wc3PLJ
+/H71r/R+yNy8QjAIL4UX8k3Rn6Anl/7EMcoVcZZV69EB/+KnXid9P46EF9YX
+uS+6NYu1kL53aaFuzR/1LrYobS2P87sa6OOcrPFtvxT7JaqD1H7gO4AQZAKY
+cZ420j9tlc5tjYUYF2v6oxfXDVCDvvFjkBbkwN0iB1bBTGjX36EOIf5IpIri
+QirgD13kQFZwAQgGDHc76SBxsax/HLZpMAu4tkuDmdRGZHTkB08f1kjY/ylP
+7tbU3RuDlTkBuT4zXFgJjNXkQNX9SvV23eTRZL8I4lOspxX3NQvdEVLjqKY5
+S+0CXtw9KWb529GgNGQP7vgGPSgMiROIkiUGOXo40V7nTEssozAHwr9FPR71
+LZYrffj2Xo1jrem4RFlQ+XK9U/RgbJ9XiYmuhbZqCy9cQF2knGmEyZ6IDfkU
+v7Tuv2st1u1o5+OA7G52eT+HOLUrNZVgCFM1M4l2oMhXsYDYW/bPz6h33n54
+PTVhFoatwKossbdZto3OStVt1nl1z6VmPKaOS7B/4kSv6oaO559EPIZfxI/W
+GnrubztJ+eOA/KETUDykD6gArSAIdkBSLw8owt+XpzMhpSDNt1iXC5NfORon
+Ccp+ts5WOryPRXdMfFX+CIwKQEN0ehqgAI4B/L/x3PbfAQwXwb4lBy/i7xTT
+kpEjKTwcujXpteAF1HcavXKGDPNe5snMTmDVsIGTSVVNla/aCh+gkwvCBU4S
+2Z3d91yQSniYnYh2kGYOOAMI45/DgOvJ8/fANg2KQxbETqzaFcqPxPeJ3knR
+c73nPuNTZDZlvY6ZDn8fzT3mVYIprZ2uqtXBPByXK7taztNgG60Sd9+L0jTZ
+QkzVhO+9oJMwE3MicwvqLeIefldfhHj03t9ttNt8NQ+wBxzxd87T3CXpIjFQ
+AnnaeT4JTDP1MOtfPK5Ddli6VNzX5F7H65yimGKC94Mtrq0Di6mtWa0F4/pl
++eVN1TVBTGHU51T37z1IRn+IjBnvGI2B+Kw1LmsJ+dOk4fZ74btdD3boLg2w
+gvTw6+BzoBOQQ+jBVkF3cBVIAa6CW5G1FzWO8D8RmIzuP37lVHziw1MwR9gT
+iWsTt2peLKfP5TW/yS16V7nooWGagHcuOwOfAFdorqKA9h84021NOQPaBVfx
+d5bpMigoqKzPfNknf4Cp8NVdMh/xl5F5r/P4Z1uxnpg9k8pV5pUmbZ+S2pPm
+QlxsZ2wtNXgFzYTC2WNoWGgvQ7rKlv4MAwj/FN2Tfy8Q4uKWBSFrcEcOElC5
+ktAQY2RucEejL/spWrgeq8IAEcPRUmNgqWqZ72w+9mrdx/Guss/l+xv8otXi
+sryYTZ9YHlIv5k8U+iqSz3yEJQW1gBjB0+CF33w++I+wgCw3Sfz1EFgD/V3T
+4oasu9yM1G32IQ7fvUUChMLj0efs3B2Odsgkbzxkmx3DJGHFl+Dtlm01808a
+iZuqBsKzgnLWHwtcdnIjP9QmTCeRRFiKEENuS5qrgBakr6FwtjLiv+6r+ZEi
+XCA9UwWillAgFngP3AZOAf7gwK7UEyF/RviJcMbGUsFJySXb5rKp25OMrksa
+7r4tqgk3k199PzVFMuu3qfNZ+YvE5uvlO8uP1msHj7/KNlCWccYn6j+AUcFY
+YEgctf8R2NZ14wAn4Dz+zheGKMrPVI1nDPbbar8sPOk17nPpZS5Egx9norHG
+GMJJwapXFTzP6hPTE5mC9Y/lHHdQC+EnFiBiPUrlRCWDGyUBRHuMuO6fhP/q
+1X8hEOFqKdBDs2LDZ/Mco9IloSFhkVPhYeaL9g+1dLHNwdpGnIv5NmZQ2l8m
+OiuOlah7P05dLlnh3DAVPRG36p1nesTKVdNcEC2qJolk82RXI0IjGfA+Gbcf
+qtH+fmPGaaTgEDCOv0Ot6s9Lx/fkvMqBqAPPWN9SPaRWcm7TLNRC51ff9LkT
+PsyQH1gAvs9rYWh9sBTaztfOMRNTexUz0HYuyf6hVqCeFaetsMQMyyc2SYJ6
++H78djTC9cHZzq0g+K94MLbhAxwEDgAYwG639yI3QAnNWQbSJ/wABsKniBDE
+AaE0xjlGryv8OmGHigq6PTC3EA0DkQsxyGGVHMF807XSyetvN3HQ3MBuNG4Q
+rT1Yd1jf3BTZOLbul2F8G+u7/WQVkBoWDx6F9NI9vzie34LtPOg4SPvd0Vsc
+mMKpBKhinFP3+2pXF0V6Dfl4vTTJe5JHNNOPqamVe6NXebyCudXw/rn7xgFf
+rV1shJWt+Fp5VxmzKDrIeXFrsJVLw4jrvvp3iS3c7nBEjPP0HsR1WfOhiiZx
+JGGRecVVxjPgc8PczaaiTjRqKTZ4fK3Ur/z+HLLeqr5+orJ8sKK48XuMYEK+
+T7CZi5W7tqZwidgH+eccVVyapPwEuvgPFAPo/4qaTv8a2xqpI7RvdnZOKkwH
+kAeu2FurIzSKFZp5TNDTkgEcolz0fqJmWpa0DW8jVWMKphKrtKsrlqzaP7Sp
+L4m0CbWFTTiXN1WAmLXQ8kiGq7cOXtBzYB2meIp3eefBboCXwGDAYDf/9PeV
+idvdQzmgL08JeEGS9xBwHdILDwJ8kK2zU2FVmiAQjoC3c1+nnaab1ZAQYBdO
+O16haKiiHdlu++5UIoYmmDPMfWA8kypbYvFk055m9MbeidqJms3j3y5/u7pN
+hJuPNzo3vn7n2TDZ2Nw8vm7/na4mLDIjlg7PUqogO+QxpOO6/OI4fwu27fcI
+iJ+cwd9xZMmiDqdRcpnWOqpjVCTpbeYb9bIhbziPc8YUY1c7NOFVkVLe1eyT
+0JEg63/FCm5NrxSOtkebM7pTDJNvxWlT4iockOBo8O8iB8nxXdi2PN33IL7P
+AtDSXCF9QEolLcwVxkPrlWoaaTXW8Ch6f7zABG+5a0XAu7R68QaTN0YVRZUe
+TSJx1Pd1/TQs5G2AQ19E2SXdlaS5B9HXyGgJjfEf6BFgBtkxfxwygZO78kKf
+to0knYRgzyWuQu4i6tukhWRHjDOlKeUcE085XT3r2P0q9Uqa91xf3Zn6lA8G
+nRc6Pi6atwa0pr4eLyoruVWq5JN6L9xOQVVNQ4+CiKiBiBkhB0PC2hBPYSmw
+04DSbv3VX5dh8eOpnDKuo2sYYAxRNxn0/QkBOmhX7Xj5YghVEOPwa6xulJuU
+MvLhnLlc780DZM7JJXnpGBeZWOX3e6TeyugaTF5PMZq+U/OoxuvLVO/Ki3Ob
+PW+HJl9uyn+U/1CwcXiNb3V9Y4sC3TZsNo9s5kPXo9Dfzr+78k47esXRB98I
+0AdQBLuB4xAd/jH+GQpcJ3pniL/s6EJW7M60H+lizlUe6D+oVHzIR+negYG1
+LIls62mnWrOaIxPD5YrlNk0n47Hx+n6WliRWexRZ0CU8HUySlKMU1wBhXOQw
+DKJryr9R3hkdrmfWNqRBPyAZ0KXFkJmSrcuucL/hXfRbt7hmO954NPZ6wrsJ
+5grVSsmF8Ea/pleT4lVB1UdaHBIeJ/EHnrS2PhGhJyoeLc2zR4zrMXc4iRmB
+OF4OhkOW1e8tB7fx46n6bVxlpG1oEyzDQYQr8iIcDefl2ccwzKDraKjxQTMp
+V/mG+W3DIfWc+Fz/BepmpebGj/u7ZjoNFwlarreQjQQXAMWJBTK3bb2VbPYr
+GCtfpCQjGsQv81alwbvAHWguR3GeXm1cRQpifMT7NrbPCwjx0X//l+IIcR4e
+S1y38UKIY9hCso8Of74MAmfANOjp2aiziBnEDVYxyk7KUVE7FgMWQa0OQSLh
+IacCDZN9F+LPOso4x9S/iCSOGX59t8i+uGaJtI33Genax+EnQ/qba9NqU36b
+vIsp8882VT6Gf9jcnFg5spK9eeNbwLfNTe7V2tXEtaY3tFO5WPmwyqhFTV6+
+43j34n7wLTAPUEO7+Y/xMW510WKA5k8JfYFeSCPyBWp4uhjuMFy5GH0w87B5
+aaxvor/Vy695F/P1Zx5iymqJJh6Xm5dlNBnG8caz+lVb6FnWKrzhceYZZ7Wn
+ukKZDZbv6rSskPT4u/hF2QAaaA22UQ/Sgp+Ak/SqFK/IpxQceN35NgO5j9Ge
+DG5WijdOZJx0rUyserEQ2KzbUvrWuyajNvZZeJLWw/pw45Nv7Gd1IkVWxdV5
+tejhDB6EbIhPeFFhDe28P/Ls+0f5EgqYQz/+kOZjD5SDBOA4QAmPgcnDsOIq
+HLyc47dWjehM7KuuBKqHMIwyFUuXOCwZtn159uBjX+fFzruL3S3KrV0jzYXJ
+xaqFfbedfD7b9CmwqorRgiTppFuVyFmhZytCGu+WRgqHrgSgHRYDmEBy3gOy
+1PZB0o0Tsty2tCVaiM6kADm8Hq4HiAKCuEoyO9+5Cc4FI4BZMJqRlZCu8gTT
+XqXxk4dxKnBe3uciQCDUa5WyB67UE7hunXf8e8V1f+UgvZdr2c65ZvOmjV0N
+HZ/9/097ZwJO1do98Hefc8zzPA9RxhChKLc0UkgZ6mZKKE2GMheRsciQqCTz
+UAhlSmS8Zo55KEOGilLmIcT5b8fm+p7v//2f7/l/X/d2u/vnSbv9ZB9773et
+d631rrXelqwmmm8BPf2dl5buvpvu5SeMDgq9NyT0DJV+4Fjs7TfrC5qL6ozt
+LPycU1VZU96444nAU6lHEZe+XcEfp5KW3vaMl56+HEm1bIJ1i893rBlRBZvX
+MgyrYYvCCpMlasAlzxVqV6tuoEmfu/EW5W2JLqGMwIyTQ7VFZEX+/UYv3+c6
+V7iHnXwocZNXr1v/okKXYJags+BWlgTmWRIqLAGzemWRH3zHt3+fw0BybaeJ
+ZpJzWDfsQ15DJkem68oqosfFnYNVTNXMWyrfPmSPjHnP+0qt4NXIVJV4tejH
+N8XzJWH46pjt8TxhLOecL6mpOIj/KnmBRoY8hPwM8YpC8HgUR7qvfG/Wj6JQ
+WCp0gCzGEFJFTumSvsaF43QOnNosKDlyx874sumrEuq7JqEnBoZz376snpDB
+b8T7TZ1vfNcwMeZXE1Oz0B+RK5VnmM/kdzfAzbr2oOxhHZHnLCVs7XSl5Jco
++skNSRRJ4mA5QwIb8P0tR/9YYcuLFtY3QkCQ6AXhiB7LylxND9TIkrHbceUs
+cVR9VMEbK5gVmL0lljgUOI/tVBIU2Bjz66Rc+DZNVyutz7qd6XSuR91zmi0S
+fB9/HCQpIi1ymLSp18JXz0W9nms/tNDcfb1zeMH07fOuzQti3Q5vamcH2kCr
+5+ThhtP17z7fKoss9++6k06W4VLSc8frvnnAbv0zp3cpBwpqiWiL8rNGcdrS
+vidrQnYicId1y/exUlYwgjXT6kpuNhke54gDEnt5rHh8nQI1Q7Tk8wX8SwKD
+uo9nfs6k/GRY6lESPKCdp5oXXjn4cCCc71advpchvdLEpi9CZWJJHI/Zx8k/
+4e4jETMbsGetZ+lfnRtADRxCjpWoDEjlSHnFUjnIObdpZG45IvssnPGCptXp
+6o0RwtGjgwxFjsX84wJ1rnVCnx3K0yrKmmWeuKZkxtRaU9obH5WRHpU1pYoj
+7Ufe7zYoZS2K/kdmKK7MjPywvccIyuH7c0POS9I6UsxRbNE0kd639VvgjVNG
+Jhxl20MFHvS9y8sXfrVtaqihq159pr6ZsVlkUqW+Fv98cLpQvXhPTVh4W6RA
+iJcZ53mTE9fkehS2y0I8C3wFgi5MsswhjNqU1hSZFBokZiRh5HhcIS6Jdif5
+MFk27SRZP5k4HSt8XMxxlHaJdkr4ButrVsy2QF4qfjWl14Jhm7i09snEyPo7
+HdIw0ZpI0Lc3uNpVZx3pEMPwbvrlcJ7UGGnN1+onMxYtos1Jc9pvTDrI5zk7
+RV9/mZVpZ2rVnlDBZ9cqfrxanFg03MX+bDy9Hv9LhHEUVLI7cPgOR1aPh6r3
+3uwCNxpPOxN7JbJdCxyKNCU0vSwk1HtpkmDtEYQ8E8Z1fuj3wBiWwNUsqRRK
+e9IE0jypBF4ffmHXRe2U41CxQHByiElvcg4+R/HznnLZMrv3qa8cXjVW60UE
+Rcr4JxstGbMoC4ngRW02eDDnMakQ9Rk74CB2ffjdrvjrAhH/0BC7a/qAvcQ8
+zOX3sZm7l/4J46Rxyc7typviDl52tp+uqY0aiP3tU1bp0bLqKY6mV00V4+11
+/PX2XR8z9uScTKt3kfV8ZubzS9/eAOYwam0aQHxW+8nLcYmI1toIS8QfVWmy
+IoPrvcUaWBJX90D8SutBUUbZrxokoSZld7vIwOrUreK+oOt3z/Yq5dTmzExM
+4k3x12frW1Nank43NIk2dYzoVlVXafdsznDPsiyU8p+/Ixc0Y6xk3mCySYlf
+uUPxyoYkQVLRCBYl9qwNbQyFjGoC0ownmdw2xTOFMeuJEVil2RPkvXlPbDiu
+qS8pKe118coetgOl3sd+9TAQTMm/esO1rHYioiImqv/1i8KXQSOulaOVKtMu
+TdaNnF/T2va1js8Gt1G23ptmai5ulBrVr6auMnp3Kq8+r6tlKfHCY5GCI7f3
+BGx9mGtefaHOqnj/IZUH+/qE74kWisexZrBb8XPSj9C3Eu+aEfsCmoVywBmw
+nxjRpyJ6rd9TL668BROgBHYgZ9Rpc8nZyc/KOwgwClL5XNAzNVz4beqeeBjz
+QMJLkrx3X0yrhCs5hjYUexWJ40HMllj+u+am5874KD8QPipqy8xGU4coixtE
++//nqLleznpd3eHIAkuOkUaG7C3xjZyXuPOdbNT7jp5JTLXtuNpXqxoTHm/7
+5VZFbNXtrxodjq/jZw3bg1/rj9HUJdR/xavEeT55c9tSv9ikQKyA7RbH8s6r
+ODBKs4ssnUwXooN4IXugvBYz+eMrFLBEDy4HOKzt4FBF7UheTJ6oCDaxCUU5
+nz4aqMWRreFh7JXxRiItLl19lKI6pmpgtrFVqJVyzrX9fZvctHnTcCP5F6WK
+nAqjt4TM4zkM1UVhvhFaKdPXvN1SAqZOS5krO8tpR5/wd2jXSNVSdQKac9p6
+HlwnTuqn3d9rnn/x09OJa2Oub0vY7z6690tHSApI4xk8VBhQxDTWW32mJnPK
+pJGjUXCGuUWiWXZmrLmtyXniKd6tbuFT+m9tpR5va7Kg7IL6sGjPmGPZXh6B
+Xi6BnqdijB8YvVb02Ckvk8AdylNJtZ90EYmDJQNDUEqshdkDzxUHgAIxLgTA
+VngOESKura3WS0Lge9U4rcjICbB9rW9/EV0KxQJF1s4ooW5h38BXxjWmiVWj
+4ZMRVUN1RUrFsWO+dW9qYj9N/2ZUatH4If5agkYY8/mPF87tFxJjFccxslNJ
+IyGY4/A1lf8hc++vCysxP3kFEewnaAF5Gc06PrKZ251ChY0nzgjFedv4On2s
+Hom0j/v2Zapif7Xf/OlO0W7cfHanb4/3ZGCjRavMaGRtPL666WL8/OMGrc9b
+7svFUdbhAnFyrGTUjIjuyoJsIQNoD+Bay8b54/UYGXGt/R6sm1d3ezmKc8YO
+YDMFzdjOsOuaPtjFpYyJ/2AtbVNaaxqxLWr/+/z8hFfmE/b4uTrfrwrtdm26
+c9UdZR2YWfnW/pahiTk8U33lSHVlZVXDx5dF2iWK70pfPMzj7WPJsstx6OvJ
+Cn4xNHA1lzZfeDCgIK4o/otMBV2l0GQIPh7/bfpGU3hTzcytlmfNnjNBLUHN
+I5PJDRX1YiN+lQcqud7n5fu98m3f/JQtNbLSPiwx3Ds9zOW227WbKieL9fee
+9JMP3m4mLsGRzNlKnUfmSO4KEkAkcke3YevPCNY1erB/IQg9AU+ABZAn7ibC
+SuxZ/Metqa1o2jOwJbpWucYUSRVLJXFwSdxb4uz9bPPdFybqUqMdYrmGm0qH
+Sk0mLOohvP6XtsqAitoWxSTJ5I/RN63iL+dqZEgFS4mzWNIcQsaSNnw/O//Q
+rInvx+8rzvDfmGNrnTqwR6ald8n7JTJfnnCwjN59RdGxs3zhoX2U6ReOitHK
+znmJboW3Ot+4+0TfjU/kNzC0NvV15teXzE2l1D9pNAy2Pkd3fop1P1kBqfsm
+elY51ihlrs07JI2hDfDYOAcewDYhDzHfTwCwwRLJD1uoq+vR36+ubf1VV+In
+14Am0AH28DyxOjuz0RpSKFJu3HNahE7M19VS+6VuU6aRu4jXQHNPAvVj7g9y
+BRsLvowV1mrXHpz51CzXfHkussOiI2F+e6d6Z/c8VRd9l/QC6Obqjp+X75ro
+5Fz42LW1a8uCTldk18v5vZ0Lb3bMH3tz+E3TV6EOqna+mbvNPU2FY9q1e2u1
+PyaVpJUo9fBmyWct1SvG3o87WBgcEH6nPjnWqdi535PuBPaklPa2rR6yQ0Lh
+rKNsgOoDaRKZF/wcVysRTGEpkwJPgTm4CKQBL3HvdwbY9l+usPjzMklW1meu
+ANW1aAOWRYimhZpKi2Nr61bFaFYrlivyjW3xzxL5RjQruytSpp2a6Zuej7XV
+2tc0dgil+aSFPsl1uOREYuC/nV/Bl1ONfjsyeevAcr0LqR/5OVjJJlKEqkEP
+cuaB2CMOH27JBMhWxfnW47tO2OvnS1Xvnw2fGg4sE6qM/Xakl36AnTA+ZDoM
+vj3pdX93doCmILUM/2FHcXhFd/mthyrhurJiHDguPF8EbQHdzQxqjyfelyzO
+aZ5CCv8GoVzoKcQO62TqP8GmX299mcHe0UGQBc8VzsiZN9A16CXEzmPEaMuY
+eYRORn4rg/fwr1v1jz7TcrW6EVj79JFHZHr3xPPZjMShA8XGxTtHSapB9cSk
+fGN/A8dMUgtoqZw52ubeajFzufVZy6Pp2ebOpmMTffgvdeYjLlXdlf5DqcUK
+xdNvD2RXZDc1eyfmP8b9FnJXKrQv9Zozt+ueYGsTuzP+DsfUsZoR2jhZAfmz
+0tQ8jTwUjEeoPiMJygdgHbYB/o1VYf2RCs4DK9iT/73j9I/jIa2MK891q8N2
+XAX0ufTzp/coXds1l1hhd8spp9U6Of0p01RFg0TjnXmdruauwOmo5vjmG91X
+Mh9nKqQJXA9xC7DU3Md3wGkjH4shUjZ/k7iDyXKmGtm61dm/PsHg5NoOR5Qk
+QRAz5p4z7vhFI/b8TD+u4KRXmOBvocGDtkVupRqL+/rj350msI0eGPtAyBu7
+Pm6ywDVgPzg4tlg/3ib8djwzJWfwuOfW13INHCKUc5Q3L9CpFh5WHebMky4M
+ln7C/xhpoRhCEoo9gHPDMmASELN+eQXtj+oYuX7OpSBW6L+CZ0VHEABr7dXM
+tGYsGVYem8H9geEC45Z9umJy4kestqkoHmK/a2M2ebYy7YBLsKtFCUOQa3A4
+PjtyNoq19VJi3GPtjuPJ2cmWHWeTvZNvtwo9tn9M06AZzRMTXa4bOhRKljvj
+zXFTKGHAZou9uv8eI/rT163YVOQP+R2p3VImQ5D+xsvCL8DzhCGXMYHqHJkj
+2U1MNLQJMwnbD26wjycNW2GJxPlu+Vmx/i/38iOwfq8cY6gLdCDHtwW1Wb4x
+9zrNqFMdwxUkB+jdnft8uEq9xnhpwyDnxyME1lHaMcUlxY9PP+En3zSbtkpV
+2jzSiuT0nTyRqrew7QTfAi8j9jm0A3IhrcQmImaoIqyPfpZu28sdpykBI5QL
+GpEznuJHuYp5bybzOFN5Xy1kvcv3IKC7Pyv5hdlCbo9QXzahZaxjXI1AOxs9
+k7+EnyqevkTQHfk65jcuVatRr2Y5fcBOlXvDefqv9BZbAVc5D+vAlxz+PKsn
+Tz0XkEW1NKwt9imWD7MTuo0MoOU4Oe2fcO/rPVN1IAtbdhWwPLrDcwv9Wt+M
+XugqFAK9p1kgn6I4LXiYhYWNRilvk5PQrK6n/LHt5BfM9i0d4HIY0VA++sv1
+S9pTOnfdanTyjju46God0ja40nwo+HCFGfnui8pCx37dek3WaleWULPwW5Eg
+9l6O94wU1EbUr0gf4dpxfpAyRP4P4sSFUYIYIVIoEfgQ/w0hNU3r+ZHkbxlx
+wLHmX7wncceewx4gEcLaY4xF29k82GliPa8U2bcNapa0l/bPWLRver20aDRY
+8fEqgXzEdTRnyWFY94v2t66+E++ujFyrfV4blWfgp+7vr922xUI6jfwcbhCr
+Sq1GRo64tct1JTv/tDv977LyHpf3NpWBre1D4AjIgtJhrylcw28rpeL5dIwb
+1y2VFuFkr7TNk8yNW5uvEyY/dX4+SuiemZ4RI2jNGcy5L9ZMkUwTCJ3vrw7l
+h9adc7+YKnqZKYgpVvERv55gwlvGTP8c0XyrEK7QlU+0AOeh85DZugyBH4eV
+mNuvxPr0TfBzeApkoBhECpazpKjW4skbMB1QCjRMoUIqTuZJT6CIppxg9qLW
+o8ngrWM0Z5LnxzDtYrrPkE7pQWVD84jclMKM9CaOn6QUdwt7HasNjYOPyHUo
+iJnzy/nItCAEmAB9EArPe8bAlmgt88Fe8+on/miz3j+zvA/Oak8GcxJdbAi2
+ir6IYgeFhnwfX8KGZ4Xb7lwI4es4/8w0q2pQ+rea6leL7Z8ExoSXzs6Kzn1e
+3DkVOGM/q98rPJQ68KgoosLtNVfarmcztkVqzBrCVG9wTrhndCMUrUgOoQds
+6x750+70v8vqWiE5PBoE4Se4AXwCD2HLu4mJljqfLvqEi+LM7n3pb9y2+Qx1
+jmbcznGd/dB+4A2BkDcyM8pCAFMKU1aL7uOD4wRC/MiW8fnylof7IwcPXRWI
+2hji4qIddxw7Y46XbmgtHrr35r4PYqiQwp/3gphX9vvv8COxfrRLECMdBbBW
+8gAQFAGiQAT89vWI2e6rdhcDUZJWyIK+glhAh+GH3iJnlmtOyf9hznWHZ93j
+oAW+oi/sjy77TQpgI/wpFH9qLOU/ZwsxLrRCD24/1gVbzjFHy0KbvTtHWEic
+JbXWtdjzw3Nq3/t3gobMK1WaCIR384ZLTksEwj1CD/y9h5CxeHqWbPFJW0O2
+ZFlxcfoDKFrk1lXj7NMQYwOZGnkAHSdlMuId+wDtte4WPwcro0523R5MbqRP
+sWdxwpzz9HuY+E6WKKTvGohts3G8+rDFMskuNWF8W31mY+mceVdHj+WCUm9B
+v8BCcE9S38D7sILaYsnMNncmb9vW5idpKeyTadUltTeidjl8RAqqB4Ed5Anp
+/PA7Gq9Izfoo3Epd6kZYU3HAM9VyhfJj2EOzAaXABXiCcthzcwLnwD74S48Y
+Ra8m5urEgAuw5eQENIEuOAOU4Z8SACzw1wr/Sv/8aHrp34EP9lVXuw46YKog
+LAbwxTNmMzTsIBHaKW58p/qM05Vnydnu5oGfpqZeB/QTCNZLdwgKBBbCtyUa
+wuJSASyHFku9BKsPu2rLOvYl3Xe/eWfE9eUJOqMaDkaaANpe8tskZIiS0lvX
+1eTnQxy2KFa7W/jgzDEW2ChOVoZiZm4NPWlJeUX/PacKzRJzxm9q+JM2ZSS2
+Jut01WV0Zv/W+TDjXnZyy2JSYSp3a2Xy7dQj7bNPjZ9V4RsfmUZJShvz8iFt
+6ykxZyHzv+IQ+5f8PsNB8DhkhH1s4XXZQT++DfnfgpKYIbwJtp5XFhNYATnb
+axoOWhYRNfZ47jvXgnXlz5eliHoWBxtNM7/OeHuPYPttfpGN4ErQIEBLb5ZM
+ln4hyMy/+mY37IIPa/dP2OFC8OO0PnmY/UQqewqNMv1jTBkkgMTxhIkrXD83
+UoBnbU68gDkHSw0nyxj1TvrhbS4Cs0KzemMK73fRX5fSSdSbDEkyz7awf4S1
+pLHdFSN2Jc7BPk7ANtRxPiHI9ryjkj7JTl0kYYIHgiAWiIeYI/dzZByhrIdz
+XXybHDMOBWC4+OKYb3HycLjSJjFInaDaka2iEtPpwHqrYtCyXBo/RWCatJkt
+XfRbnF3MXKxayPlGRYgYHZm6/3ZLgViZ9f1FS0sX05P2O9RVtnPeoZtjzGCo
+oqJAgnfa8Dy4+2+h35RhfSMDADFu4AQf7QY21KpkChQ32XbTRjNkCVxkmWUv
+kdnMxy14UFla5Ks47cEScScpmYML4n5SpJImXBncPhgmaARowRabPWx9LucJ
+Y9H9N39SlmuSqUAbCAQJyJmA7f4id+TaNvKzvuDmVEzf6CN2w0vHQMJCv2Zv
+3ETah9n5ztv9EUtzXxomfBfrPiWP/TqJb2XsOlnc+nAwpt/JQwtndFz+moCO
+SJ/4NHfYphfSuQI9SP3jVYgO0v3JxW+9hpEn9n1SgX1uBeQMCbE6dRUMrJPk
+ce8xDtgqkmCsEe4+uAv4kR9eAnmgBKjCsiy89r9/ft31d6YcMoDKkRf8cQuV
+kInMxXMc6tKnnAWjGKtZzU52KbIeKA+1uyjtxFnf+1jsOcWQY5lN7b5394rp
+q4yqrGNfJLsGs5znsSnUTJbh367J383wjsnDIHDPW50XPBHMGMQAFYXqAPXf
+Yhitzy1hhm1IGmJ2hg4IBsbAGvjC3w2BGpBe6767AhvsEVABBagClAMjsG1N
+cv/qXeVR/h0UgDhsP0XDo+MkcmbcJtJgv+2WSyZHtU4biPuxsnPl6LEpUu+5
+5ht0+hdL5tgSR6xHfrSco/WNh15zBtbmwxqSUouyBZIYrlN8SpdddYTOOWoM
+K5QgyYWnIHZIA6KHR+Ofsab847BSUc4APwdqYj4+DyyLO2DpvAz2gyNgH/wW
+ZJCeUSh/N1a6+z4G3iAHOXOXPIfUmFLM/eV5RXc3P48Lvq4+6royKQqyKiLi
+FTKmh3wkrsoMHkqTCJZJUmWQ2C4rbDirrHQk8g6DdYFXza/K+z20Vq7zAPiB
+ICALNgIpZKcGFBSUfwZD1M8rpAEfkAvLzGb4WByrglnC7tI22eetXRJkaSvp
+Z+C34dIjt5zrl42YL7c4X9I/amnlXnp6yi7DQdXQ0spts5KAGbJ89Qo6DyVA
+4oBrrYvF3yEag4Lyn0C6Lt+gEkSARhAE6UDOiNh4kQ7iBMgKBbu4cwVdZcxE
+9KS9xLUFrojSMHyh/oBUSUgQfZwwSAu6Dh0Dcmv76GHXyTgKCsr/zbLFuBq7
+swCawAGoYz5Bcpiz4BTQQc6vdOBZjqkirVBAGeQKpUPvITuoAJFZDNLHDp37
+UFD+//wuQRC4TFytOgdxQqegEcgT6oTSIDUoGKoCgbAXyQxo1jrGoHKHgoKC
+goKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKC
+goKCgoLyPfgfOANpjQ==
+       "], {{0, 150}, {150, 0}}, {0, 65535},
+       ColorFunction->RGBColor],
+      BoxForm`ImageTag["Bit16", ColorSpace -> ColorProfileData[CompressedData["
+1:eJxTTMoPSmNiYGAo5gASQYnljkVFiZXBAkBOaF5xZnpeaopnXklqemqRRRIj
+UNAApJaBycDRxcmVCagqN6+kKMjdSSEiMkqB/TwDGwMzAxgkJhcXOAYE+IDY
+efl5qQyoAGjUt2sgkoHhsi7ILAbSAFdyQVEJkP4DxEYpqcXJQCMNgOzs8pIC
+oDjjHCBbJCkbzN4AYheFBDkD2UeAbL50CPsKiJ0EYT8BsYuAngCyv4DUp4PZ
+TBxgcyBsGRC7JLUCZC+Dc35BZVFmekaJgqGlpaWCY0p+UqpCcGVxSWpusYJn
+XnJ+UUF+UWJJagpQLcR9YCAIUQgKMQ2gRgtNEv1NEIDiAcL6HAgOX0axMwgx
+BEguLSqDMhmZjAnzEWbMkWBg8F/KwMDyByFm0svAsECHgYF/KkJMzZCBQUCf
+gWHfHACHPFyJ
+         "], "RGB", "XYZ"], Interleaving -> True, MetaInformation -> 
+       Association[
+        "Source" -> "http://periodictable.com/Items/002.6/index.html", "URL" -> 
+         "http://www.wolframcdn.com/waimage/hset040/340/\
+34008b3d20e3907d1a631c6acb439376_v001s.jpg"]],
+      Selectable->False],
+     DefaultBaseStyle->"ImageGraphics",
+     ImageSizeRaw->{150, 150},
+     PlotRange->{{0, 150}, {0, 150}}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"ionization energies\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"IonizationEnergies\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"IonizationEnergies\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{
+       "24.5871549442388667271`4.995596829196491",
+        RowBox[{"\"Avogadro number\"", "\[ThinSpace]", "\"eV\"", 
+          "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"mol\""}],
+        "Avogadro number electronvolts per mole",FractionBox[
+         RowBox[{"\"AvogadroNumber\"", " ", "\"Electronvolts\""}], 
+         "\"Moles\""]},
+       "Quantity"], ",", 
+      TemplateBox[{
+       "54.4175934893251990686`4.995596829196491",
+        RowBox[{"\"Avogadro number\"", "\[ThinSpace]", "\"eV\"", 
+          "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", "\"mol\""}],
+        "Avogadro number electronvolts per mole",FractionBox[
+         RowBox[{"\"AvogadroNumber\"", " ", "\"Electronvolts\""}], 
+         "\"Moles\""]},
+       "Quantity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"isotope abundances\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"IsotopeAbundances\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"IsotopeAbundances\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium3\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium3\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "1.37`3.*^-6"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium4\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium4\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"99.999863`8.","\"%\"","percent","\"Percent\""},
+        "QuantityPostfix"]}]}], "\[RightAssociation]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"isotope half-lives\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"IsotopeHalfLives\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"IsotopeHalfLives\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{"\"helium-2\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium2\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium2\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       RowBox[{"Missing", "[", "\<\"Unknown\"\>", "]"}]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium4\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium4\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"\[Infinity]","\"s\"","seconds","\"Seconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium3\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium3\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"\[Infinity]","\"s\"","seconds","\"Seconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-6\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium6\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium6\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"806.7`4.","\"ms\"","milliseconds","\"Milliseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-8\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium8\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium8\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "118.9999999999999999999`3.","\"ms\"","milliseconds",
+         "\"Milliseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-9\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium9\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium9\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "6.9999999999999999999`2.","\"zs\"","zeptoseconds","\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-7\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium7\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium7\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "3.0413333333333333333`2.958545220679489","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-10\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium10\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium10\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "1.5206666666666666667`2.958545220679489","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-5\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium5\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium5\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "0.7603333333333333615`2.9586073148417746","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}]}], "\[RightAssociation]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"isotope lifetimes\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"IsotopeLifetimes\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"IsotopeLifetimes\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{"\"helium-2\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium2\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium2\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       RowBox[{"Missing", "[", "\<\"Unknown\"\>", "]"}]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium4\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium4\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"\[Infinity]","\"s\"","seconds","\"Seconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium3\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium3\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"\[Infinity]","\"s\"","seconds","\"Seconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-6\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium6\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium6\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"1.164`4.","\"s\"","seconds","\"Seconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-8\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium8\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium8\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "171.9999999999999999999`3.","\"ms\"","milliseconds",
+         "\"Milliseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-9\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium9\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium9\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{"10.`2.","\"zs\"","zeptoseconds","\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-7\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium7\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium7\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "4.3877165176903007096`2.958545220679489","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-10\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium10\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium10\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "2.1938582588451503548`2.958545220679489","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-5\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", "\"Helium5\""}], "]"}],
+         "\"Entity[\\\"Isotope\\\", \\\"Helium5\\\"]\"","\"isotope\""},
+        "Entity"], "\[Rule]", 
+       TemplateBox[{
+        "1.0969291294225752242`2.9586073148417746","\"zs\"","zeptoseconds",
+         "\"Zeptoseconds\""},
+        "Quantity"]}]}], "\[RightAssociation]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"known isotopes\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"KnownIsotopes\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"KnownIsotopes\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"helium-2\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium2\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium2\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium3\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium3\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium4\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium4\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-5\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium5\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium5\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-6\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium6\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium6\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-7\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium7\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium7\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-8\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium8\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium8\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-9\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium9\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium9\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-10\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium10\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium10\\\"]\"","\"isotope\""},
+       "Entity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"known oxidation states\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"KnownOxidationStates\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"KnownOxidationStates\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", "0", "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"lattice angles\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"LatticeAngles\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"LatticeAngles\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{
+       "90",RowBox[{"\[InvisibleSpace]", "\"\[Degree]\""}],"degrees",
+        "\"AngularDegrees\""},
+       "QuantityPostfix"], ",", 
+      TemplateBox[{
+       "90",RowBox[{"\[InvisibleSpace]", "\"\[Degree]\""}],"degrees",
+        "\"AngularDegrees\""},
+       "QuantityPostfix"], ",", 
+      TemplateBox[{
+       "90",RowBox[{"\[InvisibleSpace]", "\"\[Degree]\""}],"degrees",
+        "\"AngularDegrees\""},
+       "QuantityPostfix"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"lattice constants\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"LatticeConstants\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"LatticeConstants\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"424.2`4.","\"pm\"","picometers","\"Picometers\""},
+       "Quantity"], ",", 
+      TemplateBox[{"424.2`4.","\"pm\"","picometers","\"Picometers\""},
+       "Quantity"], ",", 
+      TemplateBox[{"424.2`4.","\"pm\"","picometers","\"Picometers\""},
+       "Quantity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Lewis structure\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"LewisDotStructureDiagram\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"LewisDotStructureDiagram\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    GraphicsBox[{
+      {GrayLevel[0.3], DiskBox[{2, 0.7}, 0.15], DiskBox[{2, -0.3}, 0.15]}, 
+      {RGBColor[
+       0.3718724444444445, 0.44444444444444453`, 0.44444444444444453`], 
+       InsetBox[
+        StyleBox["\<\"He\"\>",
+         StripOnInput->False,
+         FontSize->Scaled[0.4]], {0, 0}]}},
+     ImageSize->{150, 150},
+     PlotRange->{{-3, 3}, {-3, 3}}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"liquid density\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"LiquidDensity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"LiquidDensity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"magnetic type\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MagneticType\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MagneticType\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"diamagnetic\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"mass magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MassMagneticSusceptibility\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"MassMagneticSusceptibility\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{RowBox[{"-", "5.9`3.*^-9"}],RowBox[{
+        SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"kg\""}],"meters cubed per kilogram",
+      FractionBox[
+       SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"melting point\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MeltingPoint\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MeltingPoint\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"memberships\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Memberships\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Memberships\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"diamagnetic elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Diamagnetic\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Diamagnetic\\\"]\"",
+        "\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"gaseous elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Gas\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Gas\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"group 18 elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Group18\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Group18\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{
+       "\"naturally occurring elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Natural\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Natural\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"noble gases\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"NobleGas\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"NobleGas\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"non-metallic elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Nonmetal\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Nonmetal\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"period 1 elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Period1\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Period1\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"s\[Hyphen]block elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"SBlock\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"SBlock\\\"]\"","\"elements\""},
+       "EntityClass"], ",", 
+      TemplateBox[{"\"stable elements\"",RowBox[{"EntityClass", "[", 
+          RowBox[{"\"Element\"", ",", "\"Stable\""}], "]"}],
+        "\"EntityClass[\\\"Element\\\", \\\"Stable\\\"]\"","\"elements\""},
+       "EntityClass"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"meteorite abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MeteoriteAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"meteorite molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MeteoriteMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Mohs hardness\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MohsHardness\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MohsHardness\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"molar heat capacity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MolarHeatCapacity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MolarHeatCapacity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "20.7859124462000000001`4.995678626217359",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"mol\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per mole kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Moles\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"molar magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MolarMagneticSusceptibility\""}], 
+        "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"MolarMagneticSusceptibility\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{RowBox[{"-", "2.36`3.*^-11"}],RowBox[{
+        SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"mol\""}],"meters cubed per mole",FractionBox[
+       SuperscriptBox["\"Meters\"", "3"], "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"molar mass\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MolarMass\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MolarMass\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "4.002602`7.",
+      RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"grams per mole",FractionBox["\"Grams\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"molar radioactivity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MolarRadioactivity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MolarRadioactivity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"molar volume\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MolarVolume\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"MolarVolume\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"22423.5406162464985994398`3.9995659225206817",RowBox[{
+        SuperscriptBox["\"cm\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"mol\""}],"centimeters cubed per mole",
+      FractionBox[
+       SuperscriptBox["\"Centimeters\"", "3"], "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"most common oxidation states\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"MostCommonOxidationStates\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"MostCommonOxidationStates\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", "0", "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"name\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Name\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Name\\\"]\""},
+     "EntityProperty"], "\[Rule]", "\<\"helium\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"N\[EAcute]el point\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NeelPoint\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NeelPoint\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"number of neutrons per isotope\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NeutronCount\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NeutronCount\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "3"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 3}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "1"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "4"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 4}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "2"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-5\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "5"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 5}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "3"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-6\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "6"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 6}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "4"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-7\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "7"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 7}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "5"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-8\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "8"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 8}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "6"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-9\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "9"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 9}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "7"}], ",", 
+      RowBox[{
+       TemplateBox[{"\"helium-10\"",RowBox[{"Entity", "[", 
+           RowBox[{"\"Isotope\"", ",", 
+             RowBox[{"{", 
+               RowBox[{"2", ",", "10"}], "}"}]}], "]"}],
+         "\"Entity[\\\"Isotope\\\", {2, 10}]\"","\"isotope\""},
+        "Entity"], "\[Rule]", "8"}]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"neutron cross\[Hyphen]section\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NeutronCrossSection\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NeutronCrossSection\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"0.007`1.","\"b\"","barns","\"Barns\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"neutron mass absorption\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NeutronMassAbsorption\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NeutronMassAbsorption\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"0.00001`2.",RowBox[{
+        SuperscriptBox["\"m\"", "2"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"kg\""}],"meters squared per kilogram",
+      FractionBox[
+       SuperscriptBox["\"Meters\"", "2"], "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"nuclear diameter\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NuclearDiameter\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NuclearDiameter\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "3.0238105197476957`","\"fm\"","femtometers","\"Femtometers\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"nuclear radius\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"NuclearRadius\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"NuclearRadius\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "1.5119052598738478`","\"fm\"","femtometers","\"Femtometers\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"ocean abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"OceanAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"OceanAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "7.2000000000000000000000000014`2.*^-10",
+      RowBox[{"\[InvisibleSpace]", "\" mass%\""}],"mass percent",
+      "\"MassPercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"ocean molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"OceanMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"OceanMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "1.10000000000000000000000000007`2.*^-9",
+      RowBox[{"\[InvisibleSpace]", "\" mol%\""}],"mole percent",
+      "\"MolePercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"period\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Period\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Period\\\"]\""},
+     "EntityProperty"], "\[Rule]", "1"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"phase at STP\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Phase\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Phase\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"gas\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"MatterPhase\"", ",", "\"Gas\""}], "]"}],
+      "\"Entity[\\\"MatterPhase\\\", \\\"Gas\\\"]\"","\"matter phase\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Poisson ratio\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"PoissonRatio\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"PoissonRatio\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"price\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Price\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Price\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"15900.`",RowBox[{
+        FormBox["\"$\"", TraditionalForm], "\[VeryThinSpace]"}],
+      RowBox[{"\"per \"", "\[InvisibleSpace]", "\"metric ton\""}],
+      "US dollars per metric ton",FractionBox[
+      "\"USDollars\"", "\"MetricTons\""]},
+     "QuantityPrefixUnit"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"number of protons\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ProtonCount\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ProtonCount\\\"]\""},
+     "EntityProperty"], "\[Rule]", "2"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"term symbol\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"QuantumNumbers\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"QuantumNumbers\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "\[NoBreak]","\"\[NoBreak]\"",
+      TemplateBox[{"\"\"", "1"}, "Superscript", SyntaxForm -> SuperscriptBox],
+      SubscriptBox["\"S\"", 
+       InterpretationBox[
+        StyleBox["0", ShowStringCharacters -> True, NumberMarks -> True], 
+        InputForm[0], Editable -> True, AutoDelete -> True]]},
+     "RowWithSeparators"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"refractive index\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"RefractiveIndex\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"RefractiveIndex\\\"]\""},
+     "EntityProperty"], "\[Rule]", "1.000035`7."}], ",", 
+   RowBox[{
+    TemplateBox[{"\"resistivity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Resistivity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Resistivity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"series\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Series\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Series\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"noble gases\"",RowBox[{"EntityClass", "[", 
+        RowBox[{"\"Element\"", ",", "\"NobleGas\""}], "]"}],
+      "\"EntityClass[\\\"Element\\\", \\\"NobleGas\\\"]\"","\"elements\""},
+     "EntityClass"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"shear modulus\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ShearModulus\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ShearModulus\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"solar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "23.`2.",RowBox[{"\[InvisibleSpace]", "\" mass%\""}],"mass percent",
+      "\"MassPercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"solar molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SolarMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SolarMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "7.3999999999999999999`2.",RowBox[{"\[InvisibleSpace]", "\" mol%\""}],
+      "mole percent","\"MolePercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"molar heat of solidification\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SolidificationHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SolidificationHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     RowBox[{"-", "0.02`1."}],
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"kilojoules per mole",FractionBox[
+      "\"Kilojoules\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"sound speed\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SoundSpeed\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SoundSpeed\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "970.`3.",
+      RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"s\""}],"meters per second",FractionBox[
+      "\"Meters\"", "\"Seconds\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"space group\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpaceGroup\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroup\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "\"crystallographic space group Fm-3m\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"CrystallographicSpaceGroup\"", ",", 
+          RowBox[{"{", 
+            RowBox[{"\"CrystallographicSpaceGroup\"", ",", "225"}], "}"}]}], 
+        "]"}],"\"Entity[\\\"CrystallographicSpaceGroup\\\", \
+{\\\"CrystallographicSpaceGroup\\\", 225}]\"",
+      "\"crystallographic space group\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"IUCr space group number\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpaceGroupNumber\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroupNumber\\\"]\""},
+     "EntityProperty"], "\[Rule]", "225"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"specific heat of fusion\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificFusionHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpecificFusionHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.0049967496143758485`0.9999995657057352",
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"g\""}],"kilojoules per gram",FractionBox[
+      "\"Kilojoules\"", "\"Grams\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"specific heat at STP\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpecificHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "5193.1`5.",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"kg\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kilogram kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Kilograms\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"specific ionization energies\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificIonizationEnergies\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificIonizationEnergies\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{
+       "592.6894555091912710731`4.995678626217359",
+        RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+          "\"g\""}],"kilojoules per gram",FractionBox[
+        "\"Kilojoules\"", "\"Grams\""]},
+       "Quantity"], ",", 
+      TemplateBox[{
+       "1311.7716925140196302305`4.995678626217359",
+        RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+          "\"g\""}],"kilojoules per gram",FractionBox[
+        "\"Kilojoules\"", "\"Grams\""]},
+       "Quantity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"specific radioactivity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificRadioactivity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpecificRadioactivity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"specific heat of solidification\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificSolidificationHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificSolidificationHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     RowBox[{"-", "0.0049967496143758485`0.9999995657057352"}],
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"g\""}],"kilojoules per gram",FractionBox[
+      "\"Kilojoules\"", "\"Grams\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"specific heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SpecificVaporizationHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SpecificVaporizationHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.0207365108996597714`1.9999956570768957",
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"g\""}],"kilojoules per gram",FractionBox[
+      "\"Kilojoules\"", "\"Grams\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"stable isotopes\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"StableIsotopes\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"StableIsotopes\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"helium-3\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium3\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium3\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-4\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium4\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium4\\\"]\"","\"isotope\""},
+       "Entity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"superconducting point\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"SuperconductingPoint\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"SuperconductingPoint\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"tensile yield strength\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"TensileYieldStrength\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"TensileYieldStrength\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"thermal conductivity\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ThermalConductivity\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ThermalConductivity\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.1513`4.",
+      RowBox[{"\"W\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"m\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "watts per meter kelvin difference",FractionBox["\"Watts\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Meters\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"thermal expansion\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ThermalExpansion\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ThermalExpansion\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"ultimate tensile strength\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"UltimateTensileStrength\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"UltimateTensileStrength\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"universe abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"UniverseAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"UniverseAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "23.`2.",RowBox[{"\[InvisibleSpace]", "\" mass%\""}],"mass percent",
+      "\"MassPercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"universe molar abundance\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"UniverseMolarAbundance\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"UniverseMolarAbundance\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "7.1999999999999999999`2.",RowBox[{"\[InvisibleSpace]", "\" mol%\""}],
+      "mole percent","\"MolePercent\""},
+     "QuantityPostfix"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"unstable isotopes\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"UnstableIsotopes\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"UnstableIsotopes\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"helium-10\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium10\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium10\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-2\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium2\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium2\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-5\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium5\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium5\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-6\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium6\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium6\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-7\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium7\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium7\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-8\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium8\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium8\\\"]\"","\"isotope\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"helium-9\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"Isotope\"", ",", "\"Helium9\""}], "]"}],
+        "\"Entity[\\\"Isotope\\\", \\\"Helium9\\\"]\"","\"isotope\""},
+       "Entity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"valence\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"Valence\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"Valence\\\"]\""},
+     "EntityProperty"], "\[Rule]", "0"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"number of valence electrons\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"ValenceElectronCount\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"ValenceElectronCount\\\"]\""},
+     "EntityProperty"], "\[Rule]", "2"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"van der Waals radius\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"VanDerWaalsRadius\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"VanDerWaalsRadius\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"140.`3.","\"pm\"","picometers","\"Picometers\""},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"molar heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"VaporizationHeat\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"VaporizationHeat\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{
+     "0.083`2.",
+      RowBox[{"\"kJ\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"kilojoules per mole",FractionBox[
+      "\"Kilojoules\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Vickers hardness\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"VickersHardness\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"VickersHardness\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"volume magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"VolumeMagneticSusceptibility\""}], 
+        "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"VolumeMagneticSusceptibility\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"-", "1.05`3.*^-9"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"work function\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"WorkFunction\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"WorkFunction\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Young's modulus\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"Element\"", ",", "\"YoungModulus\""}], "]"}],
+      "\"EntityProperty[\\\"Element\\\", \\\"YoungModulus\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotApplicable\"\>", "]"}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.7073036610382967`*^9, 
+  3.7073037199440284`*^9},ExpressionUUID->"10256109-fc6d-400a-8e8c-\
+61655a6bdd3a"]
+}, Open  ]]
+},
+WindowSize->{1520, 781},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (March 13, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1459, 33, 63, "Input", "ExpressionUUID" -> \
+"cb1af2b8-dcce-471e-ab36-a3acd6e93246"],
+Cell[2042, 57, 362, 7, 62, "Output", "ExpressionUUID" -> \
+"d4510d0b-9cef-47cb-b4c0-437107ba388a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2441, 69, 279, 6, 46, "Input", "ExpressionUUID" -> \
+"c795de64-f05b-4db5-8522-a5e8e57dea62"],
+Cell[2723, 77, 27782, 489, 927, "Output", "ExpressionUUID" -> \
+"e3d72589-c88b-4596-88a0-1c09778323bd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[30542, 571, 251, 5, 46, "Input", "ExpressionUUID" -> \
+"e2ead31f-2c2e-4428-b176-e020121dfbe7"],
+Cell[30796, 578, 438, 12, 66, "Output", "ExpressionUUID" -> \
+"005f5766-9d0e-4318-b9a2-201c00369bf2"]
+}, Open  ]],
+Cell[31249, 593, 132, 1, 46, "Input", "ExpressionUUID" -> \
+"37ef1e07-9b7c-48a8-bf2e-d4d45e1e10bc"],
+Cell[CellGroupData[{
+Cell[31406, 598, 197, 4, 46, "Input", "ExpressionUUID" -> \
+"688a7ab1-b855-420f-a945-6dee5ddd8971"],
+Cell[31606, 604, 323, 7, 46, "Output", "ExpressionUUID" -> \
+"c63a7139-b631-4316-9b14-1857c00520ac"]
+}, Open  ]],
+Cell[31944, 614, 320, 8, 46, "Input", "ExpressionUUID" -> \
+"46b9b7d5-fc81-45d3-a39f-ad6a1d61cea9"],
+Cell[CellGroupData[{
+Cell[32289, 626, 282, 6, 76, "Input", "ExpressionUUID" -> \
+"1eaf3873-c8af-4eec-8756-510585c86129"],
+Cell[32574, 634, 154, 3, 46, "Output", "ExpressionUUID" -> \
+"c7bed564-ad89-4c42-98d7-92d13f13b749"],
+Cell[32731, 639, 154, 3, 46, "Output", "ExpressionUUID" -> \
+"24ec1e23-723d-460f-8778-47da8630bace"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32922, 647, 331, 8, 46, "Input", "ExpressionUUID" -> \
+"58d1a6b4-bcdf-49b9-aafb-91359b3cc10b"],
+Cell[33256, 657, 124452, 2325, 2986, "Output", "ExpressionUUID" -> \
+"10256109-fc6d-400a-8e8c-61655a6bdd3a"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,1901 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     81889,       1893]
+NotebookOptionsPosition[     78154,       1793]
+NotebookOutlinePosition[     78496,       1808]
+CellTagsIndexPosition[     78453,       1805]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"formula", "=", 
+   RowBox[{"FormulaData", "[", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7073042096083393`*^9, 
+  3.7073042536129904`*^9}},ExpressionUUID->"47028fde-e259-47bb-8326-\
+0df17ac5a2eb"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"containedQ", "[", "str_String", "]"}], ":=", 
+   RowBox[{"StringContainsQ", "[", 
+    RowBox[{"str", ",", 
+     RowBox[{"IgnoreCase", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rules", "[", "str_String", "]"}], ":=", 
+  RowBox[{"Alternatives", "[", 
+   RowBox[{
+    RowBox[{"_String", "?", 
+     RowBox[{"(", 
+      RowBox[{"containedQ", "[", "str", "]"}], ")"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"_String", "?", 
+       RowBox[{"(", 
+        RowBox[{"containedQ", "[", "str", "]"}], ")"}]}], ",", "___"}], 
+     "}"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.707304495893834*^9, 
+  3.707304620238912*^9}},ExpressionUUID->"fef881d4-7b8b-46e3-8dc9-\
+539271abfc92"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"critformula", "=", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"formula", ",", 
+    RowBox[{"rules", "[", "\"\<critical\>\"", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7073043528944454`*^9, 3.707304361363234*^9}, {
+  3.707304450955854*^9, 3.7073044877687473`*^9}, {3.70730462725461*^9, 
+  3.7073046491610947`*^9}},ExpressionUUID->"17e1a611-22ce-46e5-8d99-\
+161ed74e6dc1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"CriticalEulerBucklingForce\"\>", 
+     ",", "\<\"ColumnLength\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"CriticalEulerBucklingForce\"\>", 
+     ",", "\<\"EffectiveColumnLength\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"CriticalEulerBucklingForce\"\>", 
+     ",", "\<\"EffectiveColumnLengthFactor\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.707304362394495*^9, 
+  3.707304652598632*^9},ExpressionUUID->"014f7f66-3702-4ad5-b480-\
+be565a58db72"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"pressureformula", "=", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"formula", ",", 
+    RowBox[{"rules", "[", "\"\<pressure\>\"", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7073044041649103`*^9, 3.707304422383851*^9}, {
+  3.7073046584158545`*^9, 
+  3.707304667494094*^9}},ExpressionUUID->"1e0f40d5-05a8-4a7a-ac5f-\
+501835499000"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"FluidColumnPressure\"\>", ",", "\<\"NozzlePressureDrop\"\>", 
+   ",", "\<\"Pressure\"\>", ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"HydrostaticPressure\"\>", 
+     ",", "\<\"AtmosphericPressure\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"HydrostaticPressure\"\>", ",", "\<\"Standard\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", ",", "\<\"Density\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", 
+     ",", "\<\"SpecificGravity\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7073044230400753`*^9, 
+  3.7073046681503544`*^9},ExpressionUUID->"177c5e3b-50f7-4974-9164-\
+0554bb1c29f5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"temperatureformula", "=", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"formula", ",", 
+    RowBox[{"rules", "[", "\"\<temperature\>\"", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7073044397057705`*^9, 3.707304444955825*^9}, {
+  3.707304673940463*^9, 
+  3.7073046887687473`*^9}},ExpressionUUID->"e3f8e440-18ce-4ee0-b20a-\
+908332f74edf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"BlackHoleTemperature\"\>", ",", "\<\"AngularMomentum\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BlackHoleTemperature\"\>", ",", "\<\"Charge\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BlackHoleTemperature\"\>", ",", "\<\"Standard\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BoseCondensationTemperature\"\>", 
+     ",", "\<\"NumberDensity\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BoseCondensationTemperature\"\>", ",", "\<\"Pressure\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BoseCondensationTemperature\"\>", ",", "\<\"Volume\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+     ",", "\<\"BoltzmannConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+     ",", "\<\"MolarGasConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"BlackHoleTemperature\"\>", ",", "\<\"Charge\"\>", 
+     ",", "\<\"AngularMomentum\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.70730468909686*^9},ExpressionUUID->"f6ab950e-814c-4a79-8c85-1244b97fa63b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "\"\<IdealGasInternalEnergy\>\"", ",", "\"\<BoltzmannConstant\>\""}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.707307001016165*^9, 
+  3.7073070053443866`*^9}},ExpressionUUID->"fcd4f6ca-ebb2-4df9-bf97-\
+9c368f6423cb"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{StyleBox["\"U\""],"\"Energy\""},
+   "QuantityVariable",
+   DisplayFunction->(TooltipBox[
+     StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+     RowBox[{"Quantity variable:", " energy"}], TooltipStyle -> 
+     "TextStyling"]& )], "\[Equal]", 
+  RowBox[{
+   RowBox[{"(", 
+    TemplateBox[{
+     "1",StyleBox["\"k\"", Italic, StripOnInput -> False],
+      "Boltzmann constants","\"BoltzmannConstant\""},
+     "Quantity"], ")"}], " ", 
+   TemplateBox[{StyleBox["\"N\""],"\"Unitless\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+      "TextStyling"]& )], " ", 
+   TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+      "TextStyling"]& )], " ", 
+   TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+      "TextStyling"]& )]}]}]], "Output",
+ CellChangeTimes->{
+  3.707307006000599*^9},ExpressionUUID->"7cb87cb1-4aad-41f6-ba10-\
+a995ecdfa1dd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gasformula", "=", 
+  RowBox[{"Cases", "[", 
+   RowBox[{"formula", ",", 
+    RowBox[{"rules", "[", "\"\<gas\>\"", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7073046979338713`*^9, 
+  3.7073047009807796`*^9}},ExpressionUUID->"7afdd325-3210-4e7c-8eac-\
+6122a17a5c60"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"CombinedGasLaw\"\>", ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasHeatCapacity\"\>", 
+     ",", "\<\"BoltzmannConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasHeatCapacity\"\>", ",", "\<\"MolarGasConstant\"\>"}],
+     "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasInternalEnergy\"\>", 
+     ",", "\<\"BoltzmannConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasInternalEnergy\"\>", 
+     ",", "\<\"MolarGasConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasLaw\"\>", ",", "\<\"Density\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasLaw\"\>", ",", "\<\"Volume\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", ",", "\<\"Density\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", 
+     ",", "\<\"SpecificGravity\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+     ",", "\<\"BoltzmannConstant\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+     ",", "\<\"MolarGasConstant\"\>"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.707304701558876*^9},ExpressionUUID->"7419055a-bfbd-46ae-8c86-\
+beba02b253a0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Thread", "[", 
+   RowBox[{
+    RowBox[{"#", "\[Rule]", 
+     RowBox[{"FormulaData", "[", "#", "]"}]}], "&"}], "]"}], "/@", 
+  "gasformula"}]], "Input",
+ CellChangeTimes->{{3.707304709911252*^9, 
+  3.707304762977129*^9}},ExpressionUUID->"4756f9ed-b07f-4b08-9706-\
+4cad0f8862cf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"\<\"CombinedGasLaw\"\>", "\[Rule]", 
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"P\""], "1"],"\"Pressure\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+          "TextStyling"]& )], " ", 
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"V\""], "1"],"\"Volume\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " volume"}], TooltipStyle -> 
+          "TextStyling"]& )]}], 
+      TemplateBox[{SubscriptBox[
+         StyleBox["\"T\""], "1"],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )]], "\[Equal]", 
+     FractionBox[
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"P\""], "2"],"\"Pressure\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+          "TextStyling"]& )], " ", 
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"V\""], "2"],"\"Volume\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " volume"}], TooltipStyle -> 
+          "TextStyling"]& )]}], 
+      TemplateBox[{SubscriptBox[
+         StyleBox["\"T\""], "2"],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )]]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasHeatCapacity\"\>", 
+      ",", "\<\"BoltzmannConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"C\""], "\"p\""],"\"HeatCapacity\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+          "TextStyling"]& )], "\[Equal]", 
+       RowBox[{
+        RowBox[{"(", 
+         TemplateBox[{
+          "1",StyleBox["\"k\"", Italic, StripOnInput -> False],
+           "Boltzmann constants","\"BoltzmannConstant\""},
+          "Quantity"], ")"}], " ", 
+        TemplateBox[{StyleBox["\"N\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}]}], ",", 
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"C\""], "\"V\""],"\"HeatCapacity\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+          "TextStyling"]& )], "\[Equal]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          
+          TemplateBox[{
+           "1",StyleBox["\"k\"", Italic, StripOnInput -> False],
+            "Boltzmann constants","\"BoltzmannConstant\""},
+           "Quantity"], ")"}], " ", 
+         TemplateBox[{StyleBox["\"N\""],"\"Unitless\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{SubscriptBox[
+           StyleBox["\"C\""], "\"p\""],"\"HeatCapacity\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+           "TextStyling"]& )]}]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasHeatCapacity\"\>", 
+      ",", "\<\"MolarGasConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"C\""], "\"p\""],"\"HeatCapacity\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+          "TextStyling"]& )], "\[Equal]", 
+       RowBox[{
+        RowBox[{"(", 
+         TemplateBox[{
+          "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+           "molar gas constants","\"MolarGasConstant\""},
+          "Quantity"], ")"}], " ", 
+        TemplateBox[{StyleBox["\"n\""],"\"Amount\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " amount"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}]}], ",", 
+      RowBox[{
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"C\""], "\"V\""],"\"HeatCapacity\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+          "TextStyling"]& )], "\[Equal]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          
+          TemplateBox[{
+           "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+            "molar gas constants","\"MolarGasConstant\""},
+           "Quantity"], ")"}], " ", 
+         TemplateBox[{StyleBox["\"n\""],"\"Amount\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " amount"}], TooltipStyle -> 
+            "TextStyling"]& )]}], "+", 
+        TemplateBox[{SubscriptBox[
+           StyleBox["\"C\""], "\"p\""],"\"HeatCapacity\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " heat capacity"}], TooltipStyle -> 
+           "TextStyling"]& )]}]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasInternalEnergy\"\>", 
+      ",", "\<\"BoltzmannConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{StyleBox["\"U\""],"\"Energy\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " energy"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     RowBox[{
+      RowBox[{"(", 
+       TemplateBox[{
+        "1",StyleBox["\"k\"", Italic, StripOnInput -> False],
+         "Boltzmann constants","\"BoltzmannConstant\""},
+        "Quantity"], ")"}], " ", 
+      TemplateBox[{StyleBox["\"N\""],"\"Unitless\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+         "TextStyling"]& )]}]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasInternalEnergy\"\>", 
+      ",", "\<\"MolarGasConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{StyleBox["\"U\""],"\"Energy\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " energy"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     RowBox[{
+      RowBox[{"(", 
+       TemplateBox[{
+        "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+         "molar gas constants","\"MolarGasConstant\""},
+        "Quantity"], ")"}], " ", 
+      TemplateBox[{StyleBox["\"n\""],"\"Amount\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " amount"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+         "TextStyling"]& )]}]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasLaw\"\>", ",", "\<\"Density\"\>"}], "}"}], 
+    "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{StyleBox["\"m\""],"\"MolarMass\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " molar mass"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+         "TextStyling"]& )]}], "\[Equal]", 
+     RowBox[{
+      RowBox[{"(", 
+       TemplateBox[{
+        "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+         "molar gas constants","\"MolarGasConstant\""},
+        "Quantity"], ")"}], " ", 
+      TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"\[Rho]\""],"\"MassDensity\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " mass density"}], TooltipStyle -> 
+         "TextStyling"]& )]}]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasLaw\"\>", ",", "\<\"Volume\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"V\""],"\"Volume\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " volume"}], TooltipStyle -> 
+         "TextStyling"]& )]}], "\[Equal]", 
+     RowBox[{
+      RowBox[{"(", 
+       TemplateBox[{
+        "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+         "molar gas constants","\"MolarGasConstant\""},
+        "Quantity"], ")"}], " ", 
+      TemplateBox[{StyleBox["\"n\""],"\"Amount\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " amount"}], TooltipStyle -> 
+         "TextStyling"]& )], " ", 
+      TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+         "TextStyling"]& )]}]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", ",", "\<\"Density\"\>"}],
+      "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{SubscriptBox[
+        StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     SqrtBox[
+      FractionBox[
+       RowBox[{
+        TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}], 
+       TemplateBox[{StyleBox["\"d\""],"\"MassDensity\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " mass density"}], TooltipStyle -> 
+          "TextStyling"]& )]]]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasSpeedOfSoundPressure\"\>", 
+      ",", "\<\"SpecificGravity\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{SubscriptBox[
+        StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     SqrtBox[
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         TemplateBox[{"0.8163265306122448`",RowBox[{
+             SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+             "\[InvisibleSpace]", "\"kg\""}],"meters cubed per kilogram",
+           FractionBox[
+            SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+          "Quantity"], ")"}], " ", 
+        TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}], 
+       TemplateBox[{SubscriptBox[
+          StyleBox["\"G\""], "\"s\""],"\"Unitless\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+          "TextStyling"]& )]]]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+      ",", "\<\"BoltzmannConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{SubscriptBox[
+        StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     SqrtBox[
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         TemplateBox[{
+          "1",StyleBox["\"k\"", Italic, StripOnInput -> False],
+           "Boltzmann constants","\"BoltzmannConstant\""},
+          "Quantity"], ")"}], " ", 
+        TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}], 
+       TemplateBox[{StyleBox["\"m\""],"\"Mass\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " mass"}], TooltipStyle -> 
+          "TextStyling"]& )]]]}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\<\"IdealGasSpeedOfSoundTemperature\"\>", 
+      ",", "\<\"MolarGasConstant\"\>"}], "}"}], "\[Rule]", 
+    RowBox[{
+     TemplateBox[{SubscriptBox[
+        StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+        "TextStyling"]& )], "\[Equal]", 
+     SqrtBox[
+      FractionBox[
+       RowBox[{
+        RowBox[{"(", 
+         TemplateBox[{
+          "1",StyleBox["\"R\"", Italic, StripOnInput -> False],
+           "molar gas constants","\"MolarGasConstant\""},
+          "Quantity"], ")"}], " ", 
+        TemplateBox[{StyleBox["\"T\""],"\"Temperature\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " temperature"}], TooltipStyle -> 
+           "TextStyling"]& )], " ", 
+        TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+         "QuantityVariable",
+         DisplayFunction->(TooltipBox[
+           
+           StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+            False], 
+           RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+           "TextStyling"]& )]}], 
+       TemplateBox[{StyleBox["\"M\""],"\"MolarMass\""},
+        "QuantityVariable",
+        DisplayFunction->(TooltipBox[
+          
+          StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+           False], 
+          RowBox[{"Quantity variable:", " molar mass"}], TooltipStyle -> 
+          "TextStyling"]& )]]]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7073047159112654`*^9, 
+  3.7073047645239677`*^9},ExpressionUUID->"7af654c0-8a5c-4d75-9316-\
+3a968a9ef0b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "\"\<IdealGasSpeedOfSoundPressure\>\"", ",", "\"\<SpecificGravity\>\""}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7073047975428104`*^9, 
+  3.7073048253087325`*^9}},ExpressionUUID->"e6eae256-ea65-4040-9acd-\
+7becb095eaa5"],
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{SubscriptBox[
+     StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+   "QuantityVariable",
+   DisplayFunction->(TooltipBox[
+     StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+     RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+     "TextStyling"]& )], "\[Equal]", 
+  SqrtBox[
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      TemplateBox[{"0.8163265306122448`",RowBox[{
+          SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+          "\[InvisibleSpace]", "\"kg\""}],"meters cubed per kilogram",
+        FractionBox[
+         SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+       "Quantity"], ")"}], " ", 
+     TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+        "TextStyling"]& )], " ", 
+     TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+      "QuantityVariable",
+      DisplayFunction->(TooltipBox[
+        StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+         False], 
+        RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+        "TextStyling"]& )]}], 
+    TemplateBox[{SubscriptBox[
+       StyleBox["\"G\""], "\"s\""],"\"Unitless\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+       "TextStyling"]& )]]]}]], "Output",
+ CellChangeTimes->{
+  3.707304825824316*^9},ExpressionUUID->"910204ae-c3a3-47b0-9cc7-\
+26cf8ca13a17"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<IdealGasSpeedOfSoundPressure\>\"", ",", "\"\<SpecificGravity\>\""}], 
+    "}"}], ",", "\"\<QuantityVariableNames\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.70730483206633*^9, 3.707304839894519*^9}, {
+  3.707304891602029*^9, 
+  3.7073049017428007`*^9}},ExpressionUUID->"dca37a6e-3b45-4d0a-ace6-\
+c87424a9a2a1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{SubscriptBox[
+       StyleBox["\"v\""], "\"s\""],"\"Speed\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " speed"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "\<\"speed of sound\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{StyleBox["\"P\""],"\"Pressure\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " pressure"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "\<\"pressure\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{StyleBox["\"\[Gamma]\""],"\"Unitless\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "\<\"adiabatic index\"\>"}], ",", 
+   RowBox[{
+    TemplateBox[{SubscriptBox[
+       StyleBox["\"G\""], "\"s\""],"\"Unitless\""},
+     "QuantityVariable",
+     DisplayFunction->(TooltipBox[
+       StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+        False], 
+       RowBox[{"Quantity variable:", " unitless"}], TooltipStyle -> 
+       "TextStyling"]& )], "\[Rule]", "\<\"specific gravity\"\>"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.707304840394495*^9, {3.7073048929145308`*^9, 
+   3.7073049048521743`*^9}},ExpressionUUID->"081a6e0d-accd-438b-b814-\
+11966f708285"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gas", "[", "\"\<Name\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7073066935523725`*^9, 
+  3.707306701615013*^9}},ExpressionUUID->"6e0da155-de4b-4613-8393-\
+0f3815221533"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"helium\"\>", ",", "\<\"neon\"\>", ",", "\<\"argon\"\>", 
+   ",", "\<\"krypton\"\>", ",", "\<\"xenon\"\>", ",", "\<\"radon\"\>", 
+   ",", "\<\"oganesson\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7073067025055943`*^9},ExpressionUUID->"1164815f-e05e-40dd-a66c-\
+d17d488688be"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ThermodynamicData", "[", "\"\<Air\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7073066184371147`*^9, 
+  3.70730665959284*^9}},ExpressionUUID->"6ea8236d-9862-4e38-845f-\
+9fb2a0626af6"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"CriticalDensity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "302.55076521999996`",
+      RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",
+      FractionBox["\"Kilograms\"", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"CriticalEnthalpy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "164466.75778657774`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"kg\""}],"joules per kilogram",FractionBox[
+      "\"Joules\"", "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"CriticalEntropy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "1436.6525464398062`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"kg\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kilogram kelvin",FractionBox["\"Joules\"", 
+       RowBox[{"\"Kelvins\"", " ", "\"Kilograms\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"CriticalInternalEnergy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "151953.97249041576`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"kg\""}],"joules per kilogram",FractionBox[
+      "\"Joules\"", "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"CriticalPressure\"\>", "\[Rule]", 
+    TemplateBox[{"3.78502`*^6","\"Pa\"","pascals","\"Pascals\""},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"CriticalTemperature\"\>", "\[Rule]", 
+    TemplateBox[{"132.6312`","\"K\"","kelvins","\"Kelvins\""},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"Density\"\>", "\[Rule]", 
+    TemplateBox[{
+     "1.2042898983736516`",
+      RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",
+      FractionBox["\"Kilograms\"", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"Enthalpy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "419504.2849580584`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"kg\""}],"joules per kilogram",FractionBox[
+      "\"Joules\"", "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"Entropy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "3864.3863861991726`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"kg\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kilogram kelvin",FractionBox["\"Joules\"", 
+       RowBox[{"\"Kelvins\"", " ", "\"Kilograms\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"InternalEnergy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "335367.5666007631`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"kg\""}],"joules per kilogram",FractionBox[
+      "\"Joules\"", "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"IsobaricHeatCapacity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "1006.3823689055772`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"kg\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kilogram kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Kilograms\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"IsochoricHeatCapacity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "717.8355291341823`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"kg\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kilogram kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Kilograms\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"LiquidVaporPhaseBoundary\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"MolarDensity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "41.58660634055692`",
+      RowBox[{"\"mol\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"m\"", "3"]}],"moles per meter cubed",FractionBox[
+      "\"Moles\"", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarEnthalpy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "12148.25678638643`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"joules per mole",FractionBox["\"Joules\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarEntropy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "111.90721960338736`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"K\"", "\[ThinSpace]", "\"mol\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per kelvin mole",FractionBox["\"Joules\"", 
+       RowBox[{"\"Kelvins\"", " ", "\"Moles\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarInternalEnergy\"\>", "\[Rule]", 
+    TemplateBox[{
+     "9711.77521416486`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"mol\""}],"joules per mole",FractionBox["\"Joules\"", "\"Moles\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarIsobaricHeatCapacity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "29.14342446818905`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"mol\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per mole kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Moles\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarIsochoricHeatCapacity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "20.78751195398513`",
+      RowBox[{"\"J\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"mol\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "joules per mole kelvin difference",FractionBox["\"Joules\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Moles\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"MolarSpecificVolume\"\>", "\[Rule]", 
+    TemplateBox[{"0.024046203525502876`",RowBox[{
+        SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"kg\""}],"meters cubed per kilogram",
+      FractionBox[
+       SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"air\"\>"}], ",", 
+   RowBox[{"\<\"Phase\"\>", "\[Rule]", "\<\"gas\"\>"}], ",", 
+   RowBox[{"\<\"SolidLiquidPhaseBoundary\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"SolidVaporPhaseBoundary\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"SoundSpeed\"\>", "\[Rule]", 
+    TemplateBox[{
+     "343.3845552152487`",
+      RowBox[{"\"m\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        "\"s\""}],"meters per second",FractionBox[
+      "\"Meters\"", "\"Seconds\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"SpecificVolume\"\>", "\[Rule]", 
+    TemplateBox[{"0.8303648493194724`",RowBox[{
+        SuperscriptBox["\"m\"", "3"], "\[NegativeMediumSpace]", "\"/\"", 
+        "\[InvisibleSpace]", "\"kg\""}],"meters cubed per kilogram",
+      FractionBox[
+       SuperscriptBox["\"Meters\"", "3"], "\"Kilograms\""]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"ThermalConductivity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "0.025873828270336966`",
+      RowBox[{"\"W\"", "\[InvisibleSpace]", "\"/(\"", "\[InvisibleSpace]", 
+        "\"m\"", "\[ThinSpace]", "\"K\"", "\[InvisibleSpace]", "\")\""}],
+      "watts per meter kelvin difference",FractionBox["\"Watts\"", 
+       RowBox[{"\"KelvinsDifference\"", " ", "\"Meters\""}]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"TriplePointGasDensity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "0.29175`6.",
+      RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",
+      FractionBox["\"Kilograms\"", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"TriplePointLiquidDensity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "957.574`6.",
+      RowBox[{"\"kg\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+        SuperscriptBox["\"m\"", "3"]}],"kilograms per meter cubed",
+      FractionBox["\"Kilograms\"", 
+       SuperscriptBox["\"Meters\"", "3"]]},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"TriplePointPressure\"\>", "\[Rule]", 
+    TemplateBox[{"5264.599999999999`","\"Pa\"","pascals","\"Pascals\""},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"TriplePointSolidDensity\"\>", "\[Rule]", 
+    RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+   RowBox[{"\<\"TriplePointTemperature\"\>", "\[Rule]", 
+    TemplateBox[{"59.75`","\"K\"","kelvins","\"Kelvins\""},
+     "Quantity"]}], ",", 
+   RowBox[{"\<\"Viscosity\"\>", "\[Rule]", 
+    TemplateBox[{
+     "0.000018205675153594743`",RowBox[{"\"s\"", "\[ThinSpace]", "\"Pa\""}],
+      "second pascals",RowBox[{"\"Pascals\"", " ", "\"Seconds\""}]},
+     "Quantity"]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.70730663276541*^9, 
+  3.707306660491948*^9}},ExpressionUUID->"8f540ce5-63e6-434c-afbf-\
+3dcd7abfafeb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FormulaData", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<IdealGasSpeedOfSoundPressure\>\"", ",", "\"\<SpecificGravity\>\""}], 
+    "}"}], ",", "\"\<QuantityVariableTable\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.707304929711852*^9, 
+  3.707304944727634*^9}},ExpressionUUID->"9576ab25-0d73-44ec-8008-\
+fee209beeb31"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[GridBox[{
+     {"\<\"symbol\"\>", "\<\"description\"\>", "\<\"physical quantity\"\>", "\
+\<\"dimensions\"\>"},
+     {
+      SubscriptBox["\<\"v\"\>", "\<\"s\"\>"], "\<\"speed of sound\"\>", \
+"\<\"Speed\"\>", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"LengthUnit\"\>", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"TimeUnit\"\>", ",", 
+          RowBox[{"-", "1"}]}], "}"}]}], "}"}]},
+     {"\<\"P\"\>", "\<\"pressure\"\>", "\<\"Pressure\"\>", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\<\"LengthUnit\"\>", ",", 
+          RowBox[{"-", "1"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"MassUnit\"\>", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\<\"TimeUnit\"\>", ",", 
+          RowBox[{"-", "2"}]}], "}"}]}], "}"}]},
+     {"\<\"\[Gamma]\"\>", "\<\"adiabatic index\"\>", "\<\"Unitless\"\>", \
+"\<\"Dimensionless\"\>"},
+     {
+      SubscriptBox["\<\"G\"\>", "\<\"s\"\>"], "\<\"specific gravity\"\>", "\<\
+\"Unitless\"\>", "\<\"Dimensionless\"\>"}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "ColumnsIndexed" -> {2 -> GrayLevel[0.7]}, 
+      "RowsIndexed" -> {2 -> GrayLevel[0.7]}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"], "DialogStyle",
+  StripOnInput->False]], "Output",
+ CellChangeTimes->{{3.7073049303055725`*^9, 
+  3.7073049455713434`*^9}},ExpressionUUID->"f78638f5-8529-4b7a-bac1-\
+73e813cbe497"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["gas"], "Input",
+ CellChangeTimes->{{3.7073061731229563`*^9, 3.707306178232421*^9}, {
+  3.707306222826647*^9, 
+  3.7073062234829016`*^9}},ExpressionUUID->"a348dd94-4457-47a0-a7b2-\
+9fa6a5d913b1"],
+
+Cell[BoxData[
+ TemplateBox[{"\"noble gases\"",RowBox[{"EntityClass", "[", 
+     RowBox[{"\"Element\"", ",", "\"NobleGas\""}], "]"}],
+   "\"EntityClass[\\\"Element\\\", \\\"NobleGas\\\"]\"","\"elements\""},
+  "EntityClass"]], "Output",
+ CellChangeTimes->{
+  3.707306223967248*^9},ExpressionUUID->"82c21037-613d-40ee-9671-\
+fd74f921502e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"gas", "[", "\"\<Density\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7073062628426633`*^9, 
+  3.7073062664833603`*^9}},ExpressionUUID->"7113a6a0-92f6-4192-bf70-\
+d817594f249c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "0.0001785`4.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "0.0009`3.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "0.001784`4.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "0.00375`3.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "0.0059`2.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   TemplateBox[{
+    "0.00973`3.",
+     RowBox[{"\"g\"", "\[InvisibleSpace]", "\"/\"", "\[InvisibleSpace]", 
+       SuperscriptBox["\"cm\"", "3"]}],"grams per centimeter cubed",
+     FractionBox["\"Grams\"", 
+      SuperscriptBox["\"Centimeters\"", "3"]]},
+    "Quantity"], ",", 
+   RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7073062672177114`*^9},ExpressionUUID->"c8078253-563d-488f-b83a-\
+bd3cf751f18f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["props"], "Input",
+ CellChangeTimes->{{3.707304983540498*^9, 
+  3.7073049930718613`*^9}},ExpressionUUID->"617b530c-5abb-4f3d-a7d5-\
+d6e462e71c06"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"symbol\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Abbreviation\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Abbreviation\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"adiabatic index\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AdiabaticIndex\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AdiabaticIndex\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"allotropes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AllotropeNames\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AllotropeNames\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"allotropic multiplicities\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AllotropicMultiplicities\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AllotropicMultiplicities\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"alternate names\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AlternateNames\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AlternateNames\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic mass\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicMass\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicMass\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"atomic radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"AtomicRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"AtomicRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"block\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Block\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Block\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"boiling point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BoilingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BoilingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Brinell hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BrinellHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BrinellHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"bulk modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"BulkModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"BulkModulus\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"CAS number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CASNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CASNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"color\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Color\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Color\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"common compound names\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CommonCompounds\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CommonCompounds\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"covalent radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CovalentRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CovalentRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"critical pressure\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CriticalPressure\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CriticalPressure\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"critical temperature\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CriticalTemperature\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CriticalTemperature\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"crust abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrustAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrustAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"crust molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrustMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrustMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Bravais lattice\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrystalStructure\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructure\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice schematic\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CrystalStructureImage\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CrystalStructureImage\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"curie point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"CuriePoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"CuriePoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"Debye characteristic temperature\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DebyeCharacteristicTemperature\""}], 
+       "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"DebyeCharacteristicTemperature\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"decay mode\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DecayMode\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DecayMode\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"density\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Density\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Density\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"discovery country\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DiscoveryCountries\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryCountries\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"discovery year\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"DiscoveryYear\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"DiscoveryYear\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electrical conductivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectricalConductivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectricalConductivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electrical type\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectricalType\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectricalType\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electron affinity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronAffinity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronAffinity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electron configuration\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"electron configuration string\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronConfigurationString\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronConfigurationString\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"number of electrons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ElectronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"electronegativity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Electronegativity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Electronegativity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"electron shell configuration\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ElectronShellConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"ElectronShellConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"full electron configuration string\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"FullElectronConfiguration\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"FullElectronConfiguration\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar heat of fusion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"FusionHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"FusionHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"gas atomic multiplicities\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"GasAtomicMultiplicities\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"GasAtomicMultiplicities\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"group\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Group\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Group\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"human abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"HumanAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"HumanAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"human molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"HumanMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"HumanMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"icon color\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IconColor\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IconColor\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"image\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Image\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Image\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ionization energies\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IonizationEnergies\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IonizationEnergies\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope abundances\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeAbundances\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeAbundances\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope half-lives\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeHalfLives\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeHalfLives\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"isotope lifetimes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"IsotopeLifetimes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"IsotopeLifetimes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"known isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"KnownIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"KnownIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"known oxidation states\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"KnownOxidationStates\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"KnownOxidationStates\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice angles\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LatticeAngles\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LatticeAngles\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"lattice constants\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LatticeConstants\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LatticeConstants\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Lewis structure\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LewisDotStructureDiagram\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LewisDotStructureDiagram\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"liquid density\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"LiquidDensity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"LiquidDensity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"magnetic type\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MagneticType\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MagneticType\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"mass magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MassMagneticSusceptibility\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"MassMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"melting point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeltingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeltingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"memberships\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Memberships\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Memberships\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"meteorite abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeteoriteAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"meteorite molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MeteoriteMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MeteoriteMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Mohs hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MohsHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MohsHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar heat capacity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarHeatCapacity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarHeatCapacity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarMagneticSusceptibility\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"MolarMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar mass\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarMass\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarMass\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar radioactivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarRadioactivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarRadioactivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"molar volume\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MolarVolume\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MolarVolume\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"most common oxidation states\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"MostCommonOxidationStates\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"MostCommonOxidationStates\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"name\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Name\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Name\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"N\[EAcute]el point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeelPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeelPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"number of neutrons per isotope\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"neutron cross\[Hyphen]section\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronCrossSection\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronCrossSection\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"neutron mass absorption\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NeutronMassAbsorption\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NeutronMassAbsorption\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"nuclear diameter\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NuclearDiameter\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NuclearDiameter\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"nuclear radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"NuclearRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"NuclearRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ocean abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"OceanAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"OceanAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ocean molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"OceanMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"OceanMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"period\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Period\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Period\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"phase at STP\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Phase\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Phase\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Poisson ratio\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"PoissonRatio\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"PoissonRatio\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"price\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Price\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Price\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"number of protons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ProtonCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ProtonCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"term symbol\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"QuantumNumbers\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"QuantumNumbers\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"refractive index\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"RefractiveIndex\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"RefractiveIndex\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"resistivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Resistivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Resistivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"series\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Series\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Series\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"shear modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ShearModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ShearModulus\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"solar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"solar molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolarMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolarMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar heat of solidification\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SolidificationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SolidificationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"sound speed\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SoundSpeed\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SoundSpeed\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"space group\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpaceGroup\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroup\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"IUCr space group number\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpaceGroupNumber\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpaceGroupNumber\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific heat of fusion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificFusionHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificFusionHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific heat at STP\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific ionization energies\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificIonizationEnergies\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificIonizationEnergies\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"specific radioactivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificRadioactivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificRadioactivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific heat of solidification\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificSolidificationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \
+\\\"SpecificSolidificationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"specific heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SpecificVaporizationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SpecificVaporizationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"stable isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"StableIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"StableIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"superconducting point\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"SuperconductingPoint\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"SuperconductingPoint\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"tensile yield strength\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"TensileYieldStrength\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"TensileYieldStrength\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"thermal conductivity\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ThermalConductivity\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ThermalConductivity\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"thermal expansion\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ThermalExpansion\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ThermalExpansion\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"ultimate tensile strength\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UltimateTensileStrength\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UltimateTensileStrength\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"universe abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UniverseAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UniverseAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"universe molar abundance\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UniverseMolarAbundance\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UniverseMolarAbundance\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"unstable isotopes\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"UnstableIsotopes\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"UnstableIsotopes\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"valence\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"Valence\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"Valence\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"number of valence electrons\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"ValenceElectronCount\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"ValenceElectronCount\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"van der Waals radius\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VanDerWaalsRadius\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VanDerWaalsRadius\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"molar heat of vaporization\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VaporizationHeat\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VaporizationHeat\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Vickers hardness\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VickersHardness\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"VickersHardness\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{
+    "\"volume magnetic susceptibility\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"VolumeMagneticSusceptibility\""}], 
+       "]"}],"\"EntityProperty[\\\"Element\\\", \
+\\\"VolumeMagneticSusceptibility\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"work function\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"WorkFunction\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"WorkFunction\\\"]\""},
+    "EntityProperty"], ",", 
+   TemplateBox[{"\"Young's modulus\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"Element\"", ",", "\"YoungModulus\""}], "]"}],
+     "\"EntityProperty[\\\"Element\\\", \\\"YoungModulus\\\"]\""},
+    "EntityProperty"]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.707304994024984*^9},ExpressionUUID->"495324ff-1d9e-4304-897b-\
+43168c5df80d"]
+}, Open  ]]
+},
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (March 13, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 237, 6, 46, "Input", "ExpressionUUID" -> \
+"47028fde-e259-47bb-8326-0df17ac5a2eb"],
+Cell[798, 28, 780, 23, 163, "Input", "ExpressionUUID" -> \
+"fef881d4-7b8b-46e3-8dc9-539271abfc92"],
+Cell[CellGroupData[{
+Cell[1603, 55, 396, 8, 46, "Input", "ExpressionUUID" -> \
+"17e1a611-22ce-46e5-8d99-161ed74e6dc1"],
+Cell[2002, 65, 552, 14, 134, "Output", "ExpressionUUID" -> \
+"014f7f66-3702-4ad5-b480-be565a58db72"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2591, 84, 353, 8, 46, "Input", "ExpressionUUID" -> \
+"1e0f40d5-05a8-4a7a-ac5f-501835499000"],
+Cell[2947, 94, 737, 18, 163, "Output", "ExpressionUUID" -> \
+"177c5e3b-50f7-4974-9164-0554bb1c29f5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3721, 117, 359, 8, 76, "Input", "ExpressionUUID" -> \
+"e3f8e440-18ce-4ee0-b20a-908332f74edf"],
+Cell[4083, 127, 1206, 31, 279, "Output", "ExpressionUUID" -> \
+"f6ab950e-814c-4a79-8c85-1244b97fa63b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5326, 163, 300, 8, 76, "Input", "ExpressionUUID" -> \
+"fcd4f6ca-ebb2-4df9-bf97-9c368f6423cb"],
+Cell[5629, 173, 1490, 34, 58, "Output", "ExpressionUUID" -> \
+"7cb87cb1-4aad-41f6-ba10-a995ecdfa1dd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7156, 212, 294, 7, 46, "Input", "ExpressionUUID" -> \
+"7afdd325-3210-4e7c-8eac-6122a17a5c60"],
+Cell[7453, 221, 1320, 33, 308, "Output", "ExpressionUUID" -> \
+"7419055a-bfbd-46ae-8c86-beba02b253a0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8810, 259, 312, 9, 46, "Input", "ExpressionUUID" -> \
+"4756f9ed-b07f-4b08-9706-4cad0f8862cf"],
+Cell[9125, 270, 21983, 544, 777, "Output", "ExpressionUUID" -> \
+"7af654c0-8a5c-4d75-9316-3a968a9ef0b7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31145, 819, 306, 8, 76, "Input", "ExpressionUUID" -> \
+"e6eae256-ea65-4040-9acd-7becb095eaa5"],
+Cell[31454, 829, 1781, 43, 103, "Output", "ExpressionUUID" -> \
+"910204ae-c3a3-47b0-9cc7-26cf8ca13a17"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33272, 877, 407, 10, 76, "Input", "ExpressionUUID" -> \
+"dca37a6e-3b45-4d0a-ace6-c87424a9a2a1"],
+Cell[33682, 889, 1692, 41, 76, "Output", "ExpressionUUID" -> \
+"081a6e0d-accd-438b-b814-11966f708285"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35411, 935, 195, 4, 46, "Input", "ExpressionUUID" -> \
+"6e0da155-de4b-4613-8393-0f3815221533"],
+Cell[35609, 941, 325, 7, 46, "Output", "ExpressionUUID" -> \
+"1164815f-e05e-40dd-a66c-d17d488688be"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35971, 953, 207, 4, 46, "Input", "ExpressionUUID" -> \
+"6ea8236d-9862-4e38-845f-9fb2a0626af6"],
+Cell[36181, 959, 9276, 197, 1228, "Output", "ExpressionUUID" -> \
+"8f540ce5-63e6-434c-afbf-3dcd7abfafeb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45494, 1161, 357, 9, 76, "Input", "ExpressionUUID" -> \
+"9576ab25-0d73-44ec-8008-fee209beeb31"],
+Cell[45854, 1172, 1603, 42, 184, "Output", "ExpressionUUID" -> \
+"f78638f5-8529-4b7a-bac1-73e813cbe497"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47494, 1219, 208, 4, 46, "Input", "ExpressionUUID" -> \
+"a348dd94-4457-47a0-a7b2-9fa6a5d913b1"],
+Cell[47705, 1225, 336, 7, 62, "Output", "ExpressionUUID" -> \
+"82c21037-613d-40ee-9671-fd74f921502e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48078, 1237, 200, 4, 46, "Input", "ExpressionUUID" -> \
+"7113a6a0-92f6-4192-bf70-d817594f249c"],
+Cell[48281, 1243, 1902, 48, 155, "Output", "ExpressionUUID" -> \
+"c8078253-563d-488f-b83a-bd3cf751f18f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50220, 1296, 159, 3, 46, "Input", "ExpressionUUID" -> \
+"617b530c-5abb-4f3d-a7d5-d6e462e71c06"],
+Cell[50382, 1301, 27756, 489, 2319, "Output", "ExpressionUUID" -> \
+"495324ff-1d9e-4304-897b-43168c5df80d"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,1104 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     43325,       1096]
+NotebookOptionsPosition[     22863,        672]
+NotebookOutlinePosition[     37100,        943]
+CellTagsIndexPosition[     37057,        940]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Four-Pile Nim", "Title",ExpressionUUID->"f7c3e7be-7228-47bc-86b3-4cc369da17ab"],
+
+Cell[BoxData[
+ FrameBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\<\"THE CHALLENGE\"\>",
+       StripOnInput->False,
+       FontFamily->"Source Sans Pro",
+       FontSize->18,
+       FontWeight->Plain,
+       FontColor->GrayLevel[1]]}
+    },
+    AutoDelete->False,
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}],
+   "Grid"],
+  Background->RGBColor[0.9961, 0.3098, 0.21569],
+  FrameMargins->{{13, 13}, {2, 8}},
+  FrameStyle->None,
+  ImageMargins->{{0, 0}, {-2, 0}},
+  StripOnInput->False]], "WCIntroDivider",
+ CellMargins->{{66, 0}, {-2, 
+  37}},ExpressionUUID->"75a9153a-5542-4e54-ac8b-017f6c0af934"],
+
+Cell["", "WCIntroDividerLine",ExpressionUUID->"7d4d7888-da23-413a-8434-ea021b1612a2"],
+
+Cell["\<\
+Nim is a two-person game in which players take turns removing any number of \
+chips from one of several piles of chips, with the goal of taking the last \
+one. Write a function that looks at the state of a game of Nim with four \
+piles and returns whether or not the player making the next move has a \
+winning strategy.\
+\>", "Description",ExpressionUUID->"da59884b-3535-4356-8da1-e7ae68e71eb2"],
+
+Cell[CellGroupData[{
+
+Cell["More Details", "Section",ExpressionUUID->"e13e566e-bb08-47bc-8c33-d9ab7d06b08c"],
+
+Cell["Nim is a very old game that is very easy to explain.", "Text",ExpressionUUID->"a45ae1e2-e41d-4326-8ebf-31a99a870261"],
+
+Cell[TextData[{
+ "The setup consists of some piles of chips. As a specific example, consider \
+four piles with 1, 2, 5, 8 chips. The game state is ",
+ StyleBox["{1,2,5,8}", "MR"],
+ "."
+}], "Text",ExpressionUUID->"d2d14634-dbbd-4ca0-b931-769b6d615d05"],
+
+Cell["\<\
+Player 1 chooses a pile and removes some chips from that pile. In the \
+example, Player 1 can choose pile 3 and remove from one to five chips from \
+that pile.\
+\>", "Text",ExpressionUUID->"7e878dc8-1e3c-4550-ae65-555699de9c8f"],
+
+Cell["\<\
+Players alternate taking away chips until one player wins by taking the last \
+chip.\
+\>", "Text",ExpressionUUID->"d675e69b-229f-45c7-b8e9-afedd118f7db"],
+
+Cell[TextData[{
+ "Say Player 1 removes five chips from pile 3. The game state is then ",
+ StyleBox["{1,2,0,8}", "MR"],
+ ". If Player 2 takes away two chips from the last pile, the game state is ",
+ StyleBox["{1,2,0,6}", "MR"],
+ ". Then it is Player 1's turn, and so on."
+}], "Text",ExpressionUUID->"58091d5a-fcb0-4bee-bc50-10dc6e1797b5"],
+
+Cell[TextData[{
+ "If the game state is ",
+ StyleBox["{0,1,0,0}", "MR"],
+ " for Player 1, Player 1 wins."
+}], "Text",ExpressionUUID->"9993944c-1075-4c1f-84c9-5a5265544544"],
+
+Cell["\<\
+Because the rules of Nim are so simple and do not rely on chance, it is \
+possible to decide if the next player to choose has a winning strategy by \
+looking at the current game state.\
+\>", "Text",ExpressionUUID->"bbc12e87-f43a-4e5e-bfd0-84c8d8fa4abd"],
+
+Cell[TextData[{
+ "For example, suppose it is Player 1's turn and the game state is ",
+ StyleBox["{2,1}", "MR"],
+ ": two chips in the first pile and one chip in the second. Player 1 can win \
+by removing one chip from pile 1, leaving the losing game state ",
+ StyleBox["{1,1}", "MR"],
+ " for Player 2, who must leave Player 1 the winning game state ",
+ StyleBox["{1,0}", "MR"],
+ " or ",
+ StyleBox["{0,1}", "MR"],
+ "."
+}], "Text",ExpressionUUID->"65fab8ad-b9a3-4804-8aad-5a20fa1c90a2"],
+
+Cell[BoxData[
+ PaneBox[
+  GraphicsBox[{RectangleBox[{0, 0}, {3, 1}], RectangleBox[{0, 1.1}, {3, 2.1}],
+     RectangleBox[{3.2, 0}, {6.2, 1}], ArrowBox[{{6.4, 1.05}, {8.4, 1.05}}], 
+    RectangleBox[{8.6, 0}, {11.6, 1}], RectangleBox[{11.8, 0}, {14.8, 1}]}],
+  Alignment->Center,
+  ImageSize->Full]], "Output",ExpressionUUID->"bafce9bc-ffab-4e3e-98aa-\
+21eef1b0c5ab"],
+
+Cell[TextData[{
+ "For this challenge, you are asked to write a function that takes the \
+starting configuration of a game of Nim with four piles and returns ",
+ StyleBox["True", "MR"],
+ " or ",
+ StyleBox["False", "MR"],
+ " depending on whether or not the first player to move can win, given that \
+configuration."
+}], "Text",ExpressionUUID->"2fc88db2-276f-4273-8c81-fdcd7eb1a1fd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["What Your Function Should Do", "Section",ExpressionUUID->"69f45455-f6a3-465d-a752-2a4813964016"],
+
+Cell[TextData[{
+ "Write a function called ",
+ StyleBox["NimWin", "InlineCode"],
+ " that takes as input four non-negative integers (not all 0) that represent \
+the number of chips in the starting configuration of a game of Nim with four \
+piles. The output should be ",
+ StyleBox["True", "InlineCode"],
+ " if the first person to play from this configuration has a winning strategy \
+and ",
+ StyleBox["False", "InlineCode"],
+ " otherwise."
+}], "Text",ExpressionUUID->"0e20babf-b7a1-4db0-9948-b635bdd86f51"],
+
+Cell["\<\
+This corresponds to the game state in the graphic example above.\
+\>", "Text",ExpressionUUID->"b04ff5c4-1967-4bd3-9271-fd0678f12da6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   StyleBox["NimWin",
+    StripOnInput->True,
+    FontColor->GrayLevel[0]], "[", 
+   RowBox[{"2", ",", "1", ",", "0", ",", "0"}], "]"}], " "}]], "Input",
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[1]:=",ExpressionUUID->"cb5ee5c5-07e9-4494-ace3-f120c40ddb88"],
+
+Cell[BoxData["True"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[1]=",ExpressionUUID->"0ff8d96d-e871-4e8f-8c38-c19d07f12ed7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "Subsection",ExpressionUUID->"95900bcb-1245-46d6-9a03-bf14af03a5d9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"1", ",", "0", ",", "0", ",", "0"}], "]"}]], "Input",
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[2]:=",ExpressionUUID->"b8fd7f8b-0cac-4a3b-9160-af6849af2c6c"],
+
+Cell[BoxData["True"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[2]=",ExpressionUUID->"92797d86-c34f-4eb5-a76b-88e5f05169ac"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[3]:=",ExpressionUUID->"201d14d6-6c33-4e0a-8f74-d16c63b3ffc5"],
+
+Cell[BoxData["False"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[3]=",ExpressionUUID->"e9d6979a-a1ed-4a99-804b-d00c8c58caee"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"1", ",", "3", ",", " ", "5", ",", " ", "7"}], "]"}]], "Input",
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[4]:=",ExpressionUUID->"a70d2b2b-2cb7-42a2-8c21-82221af60512"],
+
+Cell[BoxData["False"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[4]=",ExpressionUUID->"fd2f0804-8383-420e-a064-02c14e4e3e78"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"1", ",", " ", "2", ",", " ", "4", ",", " ", "6"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[5]:=",ExpressionUUID->"0e3abe06-953b-46ca-9c2a-c5795952a1fc"],
+
+Cell[BoxData["True"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[5]=",ExpressionUUID->"f0bb9b73-2834-493d-beaf-cc60e483cd23"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"0", ",", " ", "0", ",", " ", "0", ",", " ", "0"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[6]:=",ExpressionUUID->"d4194b51-0505-43de-82de-9ff70dfd6296"],
+
+Cell[BoxData[
+ RowBox[{"nimwin", "[", 
+  RowBox[{"0", ",", "0", ",", "0", ",", "0"}], "]"}]], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[6]=",ExpressionUUID->"8389a937-1c31-409c-ab84-afae9a210540"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"3", ",", " ", "8", ",", " ", "15", ",", " ", "2"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[7]:=",ExpressionUUID->"c0dc59ba-f000-4bc0-80b9-0fb9bd986eac"],
+
+Cell[BoxData["True"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[7]=",ExpressionUUID->"69dad511-3fca-47db-a8bf-b5512c9dac12"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"2", ",", " ", "2", ",", " ", "5", ",", " ", "3"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[8]:=",ExpressionUUID->"843e67d8-fc83-46b6-8018-c24b6b68381b"],
+
+Cell[BoxData["True"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[8]=",ExpressionUUID->"8b7e1e42-90cb-4f13-bd54-6dfafe5c9852"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"2", ",", " ", "2", ",", " ", "1", ",", " ", "1"}], "]"}]], "Input",\
+
+ Evaluatable->False,
+ CellLabelAutoDelete->False,
+ CellLabel->"In[9]:=",ExpressionUUID->"15a38986-789b-40bc-8930-b25ad506c53d"],
+
+Cell[BoxData["False"], "Output",
+ CellLabelAutoDelete->False,
+ CellLabel->"Out[9]=",ExpressionUUID->"24dac3c7-5f41-40c9-beb2-ad977f82ba89"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FrameBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\<\"SCRATCH AREA\"\>",
+       StripOnInput->False,
+       FontFamily->"Source Sans Pro",
+       FontSize->18,
+       FontWeight->Plain,
+       FontColor->GrayLevel[1]]}
+    },
+    AutoDelete->False,
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}],
+   "Grid"],
+  Background->GrayLevel[0.65],
+  FrameMargins->{{13, 13}, {2, 5}},
+  FrameStyle->None,
+  ImageMargins->{{0, 0}, {-2, 0}},
+  StripOnInput->False]], "WCIntroDivider",
+ CellGroupingRules->{
+  "SectionGrouping", 
+   0},ExpressionUUID->"d6dcc31c-6a0c-4b7b-8ece-20bab9124296"],
+
+Cell[BoxData[""], "WCIntroDividerLine",
+ CellFrameColor->GrayLevel[
+  0.65],ExpressionUUID->"7cf025c3-5bb3-43eb-aaa1-d52392a1b6e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"2", ",", " ", "2", ",", " ", "5", ",", " ", "3"}], "]"}]], "Input",\
+ExpressionUUID->"27ef92b8-bcc9-4411-83e8-da72ec20fcad"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{
+  3.7056629576577578`*^9},ExpressionUUID->"8a6de194-7043-4df5-8367-\
+0f88a0602915"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["NimWin",
+   StripOnInput->True,
+   FontColor->GrayLevel[0]], "[", 
+  RowBox[{"2", ",", " ", "2", ",", " ", "1", ",", " ", "1"}], "]"}]], "Input",\
+
+ CellChangeTimes->{
+  3.7056629517150517`*^9},ExpressionUUID->"7d31a0ad-fe63-4474-b216-\
+7d5c996cfc45"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{
+  3.7056629520457897`*^9},ExpressionUUID->"ae213bcc-6bb0-466e-8ca9-\
+89ae56f4b84c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"IntegerDigits", "[", 
+    RowBox[{"#", ",", "2", ",", "4"}], "]"}], "&"}], "/@", 
+  RowBox[{"Range", "[", "4", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7056626214387994`*^9, 3.705662650330323*^9}, {
+  3.705662711924575*^9, 
+  3.705662731688238*^9}},ExpressionUUID->"c79f23f6-3184-4be1-83cc-\
+332a72a84c86"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7056626305026817`*^9, 3.705662650591112*^9}, 
+   3.7056627322916565`*^9},ExpressionUUID->"2221aa02-f506-439f-bcde-\
+75294e4ea579"]
+}, Open  ]],
+
+Cell[BoxData["Xor"], "Input",
+ CellChangeTimes->{{3.7056627747076087`*^9, 
+  3.705662804889255*^9}},ExpressionUUID->"543431a6-8b68-47c4-9105-\
+8c3274eea30a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BitXor", "@@", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", "3", ",", " ", "5", ",", " ", "7"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.705662806626302*^9, 
+  3.705662868229103*^9}},ExpressionUUID->"7cc25786-68ba-45c2-8c34-\
+51d0f3586f63"],
+
+Cell[BoxData["0"], "Output",
+ CellChangeTimes->{{3.7056628318397975`*^9, 
+  3.7056628685773582`*^9}},ExpressionUUID->"607f282e-5fd7-4a85-9d64-\
+b87f95effc86"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BitXor", "@@", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", " ", "2", ",", " ", "4", ",", " ", "6"}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.70566287957376*^9, 
+  3.7056628856386023`*^9}},ExpressionUUID->"7b1f8415-818d-4fd4-98bc-\
+e8be23a01776"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{
+  3.7056628860933447`*^9},ExpressionUUID->"0e49999b-8f41-4eed-8e21-\
+ffec58726a4e"]
+}, Open  ]],
+
+Cell[BoxData[
+ FrameBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\<\"ENTER YOUR CODE HERE\"\>",
+       StripOnInput->False,
+       FontFamily->"Source Sans Pro",
+       FontSize->18,
+       FontWeight->Plain,
+       FontColor->GrayLevel[1]]}
+    },
+    AutoDelete->False,
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+    GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}],
+   "Grid"],
+  Background->RGBColor[0.9961, 0.3098, 0.21569],
+  FrameMargins->{{13, 13}, {2, 8}},
+  FrameStyle->None,
+  ImageMargins->{{0, 0}, {-2, 0}},
+  StripOnInput->False]], "WCIntroDivider",ExpressionUUID->"a9c764f6-8ff4-432c-\
+976b-98d3a010230c"],
+
+Cell[BoxData[""], "WCIntroDividerLine",ExpressionUUID->"a028f095-bc32-41f9-baa7-e3bc76e18b3f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"NimWin", "[", 
+    RowBox[{
+     RowBox[{"w_Integer", "?", "NonNegative"}], ",", 
+     RowBox[{"x_Integer", "?", "NonNegative"}], ",", 
+     RowBox[{"y_Integer", "?", "NonNegative"}], ",", 
+     RowBox[{"z_Integer", "?", "NonNegative"}]}], "]"}], "/;", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"x", " ", "+", " ", "y", " ", "+", "z", " ", "+", " ", "w"}], 
+     " ", ">", " ", "0"}], ")"}]}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"BitXor", "@@", 
+    RowBox[{"{", 
+     RowBox[{"w", ",", "x", ",", "y", ",", "z"}], "}"}]}], ">", 
+   "0"}]}]], "Input",
+ CellChangeTimes->{{3.705662896947449*^9, 
+  3.7056629111196404`*^9}},ExpressionUUID->"81a0b857-70de-472e-b53e-\
+aa7684c7ba0e"]
+}, Open  ]],
+
+Cell[BoxData[
+ TemplateBox[{
+  DynamicModuleBox[{
+    WolframChallenges`Notebooks`Authoring`Private`$inSubmit$$ = False}, 
+    ButtonBox[
+     DynamicBox[
+      ToBoxes[
+       If[
+        TrueQ[WolframChallenges`Notebooks`Authoring`Private`$inSubmit$$], 
+        Framed[
+         Panel[
+          ProgressIndicator[Appearance -> "Percolate", ImageSize -> {60, 20}],
+           Background -> White, ImageSize -> {100, 20}, FrameMargins -> 0, 
+          Alignment -> Center, Appearance -> "Frameless"], Background -> 
+         GrayLevel[1], FrameStyle -> RGBColor[0.9961, 0.3098, 0.21569], 
+         RoundingRadius -> 3, Alignment -> Center], 
+        Mouseover[
+         Framed[
+          Panel[
+           Style["Submit", "ButtonLabel", ShowStringCharacters -> False], 
+           Background -> RGBColor[0.9961, 0.3098, 0.21569], 
+           ImageSize -> {100, 20}, FrameMargins -> 0, Alignment -> Center, 
+           Appearance -> "Frameless"], Background -> 
+          RGBColor[0.9961, 0.3098, 0.21569], FrameStyle -> 
+          RGBColor[0.9961, 0.3098, 0.21569], RoundingRadius -> 3, Alignment -> 
+          Center], 
+         Framed[
+          Panel[
+           Style[
+           "Submit", "ButtonLabelActive", ShowStringCharacters -> False], 
+           Background -> GrayLevel[1], ImageSize -> {100, 20}, FrameMargins -> 
+           0, Alignment -> Center, Appearance -> "Frameless"], Background -> 
+          GrayLevel[1], FrameStyle -> RGBColor[0.9961, 0.3098, 0.21569], 
+          RoundingRadius -> 3, Alignment -> Center]]], StandardForm]], 
+     ButtonFunction :> ((
+      WolframChallenges`Notebooks`Authoring`Private`$inSubmit$$ = True; (Off[
+         MessageName[$CharacterEncoding, "utf8"]]; ((If[
+          Not[
+           TrueQ[
+            WolframChallenges`$NotebookInitializedQ[
+             Hash[{$SessionID, 
+               Last[
+                EvaluationNotebook[]]}]]]], 
+          CloudGet[
+           FileNameJoin[{
+             CloudObject[
+             "https://www.wolframcloud.com/objects/user-9449da4d-3158-4f88-\
+9478-f11a7a0d89ab/public/symbols"], "InitializeNotebook"}]][]]; If[
+          Not[
+           ValueQ[
+           WolframChallenges`Notebooks`Dialogs`RunWithSubmissionPolicy]], 
+          WolframChallenges`Notebooks`Dialogs`RunWithSubmissionPolicy = 
+          CloudGet[
+            FileNameJoin[{
+              CloudObject[
+              "https://www.wolframcloud.com/objects/user-9449da4d-3158-4f88-\
+9478-f11a7a0d89ab/public/symbols"], "RunWithSubmissionPolicy"}]]]; 
+        WolframChallenges`Notebooks`Dialogs`RunWithSubmissionPolicy[If[
+            Or[$VersionNumber >= 11.1, 
+             ChoiceDialog[
+              StringJoin["Wolfram Challenges is designed for version ", 
+               ToString[11.1], 
+               " or later of the Wolfram System, and may not function \
+properly with the older ", 
+               "kernel you are using. Contact Wolfram Research \
+(www.wolfram.com) for upgrade information."]]], 
+            If[
+             Not[
+              StringQ[
+               If[
+                Not[$CloudConnected], 
+                CloudConnect[], $WolframID]]], 
+             MessageDialog[
+             "Users must authenticate with the cloud in order to submit \
+solutions."], 
+             Quiet[If[
+                TrueQ[WolframChallenges`Common`$ActiveClearing], 
+                Quiet[
+                 Unset[
+                  Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/HandleResponse"]]]]]]; 
+              Module[{CodeEquivalence`Utilities`Private`result$}, 
+                Check[CodeEquivalence`Utilities`Private`result$ = 
+                  Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/HandleResponse"]]], 
+                  Quiet[
+                   Unset[
+                    Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/HandleResponse"]]]]]]; 
+                CodeEquivalence`Utilities`Private`result$], 
+              MessageName[$CharacterEncoding, "utf8"]][
+              Quiet[If[
+                 TrueQ[WolframChallenges`Common`$ActiveClearing], 
+                 Quiet[
+                  Unset[
+                   Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/CheckAnswer"]]]]]]; 
+               Module[{CodeEquivalence`Utilities`Private`result$}, 
+                 Check[CodeEquivalence`Utilities`Private`result$ = 
+                   Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/CheckAnswer"]]], 
+                   Quiet[
+                    Unset[
+                    Once["public-2.10.0"; CloudGet[
+                    CloudObject[
+                    "https://www.wolframcloud.com/objects/user-9449da4d-3158-\
+4f88-9478-f11a7a0d89ab/public/symbols/CheckAnswer"]]]]]]; 
+                 CodeEquivalence`Utilities`Private`result$], 
+               MessageName[$CharacterEncoding, "utf8"]][
+               CloudObject[
+               "https://www.wolframcloud.com/objects/user-9449da4d-3158-4f88-\
+9478-f11a7a0d89ab/public/api/check"], {"NimWin"}, "71575fb9456cb036"]]]]; 
+          Null])& )[]); 
+      WolframChallenges`Notebooks`Authoring`Private`$inSubmit$$ = False; 
+      Null)& )[], Appearance -> None, Method -> "Queued", Evaluator -> 
+     Automatic], 
+    Initialization :> {
+     WolframChallenges`Notebooks`Authoring`Private`$inSubmit$$ = False}, 
+    DynamicModuleValues :> {}],InterpretationBox[
+    StyleBox[
+     GraphicsBox[{}, ImageSize -> {10, 0}, BaselinePosition -> Baseline], 
+     "CacheGraphics" -> False], 
+    Spacer[10], Selectable -> False],DynamicBox[
+    ToBoxes[
+     Refresh[Off[
+        MessageName[$CharacterEncoding, "utf8"]]; If[
+        Not[
+         TrueQ[$CloudConnected]], 
+        Column[{
+          Row[{
+            Text[
+             Style[
+             "Note: ", "SigninText", FontWeight -> "DemiBold", Background -> 
+              None]], 
+            Text[
+             Button[
+              
+              PaneSelector[{
+               False -> "Sign into the Wolfram Cloud", True -> 
+                "Sign into the Wolfram Cloud"}, 
+               Dynamic[
+                CurrentValue["MouseOver"], 
+                ImageSizeCache -> {48., {1., 12.}}], 
+               BaseStyle -> {"SigninText", 
+                 RGBColor["#36b1bf"]}, FrameMargins -> 0, ImageSize -> 
+               Automatic], 
+              CloudConnect[], Appearance -> None, Evaluator -> Automatic, 
+              Method -> "Queued"]], 
+            Text[
+             Style[
+             " to save your work on ", "SigninText", Background -> None]]}], 
+          Text[
+           Style[
+           "Challenges and keep track of progress.", "SigninText", Background -> 
+            None]]}, Alignment -> Left, Spacings -> 0], 
+        Invisible[""]], UpdateInterval -> 1], StandardForm]]},
+  "RowDefault"]], "SubmitRow",ExpressionUUID->"f0666b8f-65ab-46a0-866f-\
+c1013ae76019"]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+DockedCells->{
+  Cell[
+   BoxData[
+    TagBox[
+     GridBox[{{
+        ButtonBox[
+         TagBox[
+          GridBox[{{
+             GraphicsBox[
+              TagBox[
+               RasterBox[CompressedData["
+1:eJzVmguUlVUVx4eXTDAoMSKGyEMFEc0oKRCmDBIMTSpEKkFGRh6ZNBCgaJGD
++QDKB1SKBoQouVKyJDGNkcBkWUG+SgXJ1JKsMAvIMJ+7/evsb90z557vfneu
+F1zutf4z3+Ocs/c+j/36bq+66aOntKyoqJhVqX9GT5wzdObMiRef0VFvzqyf
+dd7U+smTRtbPnjx18sxBda304WBFjaJ1RflJRFopOpZhnPcyVjlk2lek8p2h
++Ktiod13U6xQ/EIxFx0ifToqvmptbqKPPZ+v+Jti7P7WI41Ulh6KIXbdRfFf
+cVRruv5ZcsS7oZExhnr9oOetb63dv6o4zNqeCM/9rafxPkXxsmKV3Y/2ZJ6J
+jIovKtYo7lAMLDDWR6zNT60P+n7FG2+MtVup+I9ixP7S05PxKZPldruvUbzm
+ybinlLWwedrjjfO6t4dus2fbyq1PRI4DFX29+7eM96N21sazhuLO66q3swba
+d7jiFhtrkGKc8XjEeMK7pbU9RnFQOXT0+LO/nlHc4z3zzya0U8zW7APefw94
+7fDer1U8W07eOtZ644NdaWPPBit+otiqWK3oVS5+Ef49jceTxnOwPW+peMVk
+21gmXp2Cue1jz9s0c5wDFMcpRtnen6Q4U/FRxSHNHCuZ8+6BbJ2bM07K2IcH
+Yz6t2Kt4U7E4o++hiumKDbYOu8SdwUbDJsVz4s7jHxRLFCcpWhQYc6Hx3mt9
+fOpZoo7DFP3tuoXiT5JPbyhqUvofJS52QKZ7FecqjijAr71ihOLb4s7qE4qz
+xWxS0Haw8Q7p+WSe9P/xipFF6nq4rcN2RaU9O9fmNKHdyBPp21oxT5xfvlHs
+TJv+08TZ7V8r/mh4XHG34grFyYo24vZ9nc3xrxTHRfiMNxkTQrZae9fWZP+3
+onsR+i7zxpnhPT9S8Vlx569TpF9Xk+9hxQfE2ZIxige98fDZN0fWJiHWlv1K
+rPYexZU2d+dE+HUyWYhzjvSef9kbb3kR+m7z2nNWK8XFdthF9ma/SB984HM2
+V8zv8aa7T0mcOKCAvgmxdpx7zhK++F+KSyJ8+5pMd5qMyLrdG2d7EfpuDXi/
+5F0Ty3YK2nczXa60+4mS8xEJESMRi4y0uXkmeL8mRe97FAeJs+v494sia/xq
+iqxQZhymba5P4Q3dGrRlLR9SLLH7i1P6sS8/JG4eLlJ8y3v3PXFn9q1IP+gx
+RWfFh8Xt7VMDGVYWkPf6IvTtIe6sh8Qadg3aXiNu3yLvlBSeLyg6KLbYPT5o
+oF0vEmejmLd/FJAbG8dexWa/KJ6f1ev3mWwhoUPPFB05Jy29+0+Jyz0hbPEK
+xg36cEaZb87QB6XpvvJphuJ07x5bij063/Tk7PUTZ68L0Q3GlxxqWSALfv77
+4s65mOyjvPfYzhbe/ScUmxW9gzmosuv2kTn6seJqcfWMh1JkJM+pEudzfKoV
+53Mb7f79kssF0oj9Tq6MnyCuPSqQp739rwp0O9p0O9l7douNyXkf4Ok7S5yd
+WBOMjT99xeb1rAIy4oOxZ2F8wFyd5t0j0wMZ+kIPGn982pJAJvYJZ2K25OKO
+ExT/tL4rvbaPemOiXx9p6ofXBWNfqlht1w+nyMa+xUbNi7zjHHTz7rsXqS9E
+bYBcG5/V1pPpXq/NCnFrstN7tsVr+8tgzL3B/c2Bvuj4OcWxBeSiXoWdejHl
+Pf2pW+GrDpHi9V0gbu9hB4d7Mt2UocMmr21DBo8JXlvyftYOHzErpT3zh81u
+THkPUZc5VfExRTspXt9tJgex6TxPrvEZ/S7z2lL7DPP3hNjrbby21Mz+Yte3
+RtqzXsQHFxQhO/WfswIbUgwdrJijuM2TC7+2OaU9cWKT2qi4M/tk0O4+RZeg
+HfswsRu/jYy92OTZXaTs2F3iFHKNJUX2wX9T+90cyEYs9vOgLfFiH69NB+8a
+H/ElcfaI+uMECXJxcXHF3XYd5p/YB+rJlxUh88vBPetLTHFO5F1InxSXP24N
+ZOtsMo8wHfDxVb6u4vYAc9I/6Jf41HERfdfa9VPSlPAF5DWJjWJuN0bkxX8e
+aJgqufoUdrCPIW1vQuQQp0T0TXwj+XMX73l/cfYbnZK55Cxhf4gf1ntjXxrZ
+z5vs+jdeO74rYHeoJbJHLxHnn2Ox6WvW9+vi7NVS7x3tyTk4j5eLswchkWN9
+njEC2Xzfh/3jjMyQXJ14b0Sex4P7BcGY1Ed32PUqr129PWMedyjGils/fM13
+IjJnEfX3rqbbY8E78iLyjh8Gsl2RoQs+YV0G3/HBmOjwhumRfAPg3LKPD5Om
+sRR2iDPzuyzlUoi1qBfn2xrExehPmxzUK+cFso3LGA9d0+pBED6qXUVA4uwy
+Z6WvtZtrzy/0+hL/s5++21wlA8LX/7+mLq7OTI2L+J/zMyyQi/MUq7VBnLEa
+a1cr+fEIOQbxJ/WRg4NxGyRns4gpqu3atzH4X+Ig/MZgGwvf/WlxdvMbiuXi
+6uWPmPx+jSwhfCf2c7Xd44vIG4iLD/BkqjZZiWFfCMbAPk4KdCCGvUHc2l0n
+zod+wdqvDdr2EvtuJ1bvEBcP+zk7372oX00x3dGPWJBzRx5L7bkqGJf9kJzZ
+060vueJsG/N+a/cDZAz6JjWScSb7daYLeUDviiJIXJ6d0IjgHfN9o3d/fmRt
+smiB9eX7AXWAu8TlVA2K88TFiNRG3jSwT8ilmuSD4urHCTWJQVL0amvzTZ5P
+DoBPIvbwfcGKoA/tyAmPtfssuxcj/ERf6w//tJoOtMja/Uws9/dk8XM5bFGV
+6dDPdGLsSq89+8g/v9QJwjhhY2SeqJ2yZ7Cfid9tLt3njZcWl603HnyDwa5U
+B3KsD9rfL7laB8S6tA76/ChDriY1FOuDDOz55XZPvFKKzmOtP/YtrFUSc2Gb
+8fusyfCIHEulMN0Z6UPMlVaDgk4SZ2vDecJOYUOvtXtsUSymKkTEJ0ntCN2e
+sOfojr+nNkmMekHAm31JXDOkwNicmQGhvtYfffZE+mAPa+yavdMh6HeEOH+b
+xPz45Q3N1HmhNx61iTq7HmkyXRjwbCe5fcw3xlWRMZn3MTFdvXGoHfKtBxtw
+uzj/zth+PntHSj/y/N9LrgZGjYqcspg9zjoc7Y2HzbnKdB0X4bfa6zvHZFxs
+Mi8zHQ4tpGvGPMwP5MvbI+Js4lybV+rgve05fnqyOP+OHaSGwHcPcgbiZHKL
+GuuP3PhuYgZ8VN8InxMDWeaXqlcwLnPcQ9x+vTrgMadAP2IXbAh2kd9V4Zvx
+m3nfN609OfNpNh8v2XyQh0W/A9uc+rTIZETWqlifDD2pn2fVv8mnyRGIJyfE
+dBGXU0yzNuQm2Fdyhwfs2RbJxX7kysTaQ0I9xcXL8FhnPGM1T5+wd3nfUQvo
+21ryv5uFxLfRj3v37L3qAmOSz7LGrCO5a624eHNQRr9qaVrLI3b+TIZs7I/o
+XirAh7g7Zqsh1gTfOyx4js5l+1mmuPMc1i2HG+8wJ0gImU8okR8xI/l7Ele+
+bjqNtvfE5WFOU1dGfc8OxsbOd7Z3o0wWXzZkLXofF+CLT+Us5v1eVZrmFNC6
+2Bgl8g1rjVsibVqZbJWxMcokB3Up4uVrJT+/3lVGPruCseGFLSZvKtm3NoM/
+dQa+R6bVQxLKq4mUwKsygwcykD8eUw7dUmTgzBQTK5GzYrubvcfE+Qby3MuL
+4IMseflDOUlc/SwtryCm58wlNV58Lt9+qeF3LTAm548aLDlasoeJVfDROyVO
+yDB9X+rqyUcsg8+/y2QiduS7QJLj4GvxVcRkz5p82HHi62n2HhtA3LVBcueD
++iB1GGrpyW+/iPFqjUej8YR36u/X3kkSl9MONN0bxH0DbZScH8OPEufnxVXv
+VhIX31OLTPJi4kq+LX5TXB63Qgr8/v3dQOLq7Jxbv8bP9yZ+68/3AfIgcia/
+hkstY4qUEPO/UyQuVyfuT76HkteutvOclu9QWyE3SuzcbjvHbztW2tckLo9g
+vxIbfE2C3zFl9CUv5BtN8pvApftS1nKRuPpuybZHXP6X+dvWUuh/YTQHOQ==
+
+                "], {{0, 58}, {60, 0}}, {0, 255}, ColorFunction -> RGBColor], 
+               
+               BoxForm`ImageTag[
+               "Byte", ColorSpace -> "RGB", Interleaving -> True], Selectable -> 
+               False], BoxID -> 
+              "{\"type\":\"Image\",\"message\":\"SizeLimitReached\",\"\
+imageData\":{\"imageSource\":\"data:image/png;base64,\
+iVBORw0KGgoAAAANSUhEUgAAAB4AAAAdCAYAAAC9pNwMAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAA\
+AOxAAADsQBlSsOGwAABL5JREFUSIm1l2mIllUUx393Rs1sUUizKNFSTPODhbbYouRMtmglWGhZQYlt\
+QmL0oUUliEpbRLRMKwk0W6XUD1k2ViSCGmkoWplLWDqU0zK5TGYzvz7c8+LTOONMUAdenvvcc885/\
+3vP/57zvNAKUTur96vt1DvUfgVdT3Wc2l69Rz2jNT7btBBwDPATMBw4D9gDTAKmAZtjWV9gIlAGDAW\
+GqM8AA1NKL7UGRDHgyfE8oD6r3quuU0cfw+bKWDNJnarWxXyn1gYdoFarSV2kblev+RegL1W3qkvi/\
+Xu1ovG6po76WuA04GlgQ0ppbMFpW+\
+A64AogFXxsBN5OKdWklFYDvdX71OnAmcAYYGUxSCo4HUnOUy3wEVAPTCjlSZ0A9Azd8TFuC+\
+wCqoFBwCnA1JTSPvUmYFEAK3Gl91F5j+P5Vj1dnaz2jPkO6jz1GnWG+pu6XH3DI/\
+KnulQdor6qnhO23dTH1B7qBvX7pnKzqeCkWm0TeZ6rDla3hP67uDaT432W2hDjWnWUOl/\
+tqparO9XDod/eVOCr1Tp1l1oZc+PVa9WvCrubpP6uzlSnqJXqrwX9frVCfSV8XKRuUw+\
+pt5TilakD1VXAGqAP8EJKqUptDwyM3PWJ9T8Ah4GTgMsAgduCFyU5AZgOrFIvTimtBeYC/\
+YFl6gq1AnV0IF2v7lG3BtLh6sjYXUkeUL+J8V+x+3nmK9dYKtU54WuDWqN+\
+FrqJZcBq4CBwPnA68GEgHwDsj90BfAJ0BXrHezlwN/\
+B82DeWYcCfMX6HzPjLgTrgfcwkukBdEnk7MVBOU28NhIfUEQWSlOSwuttMqLWNdO+\
+oT4av9upz6jIz88vLgO3kGvs4cGfslMifMX4DGAy8BNTEXD1wb8wtABYDTwANoW/\
+gSJ3oE2tnAf2AHUReS2xUHRwoH1WHxm57ma/Yk+rNTeSzJFWh36w+pc4OX/\
+1DfzCeNWXkzlIfbPwU2BsoPwc6A/\
+OBXuQyuiXGM4CFsX5b5A2gArgIWA98XDixfcBScsVrAKakQNQLOBc4BLxFJtBv5GtwF5lAdwMryGXy\
+BOBAgJsKjCMTrCGOchDwOvmKfgd8GxusBXallDahlgWx5qjvxlGMC0Bjg1QfNnO0DeZ2OL4w94t6uf\
+pi+BgR85+qsyNWOaEs1l3V683lMpnrc4W6ppngX5tL4wvqXvUq9TWjD8d7UaooidoxAqyL50J1ceja\
+mT8GbjYXkB+bCP5IrBsctt3C9mX1A3Oj+DzAdaZA9xKAMqAT+cIPBQaklNaH7kbganIhqQa6RL5/\
+AtqFbjcwM6VUp/YNMn5BLia1KaX6UqxiP+\
+4A7AROLWAZTr6bD6aUVqptgEuAiwNgAv4gfwisTCn9rl4YZHyIfzb/\
+GqBHSukAjSWIUm0mTZV6Soz3qd2PMjjavqu5Xzeop5krVb25To9qyTipbeM3JICoPtyKwLfH2p/\
+NTeI4o6+3ZFtycEYwtCjL1FOPYdMxyFSUX5s7qWaRxNFMAk4mf2d9SSbQWeSKNZ9cMG4jV6y9wHLgb\
+DI36oA5KaWFrdptSxK5e9PcY1er76k9/hPnzQTsry5Qd5g/ebqrXcx/bTaai9Cg/\
+yNwpXqD2q4JXbk6TB3fWn9/A9izhAbbZ9AzAAAAAElFTkSuQmCC\",\"boundingBox\":{\"\
+width\":30,\"height\":29,\"baseline\":19}},\"plotRange\":[0,1,0,1]}", 
+              DefaultBaseStyle -> "ImageGraphics", ImageSize -> 
+              Magnification[0.5], ImageSizeRaw -> {60, 58}, 
+              PlotRange -> {{0, 60}, {0, 58}}], 
+             StyleBox[
+             "\"WOLFRAM CHALLENGES\"", ShowStringCharacters -> False, 
+              FontFamily -> "Source Sans Pro", FontSize -> 16, FontWeight -> 
+              "Normal", FontColor -> GrayLevel[1]]}}, AutoDelete -> False, 
+           GridBoxAlignment -> {
+            "Columns" -> {Left, Left}, "Rows" -> {Center, Center}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         Appearance -> None, ButtonFunction :> 
+         SystemOpen["http://challenges.wolfram.com/"], Evaluator -> Automatic,
+          Method -> "Preemptive"]}}, AutoDelete -> False, 
+      GridBoxDividers -> {"Columns" -> {{None}}, "Rows" -> {{None}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]], 
+   "Text", ShowCellBracket -> False, CellMargins -> 0, GeneratedCell -> True, 
+   CellAutoOverwrite -> True, CellFrameMargins -> {{60, 0}, {4, 6}}, 
+   CellFrameColor -> RGBColor[0.9961, 0.3098, 0.21569], ShowStringCharacters -> 
+   False, Background -> RGBColor[0.9961, 0.3098, 0.21569]], 
+  Cell["", "Text", CellMargins -> 0, ShowCellBracket -> False, 
+   CellElementSpacings -> {"CellMinHeight" -> 5}, CellFrameMargins -> 3, 
+   FontSize -> 1, CellFrame -> 0, Background -> 
+   RGBColor[0.9686274509803922, 0.9137254901960784, 0.403921568627451]]},
+ShowAutoSpellCheck->False,
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (March 13, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Title"], ShowCellBracket -> False, ShowGroupOpener -> False, 
+    CellMargins -> {{65.14453125, 30}, {0., 30.}}, 
+    CellFrameMargins -> {{66, Inherited}, {Inherited, 20}}, FontFamily -> 
+    "Source Sans Pro Light", FontSize -> 50, FontColor -> 
+    RGBColor[0.1843137254901961, 0.6509803921568628, 0.6941176470588235]], 
+   Cell[
+    StyleData["Section"], CellFrame -> {{0, 0}, {0, 1}}, ShowCellBracket -> 
+    False, ShowGroupOpener -> False, 
+    CellMargins -> {{66, 30}, {Inherited, 35}}, Deployed -> True, 
+    CellFrameMargins -> {{0, Inherited}, {Inherited, 10}}, CellFrameColor -> 
+    GrayLevel[0.7137], FontFamily -> "Source Sans Pro", FontSize -> 17, 
+    FontWeight -> "DemiBold", FontColor -> Hue[0.51, 0.817, 0.72]], 
+   Cell[
+    StyleData["SectionNoLine", StyleDefinitions -> StyleData["Section"]], 
+    CellFrame -> {{0, 0}, {0, 0}}, CellMargins -> {{49, 30}, {4, 0}}], 
+   Cell[
+    StyleData["SectionOnlyLine", StyleDefinitions -> StyleData["Section"]], 
+    CellMargins -> {{66, 30}, {4, 35}}, 
+    CellElementSpacings -> {"CellMinHeight" -> 1}, CellFrameMargins -> 0, 
+    FontSize -> 0.1], 
+   Cell[
+    StyleData["Subsection", StyleDefinitions -> StyleData["Section"]], 
+    ShowCellBracket -> True, ShowGroupOpener -> True], 
+   Cell[
+    StyleData["Text"], ShowCellBracket -> True, 
+    CellMargins -> {{66, 30}, {Inherited, Inherited}}, FontFamily -> 
+    "Source Sans Pro", FontSize -> 16, FontWeight -> "Regular", FontSlant -> 
+    "Plain", PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, 
+    FontColor -> 
+    RGBColor[0.3254901960784314, 0.3254901960784314, 0.3254901960784314]], 
+   Cell[
+    StyleData["Item"], CellDingbat -> 
+    StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+      RGBColor[0.21176470588235294`, 0.6941176470588235, 0.7490196078431373]],
+     CellMargins -> {{81, 30}, {Inherited, Inherited}}, FontFamily -> 
+    "Source Sans Pro", FontSize -> 16, FontWeight -> "Regular", FontSlant -> 
+    "Plain", PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, 
+    FontColor -> 
+    RGBColor[0.3254901960784314, 0.3254901960784314, 0.3254901960784314]], 
+   Cell[
+    StyleData["Description"], ShowCellBracket -> False, 
+    CellMargins -> {{71, 30}, {0, 10}}, 
+    AutoStyleOptions -> {
+     "LocalVariableStyle" -> {FontColor -> RGBColor[0.263, 0.537, 0.345]}}, 
+    LineSpacing -> {1.2, 0}, FontFamily -> "Source Sans Pro", FontSize -> 20, 
+    FontSlant -> "Plain", 
+    PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, FontColor -> 
+    GrayLevel[0.3]], 
+   Cell[
+    StyleData["WCIntroDivider"], Editable -> False, Selectable -> False, 
+    Deletable -> False, ShowCellBracket -> False, 
+    CellMargins -> {{66, 30}, {-2, 35}}, ShowStringCharacters -> False], 
+   Cell[
+    StyleData["WCIntroDividerLine", StyleDefinitions -> StyleData["Text"]], 
+    Editable -> False, Selectable -> False, Deletable -> False, 
+    CellFrame -> {{0, 0}, {0, 8}}, ShowCellBracket -> False, 
+    CellMargins -> {{66, 30}, {15, 0}}, 
+    CellElementSpacings -> {"CellMinHeight" -> 1}, 
+    CellFrameMargins -> {{0, 0}, {-1, 0}}, CellFrameColor -> 
+    RGBColor[0.9961, 0.3098, 0.21569], FontSize -> 1], 
+   Cell[
+    StyleData["SubmitRow"], Editable -> False, Selectable -> False, Deletable -> 
+    False, CellFrame -> {{0, 0}, {0, 2}}, ShowCellBracket -> False, 
+    CellMargins -> {{66, 30}, {15, 30}}, 
+    CellGroupingRules -> {"SectionGrouping", -5}, 
+    CellFrameMargins -> {{Inherited, Inherited}, {20, 20}}, CellFrameColor -> 
+    RGBColor[0.996078431372549, 0.3058823529411765, 0.21568627450980393`]], 
+   Cell[
+    StyleData["StandardForm"], FontSize -> 16], 
+   Cell[
+    StyleData["CodeFont"], FontSize -> 
+    FEPrivate`If[False, 0.907029 Inherited, Inherited]], 
+   Cell[
+    StyleData["RefLink"], TemplateBoxOptions -> {DisplayFunction :> (TagBox[
+        ButtonBox[#, ButtonData -> #2, BaseStyle -> Dynamic[
+           If[
+            CurrentValue["MouseOver"], {
+            "Link", FontColor -> RGBColor[0.854902, 0.396078, 0.145098]}, {
+            "Link"}]]], 
+        MouseAppearanceTag["LinkHand"]]& )}, 
+    ButtonBoxOptions -> {BaseStyle -> "Link"}], 
+   Cell[
+    StyleData["InlineCode", StyleDefinitions -> StyleData["StandardForm"]]], 
+   Cell[
+    StyleData["SmallText", StyleDefinitions -> StyleData["Text"]], FontSize -> 
+    0.975 Inherited, FontColor -> GrayLevel[0.25]], 
+   Cell[
+    StyleData["Hyperlink"], FontColor -> 
+    RGBColor[0.21176470588235294`, 0.7058823529411765, 0.7490196078431373]], 
+   Cell[
+    StyleData["HyperlinkActive"], FontColor -> 
+    RGBColor[0.996078431372549, 0.3058823529411765, 0.21568627450980393`]], 
+   Cell[
+    StyleData["SubmitButton"], ShowCellBracket -> False, 
+    CellMargins -> {{66, Inherited}, {25, Inherited}}, ShowCellLabel -> False,
+     TextAlignment -> Center, ShowStringCharacters -> False], 
+   Cell[
+    StyleData["SigninText", StyleDefinitions -> StyleData["Text"]], 
+    ShowStringCharacters -> False, FontSize -> 12, FontColor -> 
+    GrayLevel[0.25]], 
+   Cell[
+    StyleData["ButtonLabel", StyleDefinitions -> StyleData["Text"]], 
+    TextAlignment -> Center, ShowStringCharacters -> False, FontFamily -> 
+    "Source Sans Pro", FontSize -> 18, FontWeight -> "DemiBold", FontColor -> 
+    GrayLevel[1]], 
+   Cell[
+    StyleData[
+    "ButtonLabelActive", StyleDefinitions -> StyleData["ButtonLabel"]], 
+    TextAlignment -> Center, ShowStringCharacters -> False, FontColor -> 
+    RGBColor[0.996078431372549, 0.3058823529411765, 0.21568627450980393`]]}, 
+  Visible -> False, FrontEndVersion -> 
+  "11.1 for Microsoft Windows (64-bit) (March 13, 2017)", StyleDefinitions -> 
+  "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 85, 0, 139, "Title", "ExpressionUUID" -> \
+"f7c3e7be-7228-47bc-86b3-4cc369da17ab"],
+Cell[668, 24, 691, 21, 99, "WCIntroDivider", "ExpressionUUID" -> \
+"75a9153a-5542-4e54-ac8b-017f6c0af934"],
+Cell[1362, 47, 85, 0, 38, "WCIntroDividerLine", "ExpressionUUID" -> \
+"7d4d7888-da23-413a-8434-ea021b1612a2"],
+Cell[1450, 49, 406, 6, 145, "Description", "ExpressionUUID" -> \
+"da59884b-3535-4356-8da1-e7ae68e71eb2"],
+Cell[CellGroupData[{
+Cell[1881, 59, 86, 0, 109, "Section", "ExpressionUUID" -> \
+"e13e566e-bb08-47bc-8c33-d9ab7d06b08c"],
+Cell[1970, 61, 123, 0, 43, "Text", "ExpressionUUID" -> \
+"a45ae1e2-e41d-4326-8ebf-31a99a870261"],
+Cell[2096, 63, 251, 5, 43, "Text", "ExpressionUUID" -> \
+"d2d14634-dbbd-4ca0-b931-769b6d615d05"],
+Cell[2350, 70, 238, 4, 79, "Text", "ExpressionUUID" -> \
+"7e878dc8-1e3c-4550-ae65-555699de9c8f"],
+Cell[2591, 76, 163, 3, 43, "Text", "ExpressionUUID" -> \
+"d675e69b-229f-45c7-b8e9-afedd118f7db"],
+Cell[2757, 81, 337, 6, 79, "Text", "ExpressionUUID" -> \
+"58091d5a-fcb0-4bee-bc50-10dc6e1797b5"],
+Cell[3097, 89, 171, 4, 43, "Text", "ExpressionUUID" -> \
+"9993944c-1075-4c1f-84c9-5a5265544544"],
+Cell[3271, 95, 263, 4, 79, "Text", "ExpressionUUID" -> \
+"bbc12e87-f43a-4e5e-bfd0-84c8d8fa4abd"],
+Cell[3537, 101, 483, 11, 114, "Text", "ExpressionUUID" -> \
+"65fab8ad-b9a3-4804-8aad-5a20fa1c90a2"],
+Cell[4023, 114, 366, 7, 120, "Output", "ExpressionUUID" -> \
+"bafce9bc-ffab-4e3e-98aa-21eef1b0c5ab"],
+Cell[4392, 123, 380, 8, 79, "Text", "ExpressionUUID" -> \
+"2fc88db2-276f-4273-8c81-fdcd7eb1a1fd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4809, 136, 102, 0, 109, "Section", "ExpressionUUID" -> \
+"69f45455-f6a3-465d-a752-2a4813964016"],
+Cell[4914, 138, 504, 11, 119, "Text", "ExpressionUUID" -> \
+"0e20babf-b7a1-4db0-9948-b635bdd86f51"],
+Cell[5421, 151, 143, 2, 43, "Text", "ExpressionUUID" -> \
+"b04ff5c4-1967-4bd3-9271-fd0678f12da6"],
+Cell[CellGroupData[{
+Cell[5589, 157, 316, 9, 51, "Input", "ExpressionUUID" -> \
+"cb5ee5c5-07e9-4494-ace3-f120c40ddb88",
+ Evaluatable->False],
+Cell[5908, 168, 138, 2, 51, "Output", "ExpressionUUID" -> \
+"0ff8d96d-e871-4e8f-8c38-c19d07f12ed7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6095, 176, 90, 0, 109, "Subsection", "ExpressionUUID" -> \
+"95900bcb-1245-46d6-9a03-bf14af03a5d9"],
+Cell[CellGroupData[{
+Cell[6210, 180, 294, 8, 51, "Input", "ExpressionUUID" -> \
+"b8fd7f8b-0cac-4a3b-9160-af6849af2c6c",
+ Evaluatable->False],
+Cell[6507, 190, 138, 2, 51, "Output", "ExpressionUUID" -> \
+"92797d86-c34f-4eb5-a76b-88e5f05169ac"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6682, 197, 311, 9, 51, "Input", "ExpressionUUID" -> \
+"201d14d6-6c33-4e0a-8f74-d16c63b3ffc5",
+ Evaluatable->False],
+Cell[6996, 208, 139, 2, 51, "Output", "ExpressionUUID" -> \
+"e9d6979a-a1ed-4a99-804b-d00c8c58caee"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7172, 215, 304, 8, 51, "Input", "ExpressionUUID" -> \
+"a70d2b2b-2cb7-42a2-8c21-82221af60512",
+ Evaluatable->False],
+Cell[7479, 225, 139, 2, 51, "Output", "ExpressionUUID" -> \
+"fd2f0804-8383-420e-a064-02c14e4e3e78"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7655, 232, 311, 9, 51, "Input", "ExpressionUUID" -> \
+"0e3abe06-953b-46ca-9c2a-c5795952a1fc",
+ Evaluatable->False],
+Cell[7969, 243, 138, 2, 51, "Output", "ExpressionUUID" -> \
+"f0bb9b73-2834-493d-beaf-cc60e483cd23"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8144, 250, 311, 9, 51, "Input", "ExpressionUUID" -> \
+"d4194b51-0505-43de-82de-9ff70dfd6296",
+ Evaluatable->False],
+Cell[8458, 261, 210, 4, 51, "Output", "ExpressionUUID" -> \
+"8389a937-1c31-409c-ab84-afae9a210540"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8705, 270, 312, 9, 51, "Input", "ExpressionUUID" -> \
+"c0dc59ba-f000-4bc0-80b9-0fb9bd986eac",
+ Evaluatable->False],
+Cell[9020, 281, 138, 2, 51, "Output", "ExpressionUUID" -> \
+"69dad511-3fca-47db-a8bf-b5512c9dac12"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9195, 288, 311, 9, 51, "Input", "ExpressionUUID" -> \
+"843e67d8-fc83-46b6-8018-c24b6b68381b",
+ Evaluatable->False],
+Cell[9509, 299, 138, 2, 51, "Output", "ExpressionUUID" -> \
+"8b7e1e42-90cb-4f13-bd54-6dfafe5c9852"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9684, 306, 311, 9, 51, "Input", "ExpressionUUID" -> \
+"15a38986-789b-40bc-8930-b25ad506c53d",
+ Evaluatable->False],
+Cell[9998, 317, 139, 2, 51, "Output", "ExpressionUUID" -> \
+"24dac3c7-5f41-40c9-beb2-ad977f82ba89"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10198, 326, 685, 22, 92, "WCIntroDivider", "ExpressionUUID" -> \
+"d6dcc31c-6a0c-4b7b-8ece-20bab9124296",
+ CellGroupingRules->{"SectionGrouping", 0}],
+Cell[10886, 350, 131, 2, 63, "WCIntroDividerLine", "ExpressionUUID" -> \
+"7cf025c3-5bb3-43eb-aaa1-d52392a1b6e6"],
+Cell[CellGroupData[{
+Cell[11042, 356, 238, 6, 51, "Input", "ExpressionUUID" -> \
+"27ef92b8-bcc9-4411-83e8-da72ec20fcad"],
+Cell[11283, 364, 135, 3, 51, "Output", "ExpressionUUID" -> \
+"8a6de194-7043-4df5-8367-0f88a0602915"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11455, 372, 287, 9, 51, "Input", "ExpressionUUID" -> \
+"7d31a0ad-fe63-4474-b216-7d5c996cfc45"],
+Cell[11745, 383, 136, 3, 51, "Output", "ExpressionUUID" -> \
+"ae213bcc-6bb0-466e-8ca9-89ae56f4b84c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11918, 391, 353, 9, 51, "Input", "ExpressionUUID" -> \
+"c79f23f6-3184-4be1-83cc-332a72a84c86"],
+Cell[12274, 402, 522, 13, 51, "Output", "ExpressionUUID" -> \
+"2221aa02-f506-439f-bcde-75294e4ea579"]
+}, Open  ]],
+Cell[12811, 418, 157, 3, 51, "Input", "ExpressionUUID" -> \
+"543431a6-8b68-47c4-9105-8c3274eea30a"],
+Cell[CellGroupData[{
+Cell[12993, 425, 258, 6, 51, "Input", "ExpressionUUID" -> \
+"7cc25786-68ba-45c2-8c34-51d0f3586f63"],
+Cell[13254, 433, 158, 3, 51, "Output", "ExpressionUUID" -> \
+"607f282e-5fd7-4a85-9d64-b87f95effc86"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13449, 441, 268, 7, 51, "Input", "ExpressionUUID" -> \
+"7b1f8415-818d-4fd4-98bc-e8be23a01776"],
+Cell[13720, 450, 132, 3, 51, "Output", "ExpressionUUID" -> \
+"0e49999b-8f41-4eed-8e21-ffec58726a4e"]
+}, Open  ]],
+Cell[13867, 456, 662, 20, 96, "WCIntroDivider", "ExpressionUUID" -> \
+"a9c764f6-8ff4-432c-976b-98d3a010230c"],
+Cell[14532, 478, 94, 0, 63, "WCIntroDividerLine", "ExpressionUUID" -> \
+"a028f095-bc32-41f9-baa7-e3bc76e18b3f"],
+Cell[14629, 480, 731, 20, 87, "Input", "ExpressionUUID" -> \
+"81a0b857-70de-472e-b53e-aa7684c7ba0e"]
+}, Open  ]],
+Cell[15375, 503, 7484, 167, 157, "SubmitRow", "ExpressionUUID" -> \
+"f0666b8f-65ab-46a0-866f-c1013ae76019"]
+}
+]
+*)
+
