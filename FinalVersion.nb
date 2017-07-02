@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    520099,      12581]
-NotebookOptionsPosition[    503298,      12165]
-NotebookOutlinePosition[    503869,      12187]
-CellTagsIndexPosition[    503779,      12182]
+NotebookDataLength[    514962,      12520]
+NotebookOptionsPosition[    497152,      12078]
+NotebookOutlinePosition[    497723,      12100]
+CellTagsIndexPosition[    497633,      12095]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2533,7 +2533,21 @@ Cell[BoxData[
      "\[IndentingNewLine]", 
      RowBox[{"If", "[", 
       RowBox[{
-       RowBox[{"messageAnalysis", "[", "str", "]"}], ",", 
+       RowBox[{
+        RowBox[{"messageAnalysis", "[", "str", "]"}], "&&", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"StringCount", "[", 
+            RowBox[{
+             RowBox[{"StringDelete", "[", 
+              RowBox[{
+               RowBox[{"ToString", "[", 
+                RowBox[{
+                 RowBox[{"ToExpression", "[", "str", "]"}], ",", 
+                 "InputForm"}], "]"}], ",", "WhitespaceCharacter"}], "]"}], 
+             ",", "\"\<Null\>\""}], "]"}], "\[Equal]", "0"}], "||", 
+          RowBox[{"Not", "[", "nulltest", "]"}]}], ")"}]}], ",", 
        RowBox[{"AppendTo", "[", 
         RowBox[{"result", ",", "\"\<All Correct!\>\""}], "]"}], ",", 
        "\[IndentingNewLine]", 
@@ -2581,10 +2595,8 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
-             "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}], 
+             "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", "\"\<Opening Bracket Missed\>\""}], 
@@ -2617,10 +2629,9 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}],
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
           RowBox[{"Not", "[", 
            RowBox[{
             RowBox[{"StringCount", "[", 
@@ -2668,10 +2679,8 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
-             "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}], 
+             "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", "\"\<Opening Braces Missed\>\""}], 
@@ -2705,10 +2714,9 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}],
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
           RowBox[{"Not", "[", 
            RowBox[{
             RowBox[{"StringCount", "[", 
@@ -2756,10 +2764,8 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
-             "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}], 
+             "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
              RowBox[{
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", "\"\<Opening Parenthes Missed\>\""}], 
@@ -2793,10 +2799,9 @@ Cell[BoxData[
               RowBox[{"AppendTo", "[", 
                RowBox[{"result", ",", 
                 RowBox[{"Flatten", "[", 
-                 RowBox[{"{", 
-                  RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-                 "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}],
-           "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                 RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]", ",", 
+          "\[IndentingNewLine]", 
           RowBox[{"Not", "[", 
            RowBox[{"EvenQ", "[", 
             RowBox[{"StringCount", "[", 
@@ -2835,10 +2840,8 @@ Cell[BoxData[
            RowBox[{"AppendTo", "[", 
             RowBox[{"result", ",", 
              RowBox[{"Flatten", "[", 
-              RowBox[{"{", 
-               RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-              "]"}]}], "]"}], ";"}], "\[IndentingNewLine]", ",", 
-          "\[IndentingNewLine]", 
+              RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}], 
+          "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
           RowBox[{
            RowBox[{
             RowBox[{"StringCount", "[", 
@@ -2909,12 +2912,12 @@ Cell[BoxData[
            RowBox[{"AppendTo", "[", 
             RowBox[{"result", ",", 
              RowBox[{"Flatten", "[", 
-              RowBox[{"{", 
-               RowBox[{"\"\<Possible solutions\>\"", ",", "s3"}], "}"}], 
-              "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"Column", "[", "result", "]"}]}]}], "\[IndentingNewLine]", 
-   "]"}]}]], "Input",
+              RowBox[{"{", "s3", "}"}], "]"}]}], "]"}], ";"}]}], 
+         "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"TableForm", "[", 
+      RowBox[{"Flatten", "[", "result", "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
  CellChangeTimes->{{3.7077806580362253`*^9, 3.7077806743488665`*^9}, {
    3.7077807498808203`*^9, 3.7077807552089396`*^9}, {3.7077809143034496`*^9, 
    3.7077809170378485`*^9}, {3.707781328988783*^9, 3.707781338941992*^9}, {
@@ -2950,8 +2953,11 @@ Cell[BoxData[
    3.7079549901660805`*^9}, {3.7080048673564625`*^9, 3.708004868819188*^9}, {
    3.708005561574954*^9, 3.7080056249187717`*^9}, {3.7080056559595957`*^9, 
    3.708005760025997*^9}, {3.708005790067194*^9, 3.7080057930317993`*^9}, {
-   3.7080058390866065`*^9, 
-   3.708005909330008*^9}},ExpressionUUID->"da34ff97-b2e4-4b02-9cbb-\
+   3.7080058390866065`*^9, 3.708005909330008*^9}, {3.7080093574746714`*^9, 
+   3.7080094438746295`*^9}, {3.708009507152281*^9, 3.7080095210660987`*^9}, {
+   3.708009616805657*^9, 3.70800961917733*^9}, {3.708010015616276*^9, 
+   3.708010015765381*^9}, 3.708010056702263*^9, {3.708010511227043*^9, 
+   3.708010549753228*^9}},ExpressionUUID->"da34ff97-b2e4-4b02-9cbb-\
 8d230979c7ec"]
 }, Open  ]],
 
@@ -3132,7 +3138,7 @@ Cell[BoxData[
    3.707954805648941*^9},ExpressionUUID->"774645d3-7ef5-437c-8958-\
 4c7095f9af1b"]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -3144,91 +3150,53 @@ Cell["Examples", "Chapter",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"syntaxCorrector", "[", 
-    RowBox[{"\"\<N[N[Nest[Nest[x^2,x,6,4,3]]]\>\"", ",", "#", ",", "20"}], 
-    "]"}], "&"}], "/@", 
-  RowBox[{"{", 
-   RowBox[{"True", ",", "False"}], "}"}]}]], "Input",
+ RowBox[{"syntaxCorrector", "[", 
+  RowBox[{"\"\<N[N[Nest[Nest[x^2,x,6,4,3]]]\>\"", ",", "True", ",", "20"}], 
+  "]"}]], "Input",
  CellChangeTimes->{{3.707781803492872*^9, 3.707781809508498*^9}, 
    3.707781882227925*^9, {3.707936434268714*^9, 3.7079364415824957`*^9}, {
    3.7079365071792974`*^9, 3.707936515030076*^9}, 3.707936589858062*^9, {
-   3.7079528548307*^9, 
-   3.7079528557213497`*^9}},ExpressionUUID->"6a5e75d5-f702-4e93-9684-\
+   3.7079528548307*^9, 3.7079528557213497`*^9}, {3.7080094302590218`*^9, 
+   3.708009433811529*^9}},ExpressionUUID->"6a5e75d5-f702-4e93-9684-\
 277baaefdc70"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "N[N[Nest[Nest[x^2,x,6",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",4,3]]]"
-            }],ExpressionUUID->"9f07aa55-6dbd-49df-8be7-58e761ffb21a"],
-            TextCell[
-             Row[{"N[N[Nest[Nest[x^2,x,6", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4,3]]]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "N[N[Nest[Nest[x^2,x,6",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",4,3]]]"
-            }],ExpressionUUID->"df1ba27b-4efa-4087-a0c2-ecc8c19bbbae"],
-            TextCell[
-             Row[{"N[N[Nest[Nest[x^2,x,6", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4,3]]]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Closing Bracket Missed\"\>"},
+     {"\<\"Possible solutions\"\>"},
+     {
+      InterpretationBox[Cell[TextData[{
+        "N[N[Nest[Nest[x^2,x,6",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        ",4,3]]]"
+       }],ExpressionUUID->"ee30f1cb-6ce4-411d-8f04-712324a127cc"],
+       TextCell[
+        Row[{"N[N[Nest[Nest[x^2,x,6", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4,3]]]"}]]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{
   3.7077818829622746`*^9, 3.7077834425605335`*^9, 3.7077837530921783`*^9, 
    3.707817638023223*^9, 3.707817720771422*^9, 3.7078184281257133`*^9, 
@@ -3238,400 +3206,401 @@ Cell[BoxData[
    3.7079386764708757`*^9, 3.7079423982325826`*^9, {3.7079528398774524`*^9, 
    3.7079528562057195`*^9}, 3.707953608468784*^9, 3.707954782039354*^9, {
    3.7079548739463573`*^9, 3.707954914696698*^9}, 3.707955008181835*^9, 
-   3.70800576576978*^9, 
-   3.708005796394956*^9},ExpressionUUID->"54f8c144-8112-49b2-b5fd-\
-663258d86d15"]
+   3.70800576576978*^9, 3.708005796394956*^9, {3.7080093384562426`*^9, 
+   3.708009447792407*^9}, 
+   3.7080096228769407`*^9},ExpressionUUID->"093207a7-4ebf-4069-b91b-\
+ea8fdbd25a6b"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{
+ RowBox[{"syntaxCorrector", "[", 
+  RowBox[{"\"\<N[N[Nest[Nest[x^2,x,6,4,3]]]\>\"", ",", "False", ",", "20"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.708009458432903*^9, 
+  3.7080094588782177`*^9}},ExpressionUUID->"754e2c2b-bbe6-402e-874d-\
+59432cb32f7c"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Closing Bracket Missed\"\>"},
+     {"\<\"Possible solutions\"\>"},
+     {
+      InterpretationBox[Cell[TextData[{
+        "N[N[Nest[Nest[x^2,x,6",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        ",4,3]]]"
+       }],ExpressionUUID->"24eb3e68-4425-4977-9abb-e9d7f7e34248"],
+       TextCell[
+        Row[{"N[N[Nest[Nest[x^2,x,6", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4,3]]]"}]]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.7080094593955812`*^9, 
+  3.708009625101511*^9},ExpressionUUID->"8cd9a290-16c5-4c30-a5c6-\
+38135d01b7b1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{"Flatten", "[", 
    RowBox[{"syntaxCorrector", "[", 
-    RowBox[{"\"\<Fold[f[][],x[[][],{1,2,3}]\>\"", ",", "#", ",", "20"}], 
-    "]"}], "&"}], "/@", 
-  RowBox[{"{", 
-   RowBox[{"True", ",", "False"}], "}"}]}]], "Input",
+    RowBox[{"\"\<Fold[f[][],x[[][],{1,2,3}]\>\"", ",", "True", ",", "20"}], 
+    "]"}], "]"}], "]"}]], "Input",
  CellChangeTimes->{
-  3.7079365778071957`*^9, {3.7079550209475856`*^9, 
-   3.70795502166634*^9}},ExpressionUUID->"fc9f5b2f-6bb1-4d08-bc77-\
+  3.7079365778071957`*^9, {3.7079550209475856`*^9, 3.70795502166634*^9}, {
+   3.708009481966522*^9, 3.7080094866028333`*^9}, {3.708009532430132*^9, 
+   3.708009604369933*^9}},ExpressionUUID->"fc9f5b2f-6bb1-4d08-bc77-\
 2e15fe51a458"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
+ TagBox[
+  TagBox[
    TagBox[GridBox[{
       {"\<\"Closing Bracket Missed\"\>"},
+      {"\<\"Possible solutions\"\>"},
       {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[][],{1,2,3}]"
-            }],ExpressionUUID->"e6201a64-a49e-4e6c-b25d-b8598fdae00a"],
-            TextCell[
-             Row[{"Fold[f[][],x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[][],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "][],{1,2,3}]"
-            }],ExpressionUUID->"9caed9f3-9613-4f52-810a-a015c8662cd2"],
-            TextCell[
-             Row[{"Fold[f[][],x[[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "][],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"90b98bad-10d1-4a5e-952f-e23dd9fed1bc"],
-            TextCell[
-             Row[{"Fold[f[][],x[[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
+       InterpretationBox[Cell[TextData[{
+         "Fold[f[][],x[",
+         StyleBox["]",
+          StripOnInput->False,
+          LineColor->RGBColor[1, 0, 0],
+          FrontFaceColor->RGBColor[1, 0, 0],
+          BackFaceColor->RGBColor[1, 0, 0],
+          GraphicsColor->RGBColor[1, 0, 0],
+          FontSize->20,
+          FontWeight->Bold,
+          FontColor->RGBColor[1, 0, 0]],
+         "[][],{1,2,3}]"
+        }],ExpressionUUID->"9df42c43-2760-4987-bf84-0a2dde2e42c2"],
+        TextCell[
+         Row[{"Fold[f[][],x[", 
+           Style["]", 
+            RGBColor[1, 0, 0], FontSize -> 20, Bold], "[][],{1,2,3}]"}]]]},
       {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[][],{1,2,3}]"
-            }],ExpressionUUID->"b25b41f1-2e13-4edc-bd19-6c856b504ec9"],
-            TextCell[
-             Row[{"Fold[f[][],x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[][],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "][],{1,2,3}]"
-            }],ExpressionUUID->"c10412e8-bc3b-498e-be43-71d50857b460"],
-            TextCell[
-             Row[{"Fold[f[][],x[[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "][],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][],x[[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"f246e6f4-e1b5-4096-ad45-dd7dd4096f03"],
-            TextCell[
-             Row[{"Fold[f[][],x[[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
+       InterpretationBox[Cell[TextData[{
+         "Fold[f[][],x[[",
+         StyleBox["]",
+          StripOnInput->False,
+          LineColor->RGBColor[1, 0, 0],
+          FrontFaceColor->RGBColor[1, 0, 0],
+          BackFaceColor->RGBColor[1, 0, 0],
+          GraphicsColor->RGBColor[1, 0, 0],
+          FontSize->20,
+          FontWeight->Bold,
+          FontColor->RGBColor[1, 0, 0]],
+         "][],{1,2,3}]"
+        }],ExpressionUUID->"56f23442-92e3-4e35-883f-d862f2e3c78f"],
+        TextCell[
+         Row[{"Fold[f[][],x[[", 
+           Style["]", 
+            RGBColor[1, 0, 0], FontSize -> 20, Bold], "][],{1,2,3}]"}]]]},
+      {
+       InterpretationBox[Cell[TextData[{
+         "Fold[f[][],x[[]",
+         StyleBox["]",
+          StripOnInput->False,
+          LineColor->RGBColor[1, 0, 0],
+          FrontFaceColor->RGBColor[1, 0, 0],
+          BackFaceColor->RGBColor[1, 0, 0],
+          GraphicsColor->RGBColor[1, 0, 0],
+          FontSize->20,
+          FontWeight->Bold,
+          FontColor->RGBColor[1, 0, 0]],
+         "[],{1,2,3}]"
+        }],ExpressionUUID->"6eccbe43-1047-4513-bbfd-6a7b2a526237"],
+        TextCell[
+         Row[{"Fold[f[][],x[[]", 
+           Style["]", 
+            RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]}
      },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+     GridBoxAlignment->{
+      "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+       "RowsIndexed" -> {}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}, "RowsIndexed" -> {}}],
+    Column],
+   Function[BoxForm`e$, 
+    TableForm[BoxForm`e$]]],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{
   3.7077818901143637`*^9, 3.707783445370401*^9, 3.7077837549730062`*^9, 
    3.707817639857545*^9, 3.707817722793953*^9, 3.7078184299820533`*^9, 
    3.7078201145174694`*^9, 3.7078202334919367`*^9, 3.7078203338671846`*^9, 
    3.7078327488805714`*^9, 3.707910274591445*^9, 3.707936578557962*^9, 
    3.707938594008746*^9, 3.7079386790668163`*^9, 3.7079549171654806`*^9, {
-   3.707955014760031*^9, 3.7079550221663427`*^9}, 
-   3.70800580297155*^9},ExpressionUUID->"457c7136-3043-48e4-bf4a-\
-bd5303518730"]
+   3.707955014760031*^9, 3.7079550221663427`*^9}, 3.70800580297155*^9, {
+   3.708009500614668*^9, 3.7080095383973284`*^9}, {3.708009583449123*^9, 
+   3.7080096270078726`*^9}},ExpressionUUID->"682867d8-8a7a-4ccf-9a38-\
+4a23fac3132f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"syntaxCorrector", "[", 
-    RowBox[{"\"\<Fold[f[][,x[],{1,2,3}]\>\"", ",", "#", ",", "20"}], "]"}], 
-   "&"}], "/@", 
-  RowBox[{"{", 
-   RowBox[{"True", ",", "False"}], "}"}]}]], "Input",
+ RowBox[{"syntaxCorrector", "[", 
+  RowBox[{"\"\<Fold[f[][,x[],{1,2,3}]\>\"", ",", "True", ",", "20"}], 
+  "]"}]], "Input",
  CellChangeTimes->{
-  3.7079365716303687`*^9, {3.7079550279788723`*^9, 3.707955028353894*^9}},
+  3.7079365716303687`*^9, {3.7079550279788723`*^9, 3.707955028353894*^9}, {
+   3.708009640390299*^9, 3.7080096446022844`*^9}},
  EmphasizeSyntaxErrors->
   True,ExpressionUUID->"29a4a3a0-f6cb-4136-a0e7-3e2efa01c51a"],
 
 Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x[],{1,2,3}]"
-            }],ExpressionUUID->"1a972957-9369-4c44-a906-da80953b1417"],
-            TextCell[
-             Row[{"Fold[f[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x[],{1,2,3}]"
-            }],ExpressionUUID->"83749e7b-355f-463e-98cb-44c35f395378"],
-            TextCell[
-             Row[{"Fold[f[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "x[],{1,2,3}]"
-            }],ExpressionUUID->"13cc7567-54f0-43d4-b3b0-0fffce3d57a4"],
-            TextCell[
-             Row[{"Fold[f[][,", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "x[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"9a3dde20-2da9-407d-ae6e-cbb2c42bae7d"],
-            TextCell[
-             Row[{"Fold[f[][,x", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "],{1,2,3}]"
-            }],ExpressionUUID->"14dfe6f9-ebc7-4ac0-b8c7-14ca01bb19a7"],
-            TextCell[
-             Row[{"Fold[f[][,x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"819cd1bd-21d2-4488-b9e5-3b98c732c84c"],
-            TextCell[
-             Row[{"Fold[f[][,x[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "{1,2,3}]"
-            }],ExpressionUUID->"7d5d7f0f-4053-4c47-bf0d-183ac337fa91"],
-            TextCell[
-             Row[{"Fold[f[][,x[],", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],{1,2,3}",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "]"
-            }],ExpressionUUID->"a3696d02-1df1-4add-802f-19d08d211cf4"],
-            TextCell[
-             Row[{"Fold[f[][,x[],{1,2,3}", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],{1,2,3}]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]]
-            }],ExpressionUUID->"8ae260a6-07da-475f-b286-2c37175dce8c"],
-            TextCell[
-             Row[{"Fold[f[][,x[],{1,2,3}]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Closing Bracket Missed\"\>"},
+     {"\<\"Possible solutions\"\>"},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        ",x[],{1,2,3}]"
+       }],ExpressionUUID->"4252e160-a87a-480d-af71-e68025dce22f"],
+       TextCell[
+        Row[{"Fold[f[][", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
  CellChangeTimes->{
   3.7077818983877516`*^9, {3.7077832818452196`*^9, 3.707783288405796*^9}, 
    3.707783758071258*^9, 3.7078176438103743`*^9, 3.7078177246289988`*^9, 
    3.707818431651724*^9, 3.707820116521874*^9, 3.70782023583261*^9, 
    3.7078203360517263`*^9, {3.707824853233267*^9, 3.707824857189643*^9}, 
    3.707834951156082*^9, 3.7079102780334187`*^9, 3.707936572587671*^9, 
-   3.707938682587779*^9, 
-   3.7079550289007554`*^9},ExpressionUUID->"a79c6471-452e-495c-805b-\
-5d7898c193c7"]
+   3.707938682587779*^9, 3.7079550289007554`*^9, {3.7080096300640125`*^9, 
+   3.708009645073604*^9}},ExpressionUUID->"27b04c09-9a55-402c-8fa4-\
+318267518834"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"syntaxCorrector", "[", 
+  RowBox[{"\"\<Fold[f[][,x[],{1,2,3}]\>\"", ",", "False", ",", "20"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.708009657857626*^9, 3.708009658736246*^9}},
+ EmphasizeSyntaxErrors->
+  True,ExpressionUUID->"9145d95b-b1ec-4ed0-8ea4-5979df37265d"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {"\<\"Closing Bracket Missed\"\>"},
+     {"\<\"Possible solutions\"\>"},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        ",x[],{1,2,3}]"
+       }],ExpressionUUID->"783c9a2a-581d-410e-b6ee-34f8dfb34325"],
+       TextCell[
+        Row[{"Fold[f[][", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        "x[],{1,2,3}]"
+       }],ExpressionUUID->"7eeade01-afcb-4ca8-a988-af4fa3d5c21b"],
+       TextCell[
+        Row[{"Fold[f[][,", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], "x[],{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        "[],{1,2,3}]"
+       }],ExpressionUUID->"d80e5ceb-a5a6-48d1-b4df-7cd401ed26cd"],
+       TextCell[
+        Row[{"Fold[f[][,x", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x[",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        "],{1,2,3}]"
+       }],ExpressionUUID->"0e545a90-397e-4608-be20-84c0bf66f521"],
+       TextCell[
+        Row[{"Fold[f[][,x[", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x[]",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        ",{1,2,3}]"
+       }],ExpressionUUID->"6a9ce0d7-e910-40c6-9e60-6c2d4f0640cc"],
+       TextCell[
+        Row[{"Fold[f[][,x[]", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x[],",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        "{1,2,3}]"
+       }],ExpressionUUID->"6d7bf7ff-4609-47d2-bfe5-79a3b4e18d9c"],
+       TextCell[
+        Row[{"Fold[f[][,x[],", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x[],{1,2,3}",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]],
+        "]"
+       }],ExpressionUUID->"590051f4-6f26-4cb5-8dae-2695a0aca83d"],
+       TextCell[
+        Row[{"Fold[f[][,x[],{1,2,3}", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
+     {
+      InterpretationBox[Cell[TextData[{
+        "Fold[f[][,x[],{1,2,3}]",
+        StyleBox["]",
+         StripOnInput->False,
+         LineColor->RGBColor[1, 0, 0],
+         FrontFaceColor->RGBColor[1, 0, 0],
+         BackFaceColor->RGBColor[1, 0, 0],
+         GraphicsColor->RGBColor[1, 0, 0],
+         FontSize->20,
+         FontWeight->Bold,
+         FontColor->RGBColor[1, 0, 0]]
+       }],ExpressionUUID->"6f0bbf8c-f6a1-485f-9733-588aa19bee3b"],
+       TextCell[
+        Row[{"Fold[f[][,x[],{1,2,3}]", 
+          Style["]", 
+           RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.5599999999999999]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   Column],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.7080096590524807`*^9},ExpressionUUID->"a4275b90-6b39-4ecc-8234-\
+071d6fc5a86c"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3652,206 +3621,211 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x[],{1,2,3}]"
-            }],ExpressionUUID->"3134e97e-725c-4983-93ce-78fc08536a25"],
-            TextCell[
-             Row[{"Fold[f[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x[],{1,2,3}]"
-            }],ExpressionUUID->"73414f9d-7a2c-4dde-8198-45f0723268d6"],
-            TextCell[
-             Row[{"Fold[f[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "x[],{1,2,3}]"
-            }],ExpressionUUID->"4cf2bac3-cd89-49fe-a3b6-3e15c6e5bdf4"],
-            TextCell[
-             Row[{"Fold[f[][,", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "x[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"f3b70350-6ef6-4235-ac45-465f03d44cb9"],
-            TextCell[
-             Row[{"Fold[f[][,x", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "],{1,2,3}]"
-            }],ExpressionUUID->"533cd7ac-eb09-40e7-a184-0dfb02b56681"],
-            TextCell[
-             Row[{"Fold[f[][,x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"d70399ca-61e0-4ea2-b5fa-27048a050820"],
-            TextCell[
-             Row[{"Fold[f[][,x[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "{1,2,3}]"
-            }],ExpressionUUID->"d9865b6a-5bc6-41ba-93dd-9d6b34b578f8"],
-            TextCell[
-             Row[{"Fold[f[][,x[],", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],{1,2,3}",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "]"
-            }],ExpressionUUID->"d07cc3cd-9816-4b4f-a0c3-6c031aa3d2de"],
-            TextCell[
-             Row[{"Fold[f[][,x[],{1,2,3}", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][,x[],{1,2,3}]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]]
-            }],ExpressionUUID->"318b5945-97d4-47f9-8c9b-7f579290ed29"],
-            TextCell[
-             Row[{"Fold[f[][,x[],{1,2,3}]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",x[],{1,2,3}]"
+         }],ExpressionUUID->"69d9a07f-d2a8-468e-afb5-aa613fe38c8c"],
+         TextCell[
+          Row[{"Fold[f[][", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]], ",", 
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",x[],{1,2,3}]"
+         }],ExpressionUUID->"65c58042-dc64-4d94-85d0-45c3e1097926"],
+         TextCell[
+          Row[{"Fold[f[][", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x[],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "x[],{1,2,3}]"
+         }],ExpressionUUID->"1598153b-59cb-48d3-bbf8-cb164150b9b9"],
+         TextCell[
+          Row[{"Fold[f[][,", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "x[],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "[],{1,2,3}]"
+         }],ExpressionUUID->"36528937-87ae-4009-a340-130a45f6630d"],
+         TextCell[
+          Row[{"Fold[f[][,x", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x[",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "],{1,2,3}]"
+         }],ExpressionUUID->"989289e2-3a01-47cd-9945-1ece3e704bdb"],
+         TextCell[
+          Row[{"Fold[f[][,x[", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x[]",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",{1,2,3}]"
+         }],ExpressionUUID->"84284a00-b447-41e1-8086-1fee1d3428bb"],
+         TextCell[
+          Row[{"Fold[f[][,x[]", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x[],",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "{1,2,3}]"
+         }],ExpressionUUID->"f8a18b3b-9eb1-49d1-8b55-e6a61a423759"],
+         TextCell[
+          Row[{"Fold[f[][,x[],", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x[],{1,2,3}",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "]"
+         }],ExpressionUUID->"406fed4a-9e98-4d5a-9748-7414c6f11bcb"],
+         TextCell[
+          Row[{"Fold[f[][,x[],{1,2,3}", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][,x[],{1,2,3}]",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]]
+         }],ExpressionUUID->"0a1ac493-4a52-4483-9138-8ee8bd039fd5"],
+         TextCell[
+          Row[{"Fold[f[][,x[],{1,2,3}]", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]]}], "}"}]], "Output",
  CellChangeTimes->{
   3.7077822488177867`*^9, 3.7077832903904037`*^9, 3.7077837603969398`*^9, 
    3.707817646102131*^9, 3.707817727129226*^9, 3.707818439783225*^9, 
    3.7078201193498893`*^9, 3.707820341352482*^9, 3.707910305586026*^9, {
    3.707936522721079*^9, 3.7079365616124754`*^9}, 3.7079387065685854`*^9, 
-   3.7079550359789405`*^9},ExpressionUUID->"cef1ff43-514c-42a0-9b17-\
-d004b339a2f7"]
+   3.7079550359789405`*^9, 
+   3.7080099553727493`*^9},ExpressionUUID->"173b2550-6b8f-44f0-901a-\
+a9cda9c81bbf"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -3872,153 +3846,157 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"28298633-2163-46fc-8521-d665853b5ba2"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "],{1,2,3}]"
-            }],ExpressionUUID->"246045c2-621d-4178-b9d5-a400af8f391f"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"08b1ad3c-99ea-4bfa-b8d6-64969d113614"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[],{1,2,3}]"
-            }],ExpressionUUID->"6b8c523a-7f06-4078-ba2a-56ecd249995c"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "],{1,2,3}]"
-            }],ExpressionUUID->"42172ab1-e967-4a57-8ce6-36392f498103"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f[][][],x[][[]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"ac1f5aff-c357-4a5a-b8ad-0bb77539a8bd"],
-            TextCell[
-             Row[{"Fold[f[][][],x[][[]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "[],{1,2,3}]"
+         }],ExpressionUUID->"6fc537a6-d003-4cad-8cec-5396f44b9643"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][[",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "],{1,2,3}]"
+         }],ExpressionUUID->"33dac4bd-9b64-4bb9-8d8b-3539ed39e400"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][[", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][[]",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",{1,2,3}]"
+         }],ExpressionUUID->"e4f9e44a-b798-4c63-afba-bae2743117ad"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][[]", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]], ",", 
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "[],{1,2,3}]"
+         }],ExpressionUUID->"d4d3edc6-e5cb-4f61-84e8-c3aa3b797ae0"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "[],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][[",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "],{1,2,3}]"
+         }],ExpressionUUID->"f931a4a7-947d-4386-9841-809f0743921e"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][[", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "],{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f[][][],x[][[]",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",{1,2,3}]"
+         }],ExpressionUUID->"efcab5d2-edb4-4d1a-9c6b-9bd2dfd6853e"],
+         TextCell[
+          Row[{"Fold[f[][][],x[][[]", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]]}], "}"}]], "Output",
  CellChangeTimes->{3.7077822982019963`*^9, 3.7077832933393106`*^9, 
   3.707783765634364*^9, 3.7078176526671658`*^9, 3.7078177294380836`*^9, 
   3.7078184416478252`*^9, 3.7078201220051413`*^9, 3.707820345352293*^9, 
   3.707834981531517*^9, 3.7079103093877163`*^9, 3.7079365961209993`*^9, 
-  3.70793871265832*^9, 
-  3.7079550399477224`*^9},ExpressionUUID->"926bd4a0-d9b5-45b8-958e-\
-3fe2921ca01f"]
+  3.70793871265832*^9, 3.7079550399477224`*^9, 
+  3.708009959963989*^9},ExpressionUUID->"ddc47b59-c385-42e2-97e7-\
+e2195fd513b9"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4039,136 +4017,140 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f,x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"a56667b8-7209-49f2-ac1f-4e2b6dbf1d77"],
-            TextCell[
-             Row[{"Fold[f,x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f,x[",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",{1,2,3}]"
-            }],ExpressionUUID->"1ce0d0b7-e26c-4b34-91c4-8b4052bab7bd"],
-            TextCell[
-             Row[{"Fold[f,x[", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f,x[,",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "{1,2,3}]"
-            }],ExpressionUUID->"627ee61d-4d28-4d73-972d-bd66b6e4c3c1"],
-            TextCell[
-             Row[{"Fold[f,x[,", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f,x[,{1,2,3}",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "]"
-            }],ExpressionUUID->"c32a89c1-b618-4ff8-af08-6635ff6acdd4"],
-            TextCell[
-             Row[{"Fold[f,x[,{1,2,3}", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Fold[f,x[,{1,2,3}]",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]]
-            }],ExpressionUUID->"f94f07e2-5a24-44d9-a34e-8b648cc149c0"],
-            TextCell[
-             Row[{"Fold[f,x[,{1,2,3}]", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f,x[",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",{1,2,3}]"
+         }],ExpressionUUID->"09c4a67e-40cb-41c0-93af-36cbedd8307a"],
+         TextCell[
+          Row[{"Fold[f,x[", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]], ",", 
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f,x[",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",{1,2,3}]"
+         }],ExpressionUUID->"a64c3c05-e1d4-41b7-9223-ff4fe201e566"],
+         TextCell[
+          Row[{"Fold[f,x[", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f,x[,",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "{1,2,3}]"
+         }],ExpressionUUID->"016c381e-c45c-41fd-96ba-2f6f01c27503"],
+         TextCell[
+          Row[{"Fold[f,x[,", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "{1,2,3}]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f,x[,{1,2,3}",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "]"
+         }],ExpressionUUID->"a8c251af-0a9c-4f71-9e15-b38582d3d9b0"],
+         TextCell[
+          Row[{"Fold[f,x[,{1,2,3}", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Fold[f,x[,{1,2,3}]",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]]
+         }],ExpressionUUID->"b8158a66-7ea7-4370-bc49-3162317dabc3"],
+         TextCell[
+          Row[{"Fold[f,x[,{1,2,3}]", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]]}], "}"}]], "Output",
  CellChangeTimes->{
   3.707782314563439*^9, 3.707783772196677*^9, {3.707817660177515*^9, 
    3.707817672086181*^9}, 3.7078177341435127`*^9, 3.7078184776025095`*^9, 
    3.7078193605136967`*^9, 3.7078195827873073`*^9, 3.7078201352378874`*^9, 
    3.7078203523122177`*^9, 3.707834990385765*^9, {3.7078350544891143`*^9, 
    3.7078350572300406`*^9}, 3.7079103124275017`*^9, 3.7079366002506638`*^9, 
-   3.707938715335812*^9, 
-   3.7079550452133884`*^9},ExpressionUUID->"a8d46c1d-af14-47eb-8893-\
-663f55f01b11"]
+   3.707938715335812*^9, 3.7079550452133884`*^9, 
+   3.7080099635755367`*^9},ExpressionUUID->"ca2bc7d1-9f74-437a-b4bc-\
+da8c955b3260"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4190,129 +4172,133 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "/2,x,4]]]]"
-            }],ExpressionUUID->"b7560c8b-fb75-4cfd-ac52-f5be74ac480f"],
-            TextCell[
-             Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "/2,x,4]]]]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x,4]]]]"
-            }],ExpressionUUID->"a3fc1c7f-a9d2-4c75-b5d0-7617a52e0e34"],
-            TextCell[
-             Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x,4]]]]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Closing Bracket Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Function[x,Evaluate[Together[Nest[Function[z,",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "(z+a/z)/2,x,4]]]]"
-            }],ExpressionUUID->"ea61ccca-1585-4bf9-9c36-f357a8c8970a"],
-            TextCell[
-             Row[{"Function[x,Evaluate[Together[Nest[Function[z,", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], 
-               "(z+a/z)/2,x,4]]]]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "/2,x,4]]]]"
-            }],ExpressionUUID->"e28cb226-177b-434b-beed-1099d52700a3"],
-            TextCell[
-             Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "/2,x,4]]]]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2",
-             StyleBox["]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",x,4]]]]"
-            }],ExpressionUUID->"3c8f4b4b-2ed3-40e7-b6bc-adc747c12186"],
-            TextCell[
-             Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2", 
-               Style["]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x,4]]]]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "/2,x,4]]]]"
+         }],ExpressionUUID->"e361a547-7733-454a-b4dd-63943c9f34de"],
+         TextCell[
+          Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "/2,x,4]]]]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",x,4]]]]"
+         }],ExpressionUUID->"6d68c82d-e532-44a8-baec-0077da419c70"],
+         TextCell[
+          Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x,4]]]]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]], ",", 
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Closing Bracket Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Function[x,Evaluate[Together[Nest[Function[z,",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "(z+a/z)/2,x,4]]]]"
+         }],ExpressionUUID->"c596f6fe-e401-4cc3-880c-f2652f9f6bd7"],
+         TextCell[
+          Row[{"Function[x,Evaluate[Together[Nest[Function[z,", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], 
+            "(z+a/z)/2,x,4]]]]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          "/2,x,4]]]]"
+         }],ExpressionUUID->"72ae9832-9c41-4db4-8224-1f507cd33050"],
+         TextCell[
+          Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], "/2,x,4]]]]"}]]]},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2",
+          StyleBox["]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",x,4]]]]"
+         }],ExpressionUUID->"264630a9-0926-488c-a1d5-21c924d76df5"],
+         TextCell[
+          Row[{"Function[x,Evaluate[Together[Nest[Function[z,(z+a/z)/2", 
+            Style["]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",x,4]]]]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]]}], "}"}]], "Output",
  CellChangeTimes->{
   3.707782439730847*^9, 3.70778308259172*^9, 3.707783774634905*^9, {
    3.707816236199047*^9, 3.7078162515219374`*^9}, 3.7078176806627955`*^9, 
@@ -4320,9 +4306,9 @@ Cell[BoxData[
    3.7078203590319643`*^9, 3.707820369247636*^9}, {3.7078248804287615`*^9, 
    3.707824908175397*^9}, 3.707826092936386*^9, 3.7078261705141487`*^9, 
    3.7078350634078865`*^9, 3.7079104411834507`*^9, 3.7079366078999996`*^9, 
-   3.7079387178691425`*^9, 
-   3.7079550502759457`*^9},ExpressionUUID->"4d302c45-c372-4b16-a5e8-\
-4a13df6c086d"]
+   3.7079387178691425`*^9, 3.7079550502759457`*^9, 
+   3.7080099664655857`*^9},ExpressionUUID->"4e936e16-010b-4c42-8579-\
+712c4c39b8e8"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4343,222 +4329,66 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   TagBox[GridBox[{
-      {"\<\"Letter or Number Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest[f,",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",4]"
-            }],ExpressionUUID->"d7eff5be-02e3-4aea-9a1d-5cd8b8d8469c"],
-            TextCell[
-             Row[{"Nest[f,", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4]"}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"], ",", 
-   TagBox[GridBox[{
-      {"\<\"Letter or Number Missed\"\>"},
-      {
-       TagBox[GridBox[{
-          {"\<\"Possible solutions\"\>"},
-          {
-           InterpretationBox[Cell[TextData[{
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "Nest[f,,4]"
-            }],ExpressionUUID->"f8049941-6732-45a0-af9a-e89ed5d12c7d"],
-            TextCell[
-             Row[{"", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "Nest[f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "N",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "est[f,,4]"
-            }],ExpressionUUID->"42213cf5-ace4-4998-89ed-59b70d1bd7c9"],
-            TextCell[
-             Row[{"N", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "est[f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Ne",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "st[f,,4]"
-            }],ExpressionUUID->"1a8b1d5a-4a3f-45d5-8cfb-9e1fd2c262ae"],
-            TextCell[
-             Row[{"Ne", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "st[f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nes",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "t[f,,4]"
-            }],ExpressionUUID->"4ea85943-e286-432a-aced-3028d1acd65c"],
-            TextCell[
-             Row[{"Nes", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "t[f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "[f,,4]"
-            }],ExpressionUUID->"ccd25db7-b272-4e0f-aeec-f18aacfc9463"],
-            TextCell[
-             Row[{"Nest", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "[f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest[",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             "f,,4]"
-            }],ExpressionUUID->"ede89d4e-db0b-4482-95cb-db53737c3a3c"],
-            TextCell[
-             Row[{"Nest[", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], "f,,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest[f",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",,4]"
-            }],ExpressionUUID->"390f1fde-cf3b-4f2e-aeb7-912bec4d9630"],
-            TextCell[
-             Row[{"Nest[f", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",,4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest[f,",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]],
-             ",4]"
-            }],ExpressionUUID->"7c99d92e-589f-4cf9-bcbc-d11ccf307672"],
-            TextCell[
-             Row[{"Nest[f,", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4]"}]]]},
-          {
-           InterpretationBox[Cell[TextData[{
-             "Nest[f,,4]",
-             StyleBox["\[Placeholder]",
-              StripOnInput->False,
-              LineColor->RGBColor[1, 0, 0],
-              FrontFaceColor->RGBColor[1, 0, 0],
-              BackFaceColor->RGBColor[1, 0, 0],
-              GraphicsColor->RGBColor[1, 0, 0],
-              FontSize->20,
-              FontWeight->Bold,
-              FontColor->RGBColor[1, 0, 0]]
-            }],ExpressionUUID->"5d875654-df96-4992-a1b9-718dd926a879"],
-            TextCell[
-             Row[{"Nest[f,,4]", 
-               Style["\[Placeholder]", 
-                RGBColor[1, 0, 0], FontSize -> 20, Bold], ""}]]]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]}], "}"}]], "Output",
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"Letter or Number Missed\"\>"},
+       {"\<\"Possible solutions\"\>"},
+       {
+        InterpretationBox[Cell[TextData[{
+          "Nest[f,",
+          StyleBox["\[Placeholder]",
+           StripOnInput->False,
+           LineColor->RGBColor[1, 0, 0],
+           FrontFaceColor->RGBColor[1, 0, 0],
+           BackFaceColor->RGBColor[1, 0, 0],
+           GraphicsColor->RGBColor[1, 0, 0],
+           FontSize->20,
+           FontWeight->Bold,
+           FontColor->RGBColor[1, 0, 0]],
+          ",4]"
+         }],ExpressionUUID->"e86d4fd9-edb4-44e1-b253-cc11ad18c59d"],
+         TextCell[
+          Row[{"Nest[f,", 
+            Style["\[Placeholder]", 
+             RGBColor[1, 0, 0], FontSize -> 20, Bold], ",4]"}]]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]], ",", 
+   TagBox[
+    TagBox[GridBox[{
+       {"\<\"All Correct!\"\>"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+        "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.5599999999999999]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}],
+     Column],
+    Function[BoxForm`e$, 
+     TableForm[BoxForm`e$]]]}], "}"}]], "Output",
  CellChangeTimes->{{3.707911822722885*^9, 3.707911842195349*^9}, 
    3.7079359976452007`*^9, 3.7079360531467366`*^9, 3.707936620127695*^9, 
    3.707938721099291*^9, 3.7079393669725056`*^9, 3.707952872805026*^9, 
-   3.7079536220139914`*^9, 3.707954787742528*^9, 
-   3.7079550557291174`*^9},ExpressionUUID->"530b0229-7ee0-4082-b29f-\
-4281214c1e2d"]
+   3.7079536220139914`*^9, 3.707954787742528*^9, 3.7079550557291174`*^9, 
+   3.708009969619804*^9, 
+   3.708010071684836*^9},ExpressionUUID->"d7b9988e-0397-4953-9923-\
+ffdf17f0f0f4"]
 }, Open  ]],
 
 Cell[BoxData[
@@ -12066,6 +11896,74 @@ Cell[BoxData[
  CellChangeTimes->{
   3.70800525564198*^9},ExpressionUUID->"67e33107-d3d0-4cd2-a618-248ef39a3d42"]
 }, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Panel Version", "Chapter",
+ CellChangeTimes->{{3.708010668833866*^9, 
+  3.7080106760489473`*^9}},ExpressionUUID->"87f10dbd-59ad-4741-8224-\
+a18dedd1d3c0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Panel", "[", "\[IndentingNewLine]", 
+  RowBox[{"Style", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Column", "[", "\[IndentingNewLine]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"InputField", "[", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", "x", "]"}], ",", "String", ",", 
+         RowBox[{"ContinuousAction", "\[Rule]", "True"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"InputField", "[", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", "y", "]"}], ",", 
+         RowBox[{"ContinuousAction", "\[Rule]", "True"}]}], "]"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Style", "[", 
+        RowBox[{"Dynamic", "[", 
+         RowBox[{"Quiet", "[", 
+          RowBox[{"syntaxCorrector", "[", 
+           RowBox[{"x", ",", "True", ",", "y"}], "]"}], "]"}], "]"}], "]"}]}],
+       "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", "]"}], ",", 
+    RowBox[{"Background", "\[Rule]", "White"}]}], "\[IndentingNewLine]", 
+   "]"}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.7080136103409214`*^9, 
+  3.7080136533372607`*^9}},ExpressionUUID->"e1ad91f0-3afe-43db-8b47-\
+682f3ff8c374"],
+
+Cell[BoxData[
+ PanelBox[
+  StyleBox[
+   TagBox[GridBox[{
+      {
+       InputFieldBox[Dynamic[$CellContext`x], String,
+        ContinuousAction->True]},
+      {
+       InputFieldBox[Dynamic[$CellContext`y],
+        ContinuousAction->True]},
+      {
+       DynamicBox[ToBoxes[
+         Quiet[
+          $CellContext`syntaxCorrector[$CellContext`x, True, $CellContext`y]],
+          StandardForm],
+        ImageSizeCache->{225., {23., 32.}}]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   StripOnInput->False,
+   Background->GrayLevel[1]]]], "Output",
+ CellChangeTimes->{
+  3.708013570566867*^9, {3.708013633299121*^9, 
+   3.708013653952695*^9}},ExpressionUUID->"4dbacd73-76da-4468-887f-\
+0300418396d5"]
+}, {2}]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -12155,12 +12053,27 @@ Cell[BoxData[{
     RowBox[{"Row", "[", "s3", "]"}], "]"}]}], ";"}]}], "Input",ExpressionUUID-\
 >"90141110-d4ca-46dd-9165-cb01d5c19b12"],
 
-Cell[BoxData["CreatePalette"], "Input",
- CellChangeTimes->{{3.7079403400043144`*^9, 3.7079403435852394`*^9}, {
-  3.707940374399665*^9, 
-  3.707940375949273*^9}},ExpressionUUID->"ac623370-8f84-49e5-8b21-\
-bc3979820788"]
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EvaluationNotebook", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.708012860704337*^9, 3.708012865017395*^9}, 
+   3.7080129810962915`*^9},ExpressionUUID->"208dc65c-8f74-42ba-9f71-\
+a09df700d893"],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["sr7a8_shm", 3, 1]],16,
+   "FrontEndObject[LinkObject[\"sr7a8_shm\", 3, 1]]","16",
+   "\"FinalVersion.nb\"",
+   "\"C:\\\\Users\\\\Andrey.Krotkih\\\\Documents\\\\GitHub\\\\WSS2017\\\\\
+FinalVersion.nb\""},
+  "NotebookObject"]], "Output",
+ CellChangeTimes->{{3.7080135480399714`*^9, 
+  3.7080135501254296`*^9}},ExpressionUUID->"b1cde2c8-2850-4f17-9f7a-\
+4b4124443e9b"]
 }, Open  ]]
+}, Closed]]
 }, Open  ]]
 },
 WindowSize->{1536, 781},
@@ -12175,13 +12088,13 @@ StyleDefinitions->"Default.nb"
 CellTagsIndex->{
  "Info173707853223-7757805"->{
   Cell[91183, 2154, 575, 13, 
-  70, "Print", "ExpressionUUID" -> "48427a99-f3a0-4d7c-8c28-798a30498c6e",
+  63, "Print", "ExpressionUUID" -> "48427a99-f3a0-4d7c-8c28-798a30498c6e",
    CellTags->"Info173707853223-7757805"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info173707853223-7757805", 503608, 12175}
+ {"Info173707853223-7757805", 497462, 12088}
  }
 *)
 (*NotebookFileOutline
@@ -12190,52 +12103,52 @@ Cell[CellGroupData[{
 Cell[580, 22, 175, 3, 134, "Title", "ExpressionUUID" -> \
 "a62f317b-406a-411c-b1b6-84bd6a8d504e"],
 Cell[CellGroupData[{
-Cell[780, 29, 212, 4, 70, "Chapter", "ExpressionUUID" -> \
+Cell[780, 29, 212, 4, 96, "Chapter", "ExpressionUUID" -> \
 "0b2a7c97-6769-4c60-bb89-1ed70cd885ef"],
 Cell[CellGroupData[{
-Cell[1017, 37, 169, 3, 70, "Subsubsection", "ExpressionUUID" -> \
+Cell[1017, 37, 169, 3, 51, "Subsubsection", "ExpressionUUID" -> \
 "e88bbe65-c3cc-4da9-ada7-7ce372171907"],
 Cell[1189, 42, 16477, 383, 70, "Input", "ExpressionUUID" -> \
 "6428a9cc-8000-4b7c-974c-379280e2015b"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[17703, 430, 167, 3, 70, "Subsubsection", "ExpressionUUID" -> \
+Cell[17703, 430, 167, 3, 40, "Subsubsection", "ExpressionUUID" -> \
 "1b0c0d7b-8834-4ae2-b1f1-3dba1fa70aef"],
 Cell[17873, 435, 1439, 35, 70, "Input", "ExpressionUUID" -> \
 "62d34e81-7383-4d16-8b12-028c83402eb4"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[19349, 475, 157, 3, 70, "Subsubsection", "ExpressionUUID" -> \
+Cell[19349, 475, 157, 3, 40, "Subsubsection", "ExpressionUUID" -> \
 "335000b9-7c3e-4bcd-a947-d2e0fb3acc90"],
 Cell[19509, 480, 671, 18, 70, "Input", "ExpressionUUID" -> \
 "bc9b5f5a-ba01-415e-a16d-455d5135aa25"]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20229, 504, 155, 3, 70, "Chapter", "ExpressionUUID" -> \
+Cell[20229, 504, 155, 3, 96, "Chapter", "ExpressionUUID" -> \
 "eb0b9604-7ee3-47f0-9744-cce8cecbae10"],
 Cell[CellGroupData[{
-Cell[20409, 511, 255, 5, 70, "Input", "ExpressionUUID" -> \
+Cell[20409, 511, 255, 5, 46, "Input", "ExpressionUUID" -> \
 "a8d168b1-3d63-4e7b-839c-bca13d7d63fa"],
-Cell[20667, 518, 907, 22, 70, "Output", "ExpressionUUID" -> \
+Cell[20667, 518, 907, 22, 97, "Output", "ExpressionUUID" -> \
 "184ca86d-9392-4e70-9658-6127630f940a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[21611, 545, 159, 2, 70, "Input", "ExpressionUUID" -> \
+Cell[21611, 545, 159, 2, 46, "Input", "ExpressionUUID" -> \
 "e92d1f41-f078-4d01-9638-1308c793c83f"],
-Cell[21773, 549, 1005, 24, 70, "Output", "ExpressionUUID" -> \
+Cell[21773, 549, 1005, 24, 149, "Output", "ExpressionUUID" -> \
 "4cd21ab1-75ca-4311-a87a-af607d1ee471"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22815, 578, 188, 4, 70, "Input", "ExpressionUUID" -> \
+Cell[22815, 578, 188, 4, 46, "Input", "ExpressionUUID" -> \
 "aa740a4d-b3be-4c27-81de-ee7a8b207f50"],
-Cell[23006, 584, 1296, 31, 70, "Output", "ExpressionUUID" -> \
+Cell[23006, 584, 1296, 31, 279, "Output", "ExpressionUUID" -> \
 "a620e078-b830-4555-8bee-17e4882d9ec5"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24339, 620, 188, 4, 70, "Input", "ExpressionUUID" -> \
+Cell[24339, 620, 188, 4, 46, "Input", "ExpressionUUID" -> \
 "ddc9e334-4c20-4bcf-8444-87d4de38af69"],
-Cell[24530, 626, 1165, 28, 70, "Output", "ExpressionUUID" -> \
+Cell[24530, 626, 1165, 28, 279, "Output", "ExpressionUUID" -> \
 "3b5c7bed-0de2-44a6-b2a8-758bb873c252"]
 }, Open  ]],
 Cell[CellGroupData[{
@@ -12355,45 +12268,45 @@ Cell[80077, 1842, 178, 4, 70, "Input", "ExpressionUUID" -> \
 Cell[CellGroupData[{
 Cell[80280, 1850, 10900, 302, 70, "Print", "ExpressionUUID" -> \
 "f93ddce4-fdb9-4be6-93cf-b959463e5cc3"],
-Cell[91183, 2154, 575, 13, 70, "Print", "ExpressionUUID" -> \
+Cell[91183, 2154, 575, 13, 63, "Print", "ExpressionUUID" -> \
 "48427a99-f3a0-4d7c-8c28-798a30498c6e",
  CellTags->"Info173707853223-7757805"]
 }, Open  ]]
 }, Open  ]],
-Cell[91785, 2171, 2918, 67, 70, "Input", "ExpressionUUID" -> \
+Cell[91785, 2171, 2918, 67, 453, "Input", "ExpressionUUID" -> \
 "2f3a2ded-28dd-4340-b395-36e8652304e8"],
-Cell[94706, 2240, 292, 7, 70, "Input", "ExpressionUUID" -> \
+Cell[94706, 2240, 292, 7, 46, "Input", "ExpressionUUID" -> \
 "870b3d91-538c-43c5-9aea-3c5f0e5be5ea"],
 Cell[CellGroupData[{
-Cell[95023, 2251, 193, 4, 70, "Input", "ExpressionUUID" -> \
+Cell[95023, 2251, 193, 4, 46, "Input", "ExpressionUUID" -> \
 "0c2f548b-8fe5-47a1-a43d-809d3f93d71b"],
-Cell[95219, 2257, 251, 4, 70, "Output", "ExpressionUUID" -> \
+Cell[95219, 2257, 251, 4, 46, "Output", "ExpressionUUID" -> \
 "b12d42fd-e9ae-441c-8ca7-c3ef01a66248"]
 }, Open  ]],
-Cell[95485, 2264, 1122, 24, 70, "Input", "ExpressionUUID" -> \
+Cell[95485, 2264, 1122, 24, 76, "Input", "ExpressionUUID" -> \
 "87f33422-bf20-4e42-8855-3a19431e4e4f"],
 Cell[CellGroupData[{
-Cell[96632, 2292, 189, 4, 70, "Input", "ExpressionUUID" -> \
+Cell[96632, 2292, 189, 4, 46, "Input", "ExpressionUUID" -> \
 "5ed96b55-c128-411d-8315-31806f39d1e9"],
-Cell[96824, 2298, 556, 9, 70, "Output", "ExpressionUUID" -> \
+Cell[96824, 2298, 556, 9, 46, "Output", "ExpressionUUID" -> \
 "0aa826cc-9e7c-44be-b3a0-d1db6df29c75"]
 }, Open  ]],
-Cell[97395, 2310, 782, 14, 70, "Input", "ExpressionUUID" -> \
+Cell[97395, 2310, 782, 14, 46, "Input", "ExpressionUUID" -> \
 "b8d3221c-8c8b-42a9-9aab-513e08651d14"],
-Cell[98180, 2326, 384, 9, 70, "Input", "ExpressionUUID" -> \
+Cell[98180, 2326, 384, 9, 46, "Input", "ExpressionUUID" -> \
 "0e78ee2f-9846-49fc-873c-497d12eac734"],
 Cell[CellGroupData[{
-Cell[98589, 2339, 668, 10, 70, "Input", "ExpressionUUID" -> \
+Cell[98589, 2339, 668, 10, 46, "Input", "ExpressionUUID" -> \
 "63f0085a-a36a-4f92-860f-eadc62a20841"],
-Cell[99260, 2351, 736, 11, 70, "Output", "ExpressionUUID" -> \
+Cell[99260, 2351, 736, 11, 46, "Output", "ExpressionUUID" -> \
 "32c3431b-94d3-4ef6-b8df-3fd99db03a5a"]
 }, Open  ]],
-Cell[100011, 2365, 309, 5, 70, "Input", "ExpressionUUID" -> \
+Cell[100011, 2365, 309, 5, 46, "Input", "ExpressionUUID" -> \
 "79ea1b57-4659-4542-91ab-d6c3a448177d"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[100369, 2376, 203, 4, 70, "Chapter", "ExpressionUUID" -> \
+Cell[100369, 2376, 203, 4, 96, "Chapter", "ExpressionUUID" -> \
 "b746afd2-0999-4bf4-9fdb-7f3a4e0680fe"],
 Cell[CellGroupData[{
 Cell[100597, 2384, 221, 4, 70, "Input", "ExpressionUUID" -> \
@@ -12422,166 +12335,192 @@ Cell[103995, 2475, 169, 3, 51, "Subsubsection", "ExpressionUUID" -> \
 "7792255a-2ff1-40ee-bf57-ac1905b90cda"],
 Cell[104167, 2480, 200, 4, 46, "Input", "ExpressionUUID" -> \
 "967a113a-306d-4de0-b7fb-944d5677952d"],
-Cell[104370, 2486, 21519, 468, 2541, "Input", "ExpressionUUID" -> \
+Cell[104370, 2486, 21781, 474, 2599, "Input", "ExpressionUUID" -> \
 "da34ff97-b2e4-4b02-9cbb-8d230979c7ec"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[125926, 2959, 167, 3, 51, "Subsubsection", "ExpressionUUID" -> \
+Cell[126188, 2965, 167, 3, 51, "Subsubsection", "ExpressionUUID" -> \
 "bcdef83f-4339-4a80-af31-c118359630b0"],
-Cell[126096, 2964, 1439, 35, 337, "Input", "ExpressionUUID" -> \
+Cell[126358, 2970, 1439, 35, 337, "Input", "ExpressionUUID" -> \
 "737caaff-9298-4c01-8427-9d516e6f4944"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[127572, 3004, 157, 3, 40, "Subsubsection", "ExpressionUUID" -> \
+Cell[127834, 3010, 157, 3, 40, "Subsubsection", "ExpressionUUID" -> \
 "5f52cc58-52c5-4e7d-a94e-9e644ebc96ce"],
-Cell[127732, 3009, 1215, 32, 70, "Input", "ExpressionUUID" -> \
+Cell[127994, 3015, 1215, 32, 105, "Input", "ExpressionUUID" -> \
 "b3cccd56-d451-42e1-9b5b-1df1e763f5a1"]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[128984, 3046, 169, 3, 40, "Subsubsection", "ExpressionUUID" -> \
+Cell[129246, 3052, 169, 3, 40, "Subsubsection", "ExpressionUUID" -> \
 "ca859286-186a-43ee-a988-c6cfe9210510"],
-Cell[129156, 3051, 200, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[129418, 3057, 200, 4, 46, "Input", "ExpressionUUID" -> \
 "fe654353-1c7d-4745-b7c0-efc15e7b7a41"],
-Cell[129359, 3057, 3722, 75, 598, "Input", "ExpressionUUID" -> \
+Cell[129621, 3063, 3722, 75, 598, "Input", "ExpressionUUID" -> \
 "774645d3-7ef5-437c-8958-4c7095f9af1b"]
 }, Closed]]
-}, Open  ]],
+}, Closed]],
 Cell[CellGroupData[{
-Cell[133130, 3138, 155, 3, 96, "Chapter", "ExpressionUUID" -> \
+Cell[133392, 3144, 155, 3, 77, "Chapter", "ExpressionUUID" -> \
 "5ebc7ebe-96dc-4e43-b84d-519fd32b64da"],
 Cell[CellGroupData[{
-Cell[133310, 3145, 566, 13, 46, "Input", "ExpressionUUID" -> \
+Cell[133572, 3151, 516, 9, 46, "Input", "ExpressionUUID" -> \
 "6a5e75d5-f702-4e93-9684-277baaefdc70"],
-Cell[133879, 3160, 3268, 82, 115, "Output", "ExpressionUUID" -> \
-"54f8c144-8112-49b2-b5fd-663258d86d15"]
+Cell[134091, 3162, 2028, 49, 134, "Output", "ExpressionUUID" -> \
+"093207a7-4ebf-4069-b91b-ea8fdbd25a6b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[137184, 3247, 394, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[136156, 3216, 272, 6, 46, "Input", "ExpressionUUID" -> \
+"754e2c2b-bbe6-402e-874d-59432cb32f7c"],
+Cell[136431, 3224, 1361, 39, 134, "Output", "ExpressionUUID" -> \
+"8cd9a290-16c5-4c30-a5c6-38135d01b7b1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[137829, 3268, 469, 10, 46, "Input", "ExpressionUUID" -> \
 "fc9f5b2f-6bb1-4d08-bc77-2e15fe51a458"],
-Cell[137581, 3260, 5900, 151, 203, "Output", "ExpressionUUID" -> \
-"457c7136-3043-48e4-bf4a-bd5303518730"]
+Cell[138301, 3280, 3223, 85, 222, "Output", "ExpressionUUID" -> \
+"682867d8-8a7a-4ccf-9a38-4a23fac3132f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[143518, 3416, 417, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[141561, 3370, 372, 8, 46, "Input", "ExpressionUUID" -> \
 "29a4a3a0-f6cb-4136-a0e7-3e2efa01c51a"],
-Cell[143938, 3429, 7912, 204, 423, "Output", "ExpressionUUID" -> \
-"a79c6471-452e-495c-805b-5d7898c193c7"]
+Cell[141936, 3380, 1766, 45, 134, "Output", "ExpressionUUID" -> \
+"27b04c09-9a55-402c-8fa4-318267518834"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[151887, 3638, 443, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[143739, 3430, 292, 6, 46, "Input", "ExpressionUUID" -> \
+"9145d95b-b1ec-4ed0-8ea4-5979df37265d"],
+Cell[144034, 3438, 5592, 164, 442, "Output", "ExpressionUUID" -> \
+"a4275b90-6b39-4ecc-8234-071d6fc5a86c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[149663, 3607, 443, 11, 46, "Input", "ExpressionUUID" -> \
 "b464ad85-404c-479c-aba1-6fe06823454c"],
-Cell[152333, 3651, 7815, 202, 423, "Output", "ExpressionUUID" -> \
-"cef1ff43-514c-42a0-9b17-d004b339a2f7"]
+Cell[150109, 3620, 7548, 207, 423, "Output", "ExpressionUUID" -> \
+"173b2550-6b8f-44f0-901a-a9cda9c81bbf"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[160185, 3858, 395, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[157694, 3832, 395, 11, 46, "Input", "ExpressionUUID" -> \
 "23628450-349b-4181-805f-556c6f33bcc9"],
-Cell[160583, 3871, 5798, 149, 203, "Output", "ExpressionUUID" -> \
-"926bd4a0-d9b5-45b8-958e-3fe2921ca01f"]
+Cell[158092, 3845, 5684, 153, 203, "Output", "ExpressionUUID" -> \
+"ddc47b59-c385-42e2-97e7-e2195fd513b9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[166418, 4025, 414, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[163813, 4003, 414, 11, 46, "Input", "ExpressionUUID" -> \
 "ccdff6ac-c941-4129-95f0-69e50b525925"],
-Cell[166835, 4038, 5077, 132, 247, "Output", "ExpressionUUID" -> \
-"a8d46c1d-af14-47eb-8893-663f55f01b11"]
+Cell[164230, 4016, 5022, 136, 247, "Output", "ExpressionUUID" -> \
+"ca2bc7d1-9f74-437a-b4bc-da8c955b3260"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[171949, 4175, 464, 12, 46, "Input", "ExpressionUUID" -> \
+Cell[169289, 4157, 464, 12, 46, "Input", "ExpressionUUID" -> \
 "92906bae-8ed0-4e98-9aff-406f6c16cdbb"],
-Cell[172416, 4189, 5623, 135, 376, "Output", "ExpressionUUID" -> \
-"4d302c45-c372-4b16-a5e8-4a13df6c086d"]
+Cell[169756, 4171, 5562, 139, 376, "Output", "ExpressionUUID" -> \
+"4e936e16-010b-4c42-8579-712c4c39b8e8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[178076, 4329, 473, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[175355, 4315, 473, 11, 46, "Input", "ExpressionUUID" -> \
 "24784d11-5f83-4aef-bb22-609b246eb9de"],
-Cell[178552, 4342, 8470, 218, 467, "Output", "ExpressionUUID" -> \
-"530b0229-7ee0-4082-b29f-4281214c1e2d"]
+Cell[175831, 4328, 2309, 62, 115, "Output", "ExpressionUUID" -> \
+"d7b9988e-0397-4953-9923-ffdf17f0f0f4"]
 }, Open  ]],
-Cell[187037, 4563, 577, 14, 76, "Input", "ExpressionUUID" -> \
+Cell[178155, 4393, 577, 14, 76, "Input", "ExpressionUUID" -> \
 "f8fbcc9e-69f1-471d-8226-0429369521db"],
 Cell[CellGroupData[{
-Cell[187639, 4581, 471, 8, 46, "Input", "ExpressionUUID" -> \
+Cell[178757, 4411, 471, 8, 46, "Input", "ExpressionUUID" -> \
 "0926240e-b78e-4c58-80cb-bcacfff3aca0"],
-Cell[188113, 4591, 6853, 111, 665, "Output", "ExpressionUUID" -> \
+Cell[179231, 4421, 6853, 111, 665, "Output", "ExpressionUUID" -> \
 "e785b76c-be5e-4af8-8456-762ab191f311"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[195003, 4707, 869, 21, 105, "Input", "ExpressionUUID" -> \
+Cell[186121, 4537, 869, 21, 105, "Input", "ExpressionUUID" -> \
 "4b07900e-21de-44ec-bd76-5726a84deb90"],
-Cell[195875, 4730, 361, 6, 46, "Output", "ExpressionUUID" -> \
+Cell[186993, 4560, 361, 6, 46, "Output", "ExpressionUUID" -> \
 "2c14856a-b368-4681-946d-703eb55f5e70"],
-Cell[196239, 4738, 363, 6, 46, "Output", "ExpressionUUID" -> \
+Cell[187357, 4568, 363, 6, 46, "Output", "ExpressionUUID" -> \
 "e9611be0-8ca1-4ddb-8df2-e105eef53a1f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[196639, 4749, 201, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[187757, 4579, 201, 4, 46, "Input", "ExpressionUUID" -> \
 "903e84fe-d913-45e8-abd3-1a845a0f3bbe"],
-Cell[196843, 4755, 17851, 282, 1901, "Output", "ExpressionUUID" -> \
+Cell[187961, 4585, 17851, 282, 1901, "Output", "ExpressionUUID" -> \
 "2a361907-9b77-40d2-a7a1-f150d5cca05d"]
 }, Open  ]],
-Cell[214709, 5040, 1094, 20, 46, "Input", "ExpressionUUID" -> \
+Cell[205827, 4870, 1094, 20, 46, "Input", "ExpressionUUID" -> \
 "b1aae7b7-6265-49ac-8a30-cbacd6f76a34"],
 Cell[CellGroupData[{
-Cell[215828, 5064, 163, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[206946, 4894, 163, 3, 46, "Input", "ExpressionUUID" -> \
 "2ab072f5-40d3-48ee-88bf-e3878a55ba04"],
-Cell[215994, 5069, 11275, 262, 440, "Output", "ExpressionUUID" -> \
+Cell[207112, 4899, 11275, 262, 440, "Output", "ExpressionUUID" -> \
 "f47d4fea-0671-4e61-a1d6-191ede9a82a9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[227306, 5336, 602, 10, 46, "Input", "ExpressionUUID" -> \
+Cell[218424, 5166, 602, 10, 46, "Input", "ExpressionUUID" -> \
 "1c1299d9-d66e-4661-b657-ccbc2f7f6dae"],
-Cell[227911, 5348, 3341, 80, 113, "Output", "ExpressionUUID" -> \
+Cell[219029, 5178, 3341, 80, 113, "Output", "ExpressionUUID" -> \
 "cf5714a8-f2e6-4d4e-9560-70346aa0833e"]
 }, Open  ]],
-Cell[231267, 5431, 727, 20, 76, "Input", "ExpressionUUID" -> \
+Cell[222385, 5261, 727, 20, 76, "Input", "ExpressionUUID" -> \
 "bf105c45-d2b1-4523-ad8a-e70b894ca931"],
 Cell[CellGroupData[{
-Cell[232019, 5455, 174, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[223137, 5285, 174, 3, 46, "Input", "ExpressionUUID" -> \
 "59d36f10-49e9-4257-8b69-7162c825d1c6"],
-Cell[232196, 5460, 693, 13, 163, "Output", "ExpressionUUID" -> \
+Cell[223314, 5290, 693, 13, 163, "Output", "ExpressionUUID" -> \
 "7624676c-85eb-4b09-959c-d285c99d35b0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[232926, 5478, 1021, 29, 134, "Input", "ExpressionUUID" -> \
+Cell[224044, 5308, 1021, 29, 134, "Input", "ExpressionUUID" -> \
 "384f5ff4-b78a-47c1-9667-c25723f9bb77"],
-Cell[233950, 5509, 11834, 307, 795, "Output", "ExpressionUUID" -> \
+Cell[225068, 5339, 11834, 307, 795, "Output", "ExpressionUUID" -> \
 "dc85152c-ddf2-40cf-9d6b-dcb428b6814b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[245821, 5821, 970, 28, 134, "Input", "ExpressionUUID" -> \
+Cell[236939, 5651, 970, 28, 134, "Input", "ExpressionUUID" -> \
 "3e50d230-2606-470d-82d3-c5b64371b8d8"],
-Cell[246794, 5851, 30765, 774, 1983, "Output", "ExpressionUUID" -> \
+Cell[237912, 5681, 30765, 774, 1983, "Output", "ExpressionUUID" -> \
 "be95e2b8-b65e-4c69-bbf3-09672a2a6eb0"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[277596, 6630, 970, 28, 134, "Input", "ExpressionUUID" -> \
+Cell[268714, 6460, 970, 28, 134, "Input", "ExpressionUUID" -> \
 "d60872f8-883d-456d-9c45-e04511296ede"],
-Cell[278569, 6660, 126671, 3081, 7582, "Output", "ExpressionUUID" -> \
+Cell[269687, 6490, 126671, 3081, 7582, "Output", "ExpressionUUID" -> \
 "12bb297b-e584-4ce2-8057-66e76dbabf26"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[405277, 9746, 974, 28, 134, "Input", "ExpressionUUID" -> \
+Cell[396395, 9576, 974, 28, 134, "Input", "ExpressionUUID" -> \
 "fe682491-1fa5-4ec5-81fc-c936cf769e73"],
-Cell[406254, 9776, 93240, 2290, 5734, "Output", "ExpressionUUID" -> \
+Cell[397372, 9606, 93240, 2290, 5734, "Output", "ExpressionUUID" -> \
 "67e33107-d3d0-4cd2-a618-248ef39a3d42"]
 }, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[490661, 11902, 160, 3, 77, "Chapter", "ExpressionUUID" -> \
+"87f10dbd-59ad-4741-8224-a18dedd1d3c0"],
+Cell[CellGroupData[{
+Cell[490846, 11909, 1201, 27, 337, "Input", "ExpressionUUID" -> \
+"e1ad91f0-3afe-43db-8b47-682f3ff8c374"],
+Cell[492050, 11938, 840, 26, 187, "Output", "ExpressionUUID" -> \
+"4dbacd73-76da-4468-887f-0300418396d5"]
+}, {2}]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[499543, 12072, 150, 3, 96, "Chapter", "ExpressionUUID" -> \
+Cell[492936, 11970, 150, 3, 96, "Chapter", "ExpressionUUID" -> \
 "a92b9e38-a3ad-4ac1-9be1-43773ef248b9"],
 Cell[CellGroupData[{
-Cell[499718, 12079, 640, 17, 46, "Input", "ExpressionUUID" -> \
+Cell[493111, 11977, 640, 17, 46, "Input", "ExpressionUUID" -> \
 "49296e24-4fca-4e40-afe3-9187bb3c0d36"],
-Cell[500361, 12098, 2002, 33, 70, "Output", "ExpressionUUID" -> \
+Cell[493754, 11996, 2002, 33, 70, "Output", "ExpressionUUID" -> \
 "e3bbe659-d162-40fc-bfe1-edf08717545c"]
 }, Closed]],
-Cell[502378, 12134, 152, 3, 35, "Input", "ExpressionUUID" -> \
+Cell[495771, 12032, 152, 3, 35, "Input", "ExpressionUUID" -> \
 "acf15f22-1bee-4ac8-94d9-151b95493f1a"],
-Cell[502533, 12139, 516, 16, 76, "Input", "ExpressionUUID" -> \
+Cell[495926, 12037, 516, 16, 76, "Input", "ExpressionUUID" -> \
 "90141110-d4ca-46dd-9165-cb01d5c19b12"],
-Cell[503052, 12157, 218, 4, 46, "Input", "ExpressionUUID" -> \
-"ac623370-8f84-49e5-8b21-bc3979820788"]
+Cell[CellGroupData[{
+Cell[496467, 12057, 217, 4, 46, "Input", "ExpressionUUID" -> \
+"208dc65c-8f74-42ba-9f71-a09df700d893"],
+Cell[496687, 12063, 425, 10, 71, "Output", "ExpressionUUID" -> \
+"b1cde2c8-2850-4f17-9f7a-4b4124443e9b"]
 }, Open  ]]
+}, Closed]]
 }, Open  ]]
 }
 ]
