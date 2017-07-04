@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    601584,      15275]
-NotebookOptionsPosition[    574384,      14613]
-NotebookOutlinePosition[    574954,      14635]
-CellTagsIndexPosition[    574864,      14630]
+NotebookDataLength[    697055,      17107]
+NotebookOptionsPosition[    667305,      16383]
+NotebookOutlinePosition[    667875,      16405]
+CellTagsIndexPosition[    667785,      16400]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -13402,6 +13402,1771 @@ $CellContext`messagePrinter[$CellContext`inpstr]},
   3.708106795070195*^9, 
   3.7081068037535467`*^9}},ExpressionUUID->"d0d839d9-d8c3-4825-85f0-\
 5303a7a17eea"]
+}, {2}]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Neural Network", "Chapter",
+ CellChangeTimes->{{3.7081171789644365`*^9, 
+  3.7081171825849476`*^9}},ExpressionUUID->"006310cc-3f62-42ce-8733-\
+b25e0bbaae73"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringReplace", "[", 
+  RowBox[{"\"\<Integrate[x,{x,1,2}]\>\"", ",", 
+   RowBox[{
+    RowBox[{"x_", "?", "DigitQ"}], "\[RuleDelayed]", "\"\<_\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.708118367652416*^9, 3.708118490912632*^9}, {
+  3.7081185417985835`*^9, 
+  3.7081185862063*^9}},ExpressionUUID->"2b7b29e6-3eb5-44e5-bba0-935a5a024bbf"],
+
+Cell[BoxData["\<\"Integrate[x,{x,_,_}]\"\>"], "Output",
+ CellChangeTimes->{{3.708118408758073*^9, 3.7081184513280954`*^9}, {
+  3.708118481572014*^9, 3.708118491337928*^9}, {3.7081185518477044`*^9, 
+  3.708118586603594*^9}},ExpressionUUID->"92896c48-0958-4a58-9ef0-\
+74cd787c2de9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"StringJoin", "@", 
+  RowBox[{"CharacterRange", "[", 
+   RowBox[{"30", ",", "125"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.708124893644149*^9, 3.708124893929332*^9}, {
+  3.708129609058282*^9, 3.7081296279005594`*^9}, {3.708129793908907*^9, 
+  3.7081298918901606`*^9}, {3.7081299954503717`*^9, 3.7081300357978964`*^9}, {
+  3.708130138316346*^9, 
+  3.7081301431838045`*^9}},ExpressionUUID->"bae8d23f-d8c2-4548-8c3b-\
+c1b5f18d4ed5"],
+
+Cell[BoxData["\<\"\.1e\.1f \
+!\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}\"\>"], "Output",
+ CellChangeTimes->{{3.708129803928977*^9, 3.7081298453842945`*^9}, {
+  3.7081298868766236`*^9, 3.708129892274439*^9}, {3.7081300023342376`*^9, 
+  3.7081300360290565`*^9}, {3.708130138740646*^9, 
+  3.7081301433989525`*^9}},ExpressionUUID->"29640073-f451-4d35-9a6e-\
+4c63a693b7ac"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"validCharacters", "=", " ", 
+   RowBox[{"StringJoin", "@", 
+    RowBox[{"CharacterRange", "[", 
+     RowBox[{"30", ",", "125"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"net00", "=", 
+  RowBox[{"NetGraph", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<|", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\"\<revIn\>\"", "\[Rule]", " ", 
+       RowBox[{"SequenceReverseLayer", "[", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<encGRU<\>\"", "->", 
+       RowBox[{"GatedRecurrentLayer", "[", "64", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<revOut\>\"", "\[Rule]", " ", 
+       RowBox[{"SequenceReverseLayer", "[", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<encGRU>\>\"", "->", 
+       RowBox[{"GatedRecurrentLayer", "[", "64", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<cat\>\"", "\[Rule]", " ", 
+       RowBox[{"CatenateLayer", "[", "2", "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<decGRU\>\"", "\[Rule]", " ", 
+       RowBox[{"GatedRecurrentLayer", "[", "64", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<classifier\>\"", "\[Rule]", " ", 
+       RowBox[{"NetMapOperator", "[", "\[IndentingNewLine]", 
+        RowBox[{"NetChain", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"LinearLayer", "[", 
+            RowBox[{"StringLength", "[", "validCharacters", "]"}], "]"}], ",", 
+           RowBox[{"SoftmaxLayer", "[", "]"}]}], "}"}], "]"}], 
+        "\[IndentingNewLine]", "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<loss\>\"", "\[Rule]", " ", 
+       RowBox[{"CrossEntropyLossLayer", "[", "\"\<Index\>\"", "]"}]}]}], 
+     "\[IndentingNewLine]", "|>"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<Input\>\"", "]"}], "\[Rule]", " ", 
+       RowBox[{"\"\<revIn\>\"", "\[Rule]", 
+        RowBox[{"\"\<encGRU<\>\"", "\[Rule]", "\"\<revOut\>\""}]}]}], ",", 
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<Input\>\"", "]"}], "\[Rule]", " ", 
+       "\"\<encGRU>\>\""}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<revOut\>\"", ",", " ", "\"\<encGRU>\>\""}], "}"}], 
+       "\[Rule]", " ", 
+       RowBox[{"\"\<cat\>\"", "\[Rule]", " ", 
+        RowBox[{"\"\<decGRU\>\"", "\[Rule]", " ", 
+         RowBox[{"\"\<classifier\>\"", " ", "\[Rule]", " ", 
+          RowBox[{"NetPort", "[", 
+           RowBox[{"\"\<loss\>\"", ",", "\"\<Input\>\""}], "]"}]}]}]}]}], ",", 
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<Target\>\"", "]"}], "\[Rule]", " ", 
+       RowBox[{"NetPort", "[", 
+        RowBox[{"\"\<loss\>\"", ",", "\"\<Target\>\""}], "]"}]}]}], "}"}], 
+    ",", 
+    RowBox[{"\"\<Input\>\"", "\[Rule]", 
+     RowBox[{"NetEncoder", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Characters\>\"", ",", "validCharacters", ",", 
+        "\"\<UnitVector\>\""}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Target\>\"", "\[Rule]", 
+     RowBox[{"NetEncoder", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Characters\>\"", ",", "validCharacters"}], "}"}], 
+      "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"\"\<Output\>\"", "\[Rule]", 
+     RowBox[{"NetDecoder", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Characters\>\"", ",", "validCharacters"}], "}"}], "]"}]}],
+     "*)"}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.7081214128709974`*^9, 3.7081214698605766`*^9}, {
+   3.708121596434064*^9, 3.7081216464223957`*^9}, {3.7081218996313815`*^9, 
+   3.708121960701556*^9}, 3.708124879303993*^9, {3.708129592714689*^9, 
+   3.708129594501954*^9}, 
+   3.708130150475954*^9},ExpressionUUID->"6f329bfb-7ce7-4506-958b-\
+b600a2391a17"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = None}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {1, 5}, {4, 6}, {5, 6}, {6, 7}, {7, 8}, {8, 9}, {10, 9}, {
+              9, 11}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "Input", "revIn", "encGRU<", "revOut", "encGRU>", "cat", 
+               "decGRU", "classifier", "loss", "Target", "Loss"}, {Null, 
+               RGBColor[0.73, 1., 0.33], 
+               RGBColor[0.6, 0.2, 0.6], 
+               RGBColor[1., 0.7, 0.31], 
+               RGBColor[0.24, 0.277, 0.583], 
+               RGBColor[0, 1, 1]}, {1, 2, 3, 2, 3, 4, 3, 5, 6, 1, 1}, {
+              Null, SequenceReverseLayer, GatedRecurrentLayer, CatenateLayer, 
+               HoldForm[NetMapOperator][
+                HoldForm[
+                 NetChain[
+                  NeuralNetworks`Private`UniqueSkeleton[2, 60000]]]], 
+               HoldForm[
+                CrossEntropyLossLayer["Index"]]}, {
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 128}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221]}, 
+                NeuralNetworks`IndexIntegerT[96]], 
+               NeuralNetworks`TensorT[{}, NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "Input"], 
+                 NeuralNetworks`NetPath["Nodes", "revIn"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU<"], 
+                 NeuralNetworks`NetPath["Nodes", "revOut"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU>"], 
+                 NeuralNetworks`NetPath["Nodes", "cat"], 
+                 NeuralNetworks`NetPath["Nodes", "decGRU"], 
+                 NeuralNetworks`NetPath["Nodes", "classifier"], 
+                 NeuralNetworks`NetPath["Nodes", "loss"], 
+                 NeuralNetworks`NetPath["Inputs", "Target"], 
+                 NeuralNetworks`NetPath["Outputs", "Loss"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association["Input" -> NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "UnitVector", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                   NeuralNetworks`RealT]], "Target" -> 
+                NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "Index", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221]}, 
+                   NeuralNetworks`IndexIntegerT[96]]]], 
+               Association[
+               "Loss" -> NeuralNetworks`TensorT[{}, NeuralNetworks`RealT]], 
+               Association[
+               "revIn" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU<" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "revOut" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]]], "encGRU>" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "cat" -> Association[
+                 "Type" -> "Catenate", "Arrays" -> Association[], 
+                  "Parameters" -> Association["Level" -> 2, "$InputShapes" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]}, "$InputCount" -> 2, 
+                    "$OutputShape" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]], "Inputs" -> Association["Input" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]}], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]]], "decGRU" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    128, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "classifier" -> 
+                Association[
+                 "Type" -> "NetMap", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "Net" -> Association[
+                    "Type" -> "Chain", "Nodes" -> 
+                    Association[
+                    "1" -> Association[
+                    "Type" -> "Linear", "Arrays" -> 
+                    Association[
+                    "Weights" -> 
+                    NeuralNetworks`TensorT[{96, 64}, NeuralNetworks`RealT], 
+                    "Biases" -> NeuralNetworks`Nullable[
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "Parameters" -> 
+                    Association[
+                    "OutputDimensions" -> {96}, "$OutputSize" -> 96, 
+                    "$InputSize" -> 64, "$InputDimensions" -> {64}], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], "2" -> 
+                    Association[
+                    "Type" -> "Softmax", "Arrays" -> Association[], 
+                    "Parameters" -> Association[], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]]], 
+                    "Edges" -> {
+                    NeuralNetworks`NetPath["Nodes", "1", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Inputs", "Input"], 
+                    NeuralNetworks`NetPath["Nodes", "2", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Nodes", "1", "Outputs", "Output"],
+                     NeuralNetworks`NetPath["Outputs", "Output"] -> 
+                    NeuralNetworks`NetPath[
+                    "Nodes", "2", "Outputs", "Output"]}, "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "$SequenceLength" -> NeuralNetworks`LengthVar[1563160221],
+                     "$InputShape" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "$OutputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]]], "loss" -> 
+                Association[
+                 "Type" -> "CrossEntropyLoss", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association["TargetForm" -> "Index", "$InputDimensions" -> {
+                    NeuralNetworks`LengthVar[1563160221]}, "$Classes" -> 96], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT], "Target" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221]}, 
+                    NeuralNetworks`IndexIntegerT[96]]], "Outputs" -> 
+                  Association[
+                   "Loss" -> NeuralNetworks`TensorT[{}, 
+                    NeuralNetworks`RealT]]]]], Alignment -> Center], 
+             Nothing]}], GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{822., {170., 179.}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{
+  3.7081301618780017`*^9},ExpressionUUID->"b538c81b-fdbe-4e4a-9ff4-\
+5a2188d6adc4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"iNet", "=", 
+  RowBox[{"NetInitialize", "[", "net00", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7081301746620398`*^9, 
+  3.7081301945100703`*^9}},ExpressionUUID->"826bc1b8-5995-4a51-a4e9-\
+cab5d11f35ee"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = None}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {1, 5}, {4, 6}, {5, 6}, {6, 7}, {7, 8}, {8, 9}, {10, 9}, {
+              9, 11}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "Input", "revIn", "encGRU<", "revOut", "encGRU>", "cat", 
+               "decGRU", "classifier", "loss", "Target", "Loss"}, {Null, 
+               RGBColor[0.73, 1., 0.33], 
+               RGBColor[0.6, 0.2, 0.6], 
+               RGBColor[1., 0.7, 0.31], 
+               RGBColor[0.24, 0.277, 0.583], 
+               RGBColor[0, 1, 1]}, {1, 2, 3, 2, 3, 4, 3, 5, 6, 1, 1}, {
+              Null, SequenceReverseLayer, GatedRecurrentLayer, CatenateLayer, 
+               HoldForm[NetMapOperator][
+                HoldForm[
+                 NetChain[
+                  NeuralNetworks`Private`UniqueSkeleton[2, 33841]]]], 
+               HoldForm[
+                CrossEntropyLossLayer["Index"]]}, {
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 128}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 64}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1563160221]}, 
+                NeuralNetworks`IndexIntegerT[96]], 
+               NeuralNetworks`TensorT[{}, NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "Input"], 
+                 NeuralNetworks`NetPath["Nodes", "revIn"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU<"], 
+                 NeuralNetworks`NetPath["Nodes", "revOut"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU>"], 
+                 NeuralNetworks`NetPath["Nodes", "cat"], 
+                 NeuralNetworks`NetPath["Nodes", "decGRU"], 
+                 NeuralNetworks`NetPath["Nodes", "classifier"], 
+                 NeuralNetworks`NetPath["Nodes", "loss"], 
+                 NeuralNetworks`NetPath["Inputs", "Target"], 
+                 NeuralNetworks`NetPath["Outputs", "Loss"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association["Input" -> NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "UnitVector", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                   NeuralNetworks`RealT]], "Target" -> 
+                NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "Index", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221]}, 
+                   NeuralNetworks`IndexIntegerT[96]]]], 
+               Association[
+               "Loss" -> NeuralNetworks`TensorT[{}, NeuralNetworks`RealT]], 
+               Association[
+               "revIn" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU<" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "revOut" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]]], "encGRU>" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "cat" -> Association[
+                 "Type" -> "Catenate", "Arrays" -> Association[], 
+                  "Parameters" -> Association["Level" -> 2, "$InputShapes" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]}, "$InputCount" -> 2, 
+                    "$OutputShape" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]], "Inputs" -> Association["Input" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]}], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]]], "decGRU" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{64, 128}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{64, 64}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 64, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    128, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1563160221]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 128}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]]], 
+                "classifier" -> 
+                Association[
+                 "Type" -> "NetMap", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "Net" -> Association[
+                    "Type" -> "Chain", "Nodes" -> 
+                    Association[
+                    "1" -> Association[
+                    "Type" -> "Linear", "Arrays" -> 
+                    Association[
+                    "Weights" -> 
+                    NeuralNetworks`TensorT[{96, 64}, NeuralNetworks`RealT], 
+                    "Biases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Parameters" -> 
+                    Association[
+                    "OutputDimensions" -> {96}, "$OutputSize" -> 96, 
+                    "$InputSize" -> 64, "$InputDimensions" -> {64}], "Inputs" -> 
+                    Association[
+                    "Input" -> NeuralNetworks`TensorT[{64}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], "2" -> 
+                    Association[
+                    "Type" -> "Softmax", "Arrays" -> Association[], 
+                    "Parameters" -> Association[], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]]], 
+                    "Edges" -> {
+                    NeuralNetworks`NetPath["Nodes", "1", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Inputs", "Input"], 
+                    NeuralNetworks`NetPath["Nodes", "2", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Nodes", "1", "Outputs", "Output"],
+                     NeuralNetworks`NetPath["Outputs", "Output"] -> 
+                    NeuralNetworks`NetPath[
+                    "Nodes", "2", "Outputs", "Output"]}, "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "$SequenceLength" -> NeuralNetworks`LengthVar[1563160221],
+                     "$InputShape" -> 
+                    NeuralNetworks`TensorT[{64}, NeuralNetworks`RealT], 
+                    "$OutputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 64}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT]]], "loss" -> 
+                Association[
+                 "Type" -> "CrossEntropyLoss", "Arrays" -> Association[], 
+                  "Parameters" -> 
+                  Association["TargetForm" -> "Index", "$InputDimensions" -> {
+                    NeuralNetworks`LengthVar[1563160221]}, "$Classes" -> 96], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221], 96}, 
+                    NeuralNetworks`RealT], "Target" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1563160221]}, 
+                    NeuralNetworks`IndexIntegerT[96]]], "Outputs" -> 
+                  Association[
+                   "Loss" -> NeuralNetworks`TensorT[{}, 
+                    NeuralNetworks`RealT]]]]], Alignment -> Center], 
+             Nothing]}], GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{822., {170., 179.}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{
+  3.708130194976411*^9},ExpressionUUID->"9c520c30-2e4a-4268-9b90-\
+cacb6bb651e6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"iNet", "[", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{
+    "\"\<Input\>\"", "\[Rule]", 
+     "\"\<!\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^\
+_`abcdefghijklmnopqrstuvwxyz{|}\>\""}], ",", 
+    RowBox[{
+    "\"\<Target\>\"", "->", 
+     "\"\<!\\\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\\\]^\
+_`abcdefghijklmnopqrstuvwxyz{|}\>\""}]}], "|>"}], "]"}]], "Input",
+ CellChangeTimes->{{3.708130197633276*^9, 3.708130274644904*^9}, {
+  3.7081303147329087`*^9, 3.7081303458744173`*^9}, {3.7081303911694536`*^9, 
+  3.7081304710941715`*^9}, {3.7081306788890715`*^9, 3.7081306790701833`*^9}, {
+  3.708130819379364*^9, 
+  3.7081308286138916`*^9}},ExpressionUUID->"d6ecf98e-e13c-4ab5-9000-\
+7851beed0078"],
+
+Cell[BoxData["4.575135231018066`"], "Output",
+ CellChangeTimes->{
+  3.7081302214251113`*^9, {3.708130269222415*^9, 3.708130274969116*^9}, {
+   3.708130336207075*^9, 3.7081303463327413`*^9}, {3.708130391920968*^9, 
+   3.708130471569508*^9}, 3.708130679602559*^9, 
+   3.708130829737686*^9},ExpressionUUID->"92b2ae68-a7eb-4c6c-b227-\
+cdb027d93b6c"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.708130886425767*^9, 
+  3.7081309149169097`*^9}},ExpressionUUID->"01c96f52-fb72-452a-9263-\
+1bb5cb1eb997"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"validCharacters", "=", " ", 
+   RowBox[{"StringJoin", "@", 
+    RowBox[{"CharacterRange", "[", 
+     RowBox[{"30", ",", "125"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"net00", "=", 
+  RowBox[{"NetGraph", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"<|", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\"\<revIn\>\"", "\[Rule]", " ", 
+       RowBox[{"SequenceReverseLayer", "[", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<encGRU<\>\"", "->", 
+       RowBox[{"GatedRecurrentLayer", "[", "96", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<revOut\>\"", "\[Rule]", " ", 
+       RowBox[{"SequenceReverseLayer", "[", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<encGRU>\>\"", "->", 
+       RowBox[{"GatedRecurrentLayer", "[", "96", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<cat\>\"", "\[Rule]", " ", 
+       RowBox[{"CatenateLayer", "[", "2", "]"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<decGRU\>\"", "\[Rule]", " ", 
+       RowBox[{"GatedRecurrentLayer", "[", "96", "]"}]}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"\"\<classifier\>\"", "\[Rule]", " ", 
+       RowBox[{"NetMapOperator", "[", "\[IndentingNewLine]", 
+        RowBox[{"NetChain", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"LinearLayer", "[", 
+            RowBox[{"StringLength", "[", "validCharacters", "]"}], "]"}], ",", 
+           RowBox[{"SoftmaxLayer", "[", "]"}]}], "}"}], "]"}], 
+        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<Input\>\"", "]"}], "\[Rule]", " ", 
+       RowBox[{"\"\<revIn\>\"", "\[Rule]", 
+        RowBox[{"\"\<encGRU<\>\"", "\[Rule]", "\"\<revOut\>\""}]}]}], ",", 
+      RowBox[{
+       RowBox[{"NetPort", "[", "\"\<Input\>\"", "]"}], "\[Rule]", " ", 
+       "\"\<encGRU>\>\""}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<revOut\>\"", ",", " ", "\"\<encGRU>\>\""}], "}"}], 
+       "\[Rule]", " ", 
+       RowBox[{"\"\<cat\>\"", "\[Rule]", " ", 
+        RowBox[{
+        "\"\<decGRU\>\"", "\[Rule]", " ", "\"\<classifier\>\""}]}]}]}], " ", 
+     "}"}], ",", 
+    RowBox[{"\"\<Input\>\"", "\[Rule]", 
+     RowBox[{"NetEncoder", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Characters\>\"", ",", "validCharacters", ",", 
+        "\"\<UnitVector\>\""}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Output\>\"", "\[Rule]", 
+     RowBox[{"NetDecoder", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Characters\>\"", ",", "validCharacters"}], "}"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.708130936151924*^9, 3.7081310189694653`*^9}, {
+   3.708131236001878*^9, 3.708131244213685*^9}, 3.7081313672329845`*^9, {
+   3.7081317380784826`*^9, 3.7081317457591114`*^9}, 3.708131879252061*^9, {
+   3.7081319172520533`*^9, 3.7081319254498467`*^9}, {3.7081321653097124`*^9, 
+   3.70813218165849*^9}},ExpressionUUID->"1c864854-8919-4d64-9f47-\
+614d9836faac"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = 9}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {1, 5}, {4, 6}, {5, 6}, {6, 7}, {7, 8}, {8, 9}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "Input", "revIn", "encGRU<", "revOut", "encGRU>", "cat", 
+               "decGRU", "classifier", "Output"}, {Null, 
+               RGBColor[0.73, 1., 0.33], 
+               RGBColor[0.6, 0.2, 0.6], 
+               RGBColor[1., 0.7, 0.31], 
+               RGBColor[0.24, 0.277, 0.583]}, {1, 2, 3, 2, 3, 4, 3, 5, 1}, {
+              Null, SequenceReverseLayer, GatedRecurrentLayer, CatenateLayer, 
+               HoldForm[NetMapOperator][
+                HoldForm[
+                 NetChain[
+                  NeuralNetworks`Private`UniqueSkeleton[2, 39462]]]]}, {
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 192}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1799726654], 96}, 
+                NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "Input"], 
+                 NeuralNetworks`NetPath["Nodes", "revIn"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU<"], 
+                 NeuralNetworks`NetPath["Nodes", "revOut"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU>"], 
+                 NeuralNetworks`NetPath["Nodes", "cat"], 
+                 NeuralNetworks`NetPath["Nodes", "decGRU"], 
+                 NeuralNetworks`NetPath["Nodes", "classifier"], 
+                 NeuralNetworks`NetPath["Outputs", "Output"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association["Input" -> NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "UnitVector", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                   NeuralNetworks`RealT]]], 
+               Association["Output" -> NetDecoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "IgnoreCase" -> False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                   NeuralNetworks`RealT]]], 
+               Association[
+               "revIn" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU<" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1799726654]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "revOut" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU>" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1799726654]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "cat" -> Association[
+                 "Type" -> "Catenate", "Arrays" -> Association[], 
+                  "Parameters" -> Association["Level" -> 2, "$InputShapes" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]}, "$InputCount" -> 2, 
+                    "$OutputShape" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 192}, 
+                    NeuralNetworks`RealT]], "Inputs" -> Association["Input" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]}], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 192}, 
+                    NeuralNetworks`RealT]]], "decGRU" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    192, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1799726654]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 192}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "classifier" -> 
+                Association[
+                 "Type" -> "NetMap", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "Net" -> Association[
+                    "Type" -> "Chain", "Nodes" -> 
+                    Association[
+                    "1" -> Association[
+                    "Type" -> "Linear", "Arrays" -> 
+                    Association[
+                    "Weights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "Biases" -> NeuralNetworks`Nullable[
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "Parameters" -> 
+                    Association[
+                    "OutputDimensions" -> {96}, "$OutputSize" -> 96, 
+                    "$InputSize" -> 96, "$InputDimensions" -> {96}], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], "2" -> 
+                    Association[
+                    "Type" -> "Softmax", "Arrays" -> Association[], 
+                    "Parameters" -> Association[], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]]], 
+                    "Edges" -> {
+                    NeuralNetworks`NetPath["Nodes", "1", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Inputs", "Input"], 
+                    NeuralNetworks`NetPath["Nodes", "2", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Nodes", "1", "Outputs", "Output"],
+                     NeuralNetworks`NetPath["Outputs", "Output"] -> 
+                    NeuralNetworks`NetPath[
+                    "Nodes", "2", "Outputs", "Output"]}, "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "$SequenceLength" -> NeuralNetworks`LengthVar[1799726654],
+                     "$InputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "$OutputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1799726654], 96}, 
+                    NeuralNetworks`RealT]]]]], Alignment -> Center], 
+             Nothing]}], GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{735., {212.5, 221.5}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{
+  3.708131367877423*^9, {3.708131738756945*^9, 3.7081317462284436`*^9}, 
+   3.7081318799495554`*^9, 3.70813192604025*^9, {3.7081321750836353`*^9, 
+   3.708132182414008*^9}},ExpressionUUID->"3adf1957-0a1a-4045-8f66-\
+3c2a5133bb55"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"iNet", "=", 
+  RowBox[{"NetInitialize", "[", "net00", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7081316759788985`*^9, 3.7081316818550997`*^9}, {
+  3.708131768722647*^9, 3.7081317700605965`*^9}, {3.708131949547184*^9, 
+  3.7081319550000334`*^9}},ExpressionUUID->"544da9d8-f050-448b-a597-\
+d152fe419c71"],
+
+Cell[BoxData[
+ StyleBox[
+  TagBox[
+   TagBox[
+    RowBox[{"NetGraph", 
+     RowBox[{"[", 
+      PanelBox[
+       DynamicModuleBox[{NeuralNetworks`Private`NetGraph`selection = 9}, 
+        DynamicBox[GridBox[
+          Map[List, {
+            ToBoxes[
+             
+             NeuralNetworks`Private`NetGraph`netLayerPlot[{{1, 2}, {2, 3}, {3,
+               4}, {1, 5}, {4, 6}, {5, 6}, {6, 7}, {7, 8}, {8, 9}}, 
+              Dynamic[NeuralNetworks`Private`NetGraph`selection], False, {
+              "Input", "revIn", "encGRU<", "revOut", "encGRU>", "cat", 
+               "decGRU", "classifier", "Output"}, {Null, 
+               RGBColor[0.73, 1., 0.33], 
+               RGBColor[0.6, 0.2, 0.6], 
+               RGBColor[1., 0.7, 0.31], 
+               RGBColor[0.24, 0.277, 0.583]}, {1, 2, 3, 2, 3, 4, 3, 5, 1}, {
+              Null, SequenceReverseLayer, GatedRecurrentLayer, CatenateLayer, 
+               HoldForm[NetMapOperator][
+                HoldForm[
+                 NetChain[
+                  NeuralNetworks`Private`UniqueSkeleton[2, 4481]]]]}, {
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 192}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT], 
+               NeuralNetworks`TensorT[{
+                 NeuralNetworks`LengthVar[1249217783], 96}, 
+                NeuralNetworks`RealT]}, None]], 
+            If[
+             IntegerQ[NeuralNetworks`Private`NetGraph`selection], 
+             ItemBox[
+              NeuralNetworks`Private`NetGraph`vpathInfo[
+               Part[{
+                 NeuralNetworks`NetPath["Inputs", "Input"], 
+                 NeuralNetworks`NetPath["Nodes", "revIn"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU<"], 
+                 NeuralNetworks`NetPath["Nodes", "revOut"], 
+                 NeuralNetworks`NetPath["Nodes", "encGRU>"], 
+                 NeuralNetworks`NetPath["Nodes", "cat"], 
+                 NeuralNetworks`NetPath["Nodes", "decGRU"], 
+                 NeuralNetworks`NetPath["Nodes", "classifier"], 
+                 NeuralNetworks`NetPath["Outputs", "Output"]}, 
+                NeuralNetworks`Private`NetGraph`selection], 
+               Association["Input" -> NetEncoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "OutputForm" -> "UnitVector", "IgnoreCase" -> 
+                   False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                   NeuralNetworks`RealT]]], 
+               Association["Output" -> NetDecoder["Characters", 
+                  Association["Encoding" -> NeuralNetworks`ValidatedParameter[
+                    MXNetLink`CharacterEncodingData[
+                    1, RawArray["UnsignedInteger8",{128, 0, 0, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 
+                    128, 128, 128, 128, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+                     13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 
+                    27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+                    41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 
+                    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 
+                    69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 
+                    83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 
+                    128, 128}], 
+                    RawArray["UnsignedInteger8",{30, 31, 32, 33, 34, 35, 36, 
+                    37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 
+                    51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 
+                    65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 
+                    79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 
+                    93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 
+                    106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 
+                    117, 118, 119, 120, 121, 122, 123, 124, 125}], 96, 
+                    "\.1e\.1f \
+!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`\
+abcdefghijklmnopqrstuvwxyz{|}"]], "IgnoreCase" -> False, "Count" -> 96], 
+                  NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                   NeuralNetworks`RealT]]], 
+               Association[
+               "revIn" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU<" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1249217783]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "revOut" -> 
+                Association[
+                 "Type" -> "SequenceReverse", "Arrays" -> Association[], 
+                  "Parameters" -> Association[], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]]], "encGRU>" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    96, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1249217783]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "cat" -> Association[
+                 "Type" -> "Catenate", "Arrays" -> Association[], 
+                  "Parameters" -> Association["Level" -> 2, "$InputShapes" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]}, "$InputCount" -> 2, 
+                    "$OutputShape" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 192}, 
+                    NeuralNetworks`RealT]], "Inputs" -> Association["Input" -> {
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT], 
+                    NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]}], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 192}, 
+                    NeuralNetworks`RealT]]], "decGRU" -> 
+                Association[
+                 "Type" -> "GatedRecurrent", "Arrays" -> 
+                  Association[
+                   "InputGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "InputGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "InputGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "ResetGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "ResetGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "ResetGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "MemoryGateInputWeights" -> 
+                    NeuralNetworks`TensorT[{96, 192}, NeuralNetworks`RealT], 
+                    "MemoryGateStateWeights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "MemoryGateBiases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Parameters" -> 
+                  Association[
+                   "OutputSize" -> 96, "Dropout" -> 
+                    NeuralNetworks`ValidatedParameter[None], "$InputSize" -> 
+                    192, "$SequenceLength" -> 
+                    NeuralNetworks`LengthVar[1249217783]], "Inputs" -> 
+                  Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 192}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "States" -> 
+                  Association[
+                   "State" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                "classifier" -> 
+                Association[
+                 "Type" -> "NetMap", "Arrays" -> Association[], "Parameters" -> 
+                  Association[
+                   "Net" -> Association[
+                    "Type" -> "Chain", "Nodes" -> 
+                    Association[
+                    "1" -> Association[
+                    "Type" -> "Linear", "Arrays" -> 
+                    Association[
+                    "Weights" -> 
+                    NeuralNetworks`TensorT[{96, 96}, NeuralNetworks`RealT], 
+                    "Biases" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Parameters" -> 
+                    Association[
+                    "OutputDimensions" -> {96}, "$OutputSize" -> 96, 
+                    "$InputSize" -> 96, "$InputDimensions" -> {96}], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], "2" -> 
+                    Association[
+                    "Type" -> "Softmax", "Arrays" -> Association[], 
+                    "Parameters" -> Association[], "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]]], 
+                    "Edges" -> {
+                    NeuralNetworks`NetPath["Nodes", "1", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Inputs", "Input"], 
+                    NeuralNetworks`NetPath["Nodes", "2", "Inputs", "Input"] -> 
+                    NeuralNetworks`NetPath["Nodes", "1", "Outputs", "Output"],
+                     NeuralNetworks`NetPath["Outputs", "Output"] -> 
+                    NeuralNetworks`NetPath[
+                    "Nodes", "2", "Outputs", "Output"]}, "Inputs" -> 
+                    Association[
+                    "Input" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                    "Outputs" -> 
+                    Association[
+                    "Output" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]]], 
+                    "$SequenceLength" -> NeuralNetworks`LengthVar[1249217783],
+                     "$InputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT], 
+                    "$OutputShape" -> 
+                    NeuralNetworks`TensorT[{96}, NeuralNetworks`RealT]], 
+                  "Inputs" -> Association["Input" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]], "Outputs" -> 
+                  Association["Output" -> NeuralNetworks`TensorT[{
+                    NeuralNetworks`LengthVar[1249217783], 96}, 
+                    NeuralNetworks`RealT]]]]], Alignment -> Center], 
+             Nothing]}], GridBoxAlignment -> {"Columns" -> {{Left}}}],
+         ImageSizeCache->{735., {212.5, 221.5}},
+         TrackedSymbols:>{NeuralNetworks`Private`NetGraph`selection}],
+        Initialization:>{NetGraph}],
+       BaselinePosition->(Top -> Scaled[3])], "]"}]}],
+    False],
+   Deploy],
+  LineBreakWithin->False]], "Output",
+ CellChangeTimes->{
+  3.7081316823734226`*^9, {3.7081317540769897`*^9, 3.7081317702367296`*^9}, 
+   3.708131885560521*^9, {3.7081319314630833`*^9, 
+   3.708131955796606*^9}},ExpressionUUID->"0841b3fa-32cb-4ee8-b4e2-\
+493ab8165a75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"iNet", "[", 
+  RowBox[{"<|", 
+   RowBox[{"\"\<Input\>\"", "\[Rule]", "\"\<Integrate[x,{x,1,2}]\>\""}], 
+   "|>"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7081319578040066`*^9, 3.708132018098255*^9}, {
+  3.7081322046797466`*^9, 3.7081322167793055`*^9}, {3.708132259621583*^9, 
+  3.708132279032322*^9}},ExpressionUUID->"321ae9d7-381e-4f80-94a7-\
+0378ab07de0a"],
+
+Cell[BoxData["\<\"_____OOOOOOO))))2)D),,\"\>"], "Output",
+ CellChangeTimes->{{3.7081319726585083`*^9, 3.708131988445305*^9}, 
+   3.7081320186146173`*^9, {3.7081321866159763`*^9, 3.708132217827039*^9}, 
+   3.708132279716787*^9, 
+   3.708132552503726*^9},ExpressionUUID->"771b402c-5f21-4e4e-a834-\
+098c57841155"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"trained", "=", 
+  RowBox[{"NetTrain", "[", 
+   RowBox[{"iNet", ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Integrate[x,{x,1,2 ]\>\"", "\[Rule]", 
+      "\"\<Integrate[x,{x,1,2 ]\>\""}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.708132064588126*^9, 3.7081320840308685`*^9}, {
+   3.7081321170682125`*^9, 3.708132142033874*^9}, {3.708132308790339*^9, 
+   3.7081323421789465`*^9}, {3.70813239784653*^9, 3.708132419046688*^9}, 
+   3.7081326079957128`*^9, 3.7081326533921*^9, {3.708132739973995*^9, 
+   3.7081327491474667`*^9}},ExpressionUUID->"d41d7fde-0414-47a1-b4dc-\
+8a5817066225"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{{3.708132134117277*^9, 3.7081321427203465`*^9}, {
+   3.7081323429274693`*^9, 3.708132370013792*^9}, {3.7081324002172055`*^9, 
+   3.7081324194769926`*^9}, 3.708132608882345*^9, {3.708132732580906*^9, 
+   3.708132749641816*^9}, 
+   3.708132824307822*^9},ExpressionUUID->"78fceb6b-5a41-4726-938f-\
+23ea089409ff"]
 }, Open  ]]
 }, Open  ]],
 
@@ -14607,8 +16372,13 @@ Cell[BoxData[
    3.7081041874112425`*^9, 
    3.7081042092156467`*^9}},ExpressionUUID->"37e33118-962e-41a2-8b4d-\
 f41b299fde94"]
-}, Open  ]]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7081231033520756`*^9, 
+  3.7081231044168415`*^9}},ExpressionUUID->"fef46788-74c8-4ed0-8856-\
+4259bbd22945"]
+}, Closed]]
 }, Open  ]]
 },
 WindowSize->{1520, 781},
@@ -14629,7 +16399,7 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info173707853223-7757805", 574693, 14623}
+ {"Info173707853223-7757805", 667614, 16393}
  }
 *)
 (*NotebookFileOutline
@@ -15054,228 +16824,290 @@ Cell[530343, 13331, 1594, 37, 366, "Input", "ExpressionUUID" -> \
 "8d8427a1-9216-4508-9805-7b464bcf6053"],
 Cell[531940, 13370, 1145, 33, 175, "Output", "ExpressionUUID" -> \
 "d0d839d9-d8c3-4825-85f0-5303a7a17eea"]
+}, {2}]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[533131, 13409, 163, 3, 96, "Chapter", "ExpressionUUID" -> \
+"006310cc-3f62-42ce-8733-b25e0bbaae73"],
+Cell[CellGroupData[{
+Cell[533319, 13416, 368, 8, 46, "Input", "ExpressionUUID" -> \
+"2b7b29e6-3eb5-44e5-bba0-935a5a024bbf"],
+Cell[533690, 13426, 280, 4, 46, "Output", "ExpressionUUID" -> \
+"92896c48-0958-4a58-9ef0-74cd787c2de9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[534007, 13435, 455, 9, 46, "Input", "ExpressionUUID" -> \
+"bae8d23f-d8c2-4548-8c3b-c1b5f18d4ed5"],
+Cell[534465, 13446, 427, 7, 46, "Output", "ExpressionUUID" -> \
+"29640073-f451-4d35-9a6e-4c63a693b7ac"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[534929, 13458, 3794, 85, 598, "Input", "ExpressionUUID" -> \
+"6f329bfb-7ce7-4506-958b-b600a2391a17"],
+Cell[538726, 13545, 20732, 372, 405, "Output", "ExpressionUUID" -> \
+"b538c81b-fdbe-4e4a-9ff4-5a2188d6adc4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[559495, 13922, 226, 5, 46, "Input", "ExpressionUUID" -> \
+"826bc1b8-5995-4a51-a4e9-cab5d11f35ee"],
+Cell[559724, 13929, 20684, 371, 405, "Output", "ExpressionUUID" -> \
+"9c520c30-2e4a-4268-9b90-cacb6bb651e6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[580445, 14305, 759, 17, 76, "Input", "ExpressionUUID" -> \
+"d6ecf98e-e13c-4ab5-9000-7851beed0078"],
+Cell[581207, 14324, 345, 6, 46, "Output", "ExpressionUUID" -> \
+"92b2ae68-a7eb-4c6c-b227-cdb027d93b6c"]
+}, Open  ]],
+Cell[581567, 14333, 154, 3, 46, "Input", "ExpressionUUID" -> \
+"01c96f52-fb72-452a-9263-1bb5cb1eb997"],
+Cell[CellGroupData[{
+Cell[581746, 14340, 3148, 71, 540, "Input", "ExpressionUUID" -> \
+"1c864854-8919-4d64-9f47-614d9836faac"],
+Cell[584897, 14413, 19440, 348, 491, "Output", "ExpressionUUID" -> \
+"3adf1957-0a1a-4045-8f66-3c2a5133bb55"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[604374, 14766, 325, 6, 46, "Input", "ExpressionUUID" -> \
+"544da9d8-f050-448b-a597-d152fe419c71"],
+Cell[604702, 14774, 19395, 348, 491, "Output", "ExpressionUUID" -> \
+"0841b3fa-32cb-4ee8-b4e2-493ab8165a75"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[624134, 15127, 382, 8, 46, "Input", "ExpressionUUID" -> \
+"321ae9d7-381e-4f80-94a7-0378ab07de0a"],
+Cell[624519, 15137, 310, 5, 46, "Output", "ExpressionUUID" -> \
+"771b402c-5f21-4e4e-a834-098c57841155"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[624866, 15147, 615, 13, 46, "Input", "ExpressionUUID" -> \
+"d41d7fde-0414-47a1-b4dc-8a5817066225"],
+Cell[625484, 15162, 363, 6, 46, "Output", "ExpressionUUID" -> \
+"78fceb6b-5a41-4726-938f-23ea089409ff"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[533134, 13409, 150, 3, 96, "Chapter", "ExpressionUUID" -> \
+Cell[625896, 15174, 150, 3, 96, "Chapter", "ExpressionUUID" -> \
 "a92b9e38-a3ad-4ac1-9be1-43773ef248b9"],
 Cell[CellGroupData[{
-Cell[533309, 13416, 640, 17, 46, "Input", "ExpressionUUID" -> \
+Cell[626071, 15181, 640, 17, 46, "Input", "ExpressionUUID" -> \
 "49296e24-4fca-4e40-afe3-9187bb3c0d36"],
-Cell[533952, 13435, 2002, 33, 308, "Output", "ExpressionUUID" -> \
+Cell[626714, 15200, 2002, 33, 308, "Output", "ExpressionUUID" -> \
 "e3bbe659-d162-40fc-bfe1-edf08717545c"]
 }, Open  ]],
-Cell[535969, 13471, 152, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[628731, 15236, 152, 3, 46, "Input", "ExpressionUUID" -> \
 "acf15f22-1bee-4ac8-94d9-151b95493f1a"],
-Cell[536124, 13476, 516, 16, 76, "Input", "ExpressionUUID" -> \
+Cell[628886, 15241, 516, 16, 76, "Input", "ExpressionUUID" -> \
 "90141110-d4ca-46dd-9165-cb01d5c19b12"],
 Cell[CellGroupData[{
-Cell[536665, 13496, 217, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[629427, 15261, 217, 4, 46, "Input", "ExpressionUUID" -> \
 "208dc65c-8f74-42ba-9f71-a09df700d893"],
-Cell[536885, 13502, 425, 10, 71, "Output", "ExpressionUUID" -> \
+Cell[629647, 15267, 425, 10, 71, "Output", "ExpressionUUID" -> \
 "b1cde2c8-2850-4f17-9f7a-4b4124443e9b"]
 }, Open  ]],
-Cell[537325, 13515, 233, 5, 76, "Input", "ExpressionUUID" -> \
+Cell[630087, 15280, 233, 5, 76, "Input", "ExpressionUUID" -> \
 "d20e3bc4-99fa-42e1-9fb3-d532acdcfc08"],
 Cell[CellGroupData[{
-Cell[537583, 13524, 392, 7, 46, "Input", "ExpressionUUID" -> \
+Cell[630345, 15289, 392, 7, 46, "Input", "ExpressionUUID" -> \
 "b4e80211-ed95-4f09-b173-f02eb36b597d"],
-Cell[537978, 13533, 1434, 39, 88, "Output", "ExpressionUUID" -> \
+Cell[630740, 15298, 1434, 39, 88, "Output", "ExpressionUUID" -> \
 "1a39f3bf-dc2a-49bc-97d1-d394fc86dbce"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[539449, 13577, 156, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[632211, 15342, 156, 3, 46, "Input", "ExpressionUUID" -> \
 "809d7a98-5fcb-46e0-91ba-31ba48750368"],
-Cell[539608, 13582, 386, 11, 46, "Output", "ExpressionUUID" -> \
+Cell[632370, 15347, 386, 11, 46, "Output", "ExpressionUUID" -> \
 "9c204d0d-e1a4-4d3b-865d-bf9b3f22af58"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[540031, 13598, 207, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[632793, 15363, 207, 4, 46, "Input", "ExpressionUUID" -> \
 "2d3808b0-2f23-4ed3-b309-2b6a2c7c78e4"],
-Cell[540241, 13604, 171, 4, 46, "Output", "ExpressionUUID" -> \
+Cell[633003, 15369, 171, 4, 46, "Output", "ExpressionUUID" -> \
 "ecb5b304-5abf-433a-8bb5-8dca45d48c31"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[540449, 13613, 302, 8, 46, "Input", "ExpressionUUID" -> \
+Cell[633211, 15378, 302, 8, 46, "Input", "ExpressionUUID" -> \
 "e6cbd8a3-5b34-4f4c-bc0c-acf7cf962a30"],
-Cell[540754, 13623, 212, 4, 46, "Output", "ExpressionUUID" -> \
+Cell[633516, 15388, 212, 4, 46, "Output", "ExpressionUUID" -> \
 "859d2904-0575-4f03-8b3d-ab8093c841cc"]
 }, Open  ]],
-Cell[540981, 13630, 201, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[633743, 15395, 201, 4, 46, "Input", "ExpressionUUID" -> \
 "83162218-e7ee-4de4-9131-a4a13d76a576"],
 Cell[CellGroupData[{
-Cell[541207, 13638, 158, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[633969, 15403, 158, 3, 46, "Input", "ExpressionUUID" -> \
 "6c861a15-ea08-465b-aa0b-d0168da8908d"],
-Cell[541368, 13643, 222, 6, 46, "Output", "ExpressionUUID" -> \
+Cell[634130, 15408, 222, 6, 46, "Output", "ExpressionUUID" -> \
 "e8dea3c3-8da7-4e2a-8844-45b4ccb37f65"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[541627, 13654, 156, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[634389, 15419, 156, 3, 46, "Input", "ExpressionUUID" -> \
 "dd4439e0-fb71-4c5b-b8c7-01fbe330b7e1"],
-Cell[541786, 13659, 147, 4, 46, "Output", "ExpressionUUID" -> \
+Cell[634548, 15424, 147, 4, 46, "Output", "ExpressionUUID" -> \
 "b3be483a-7973-4435-85d0-85823aa8102f"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[541970, 13668, 247, 5, 46, "Input", "ExpressionUUID" -> \
+Cell[634732, 15433, 247, 5, 46, "Input", "ExpressionUUID" -> \
 "0ce45909-5d9b-4925-8e4e-9de3be07dfdd"],
-Cell[542220, 13675, 4228, 128, 308, "Output", "ExpressionUUID" -> \
+Cell[634982, 15440, 4228, 128, 308, "Output", "ExpressionUUID" -> \
 "77b8fca6-5f6b-49b3-bd88-7fac0cfb3368"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[546485, 13808, 156, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[639247, 15573, 156, 3, 46, "Input", "ExpressionUUID" -> \
 "231dbda5-0c85-4cc3-bb57-886bd0c0f34d"],
-Cell[546644, 13813, 749, 21, 46, "Output", "ExpressionUUID" -> \
+Cell[639406, 15578, 749, 21, 46, "Output", "ExpressionUUID" -> \
 "0f1cff4f-dead-4b73-b05c-d856b592e669"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[547430, 13839, 156, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[640192, 15604, 156, 3, 46, "Input", "ExpressionUUID" -> \
 "c1822c20-5062-40d3-bd2f-8f68354d7fed"],
-Cell[547589, 13844, 527, 15, 46, "Output", "ExpressionUUID" -> \
+Cell[640351, 15609, 527, 15, 46, "Output", "ExpressionUUID" -> \
 "28384a18-97ba-4de2-a301-1a42f7e302d1"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[548153, 13864, 212, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[640915, 15629, 212, 4, 46, "Input", "ExpressionUUID" -> \
 "d10971d9-9076-4eb1-9cb2-b67a9efba3b7"],
-Cell[548368, 13870, 262, 8, 46, "Output", "ExpressionUUID" -> \
+Cell[641130, 15635, 262, 8, 46, "Output", "ExpressionUUID" -> \
 "3199cca2-3255-4a43-9d8e-fbf515c7adc9"]
 }, Open  ]],
-Cell[548645, 13881, 165, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[641407, 15646, 165, 3, 46, "Input", "ExpressionUUID" -> \
 "ff863d2d-7fda-43b2-b108-b193bcc3f979"],
-Cell[548813, 13886, 278, 6, 46, "Input", "ExpressionUUID" -> \
+Cell[641575, 15651, 278, 6, 46, "Input", "ExpressionUUID" -> \
 "251a2971-ea95-44ad-95f7-5876123ada0a"],
-Cell[549094, 13894, 230, 5, 46, "Input", "ExpressionUUID" -> \
+Cell[641856, 15659, 230, 5, 46, "Input", "ExpressionUUID" -> \
 "80b4b0a7-8aba-463e-85f3-6724f49c8bd5"],
-Cell[549327, 13901, 179, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[642089, 15666, 179, 3, 46, "Input", "ExpressionUUID" -> \
 "cf9720cf-f09a-49e8-a7c5-bb11a82a6b4e"],
-Cell[549509, 13906, 225, 5, 46, "Input", "ExpressionUUID" -> \
+Cell[642271, 15671, 225, 5, 46, "Input", "ExpressionUUID" -> \
 "a4c76f21-8730-4fc7-aee5-977cafcfa984"],
-Cell[549737, 13913, 217, 7, 103, "Text", "ExpressionUUID" -> \
+Cell[642499, 15678, 217, 7, 103, "Text", "ExpressionUUID" -> \
 "84907407-da26-44f9-ab1c-ca49986cc935"],
-Cell[549957, 13922, 291, 8, 103, "Text", "ExpressionUUID" -> \
+Cell[642719, 15687, 291, 8, 103, "Text", "ExpressionUUID" -> \
 "02bc9609-89a1-49aa-a08f-95cfd5c4a938"],
-Cell[550251, 13932, 228, 5, 46, "Input", "ExpressionUUID" -> \
+Cell[643013, 15697, 228, 5, 46, "Input", "ExpressionUUID" -> \
 "d5c7451b-c2cf-4a8b-9af4-f4b83c42e446"],
-Cell[550482, 13939, 184, 3, 46, "Text", "ExpressionUUID" -> \
+Cell[643244, 15704, 184, 3, 46, "Text", "ExpressionUUID" -> \
 "d22f7450-9415-4ac0-b822-52fe81a0d697"],
-Cell[550669, 13944, 427, 10, 46, "Input", "ExpressionUUID" -> \
+Cell[643431, 15709, 427, 10, 46, "Input", "ExpressionUUID" -> \
 "160be503-3442-4cb8-bf35-08b4f9e3fe24"],
-Cell[551099, 13956, 241, 6, 46, "Text", "ExpressionUUID" -> \
+Cell[643861, 15721, 241, 6, 46, "Text", "ExpressionUUID" -> \
 "1ea2a184-d657-4f23-ac6e-e8f7bf907f8d"],
 Cell[CellGroupData[{
-Cell[551365, 13966, 304, 7, 46, "Input", "ExpressionUUID" -> \
+Cell[644127, 15731, 304, 7, 46, "Input", "ExpressionUUID" -> \
 "efe77cc2-8608-446d-b180-484776b74878"],
-Cell[551672, 13975, 183, 3, 46, "Output", "ExpressionUUID" -> \
+Cell[644434, 15740, 183, 3, 46, "Output", "ExpressionUUID" -> \
 "e7152fc3-11df-4c23-b102-73034bc8a92a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[551892, 13983, 533, 14, 46, "Input", "ExpressionUUID" -> \
+Cell[644654, 15748, 533, 14, 46, "Input", "ExpressionUUID" -> \
 "9dc4b2cf-bf85-48a4-80ce-99497a84c733"],
-Cell[552428, 13999, 154, 3, 46, "Output", "ExpressionUUID" -> \
+Cell[645190, 15764, 154, 3, 46, "Output", "ExpressionUUID" -> \
 "6257a1a0-47fb-4630-9fe3-124ea226802a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[552619, 14007, 551, 15, 46, "Input", "ExpressionUUID" -> \
+Cell[645381, 15772, 551, 15, 46, "Input", "ExpressionUUID" -> \
 "75d3510b-b9d5-4c33-acb4-a2fc2f69f9cd"],
 Cell[CellGroupData[{
-Cell[553195, 14026, 139, 3, 36, "Echo", "ExpressionUUID" -> \
+Cell[645957, 15791, 139, 3, 36, "Echo", "ExpressionUUID" -> \
 "47cdb770-332b-4ca2-b0a9-9e177514c765"],
-Cell[553337, 14031, 138, 3, 36, "Echo", "ExpressionUUID" -> \
+Cell[646099, 15796, 138, 3, 36, "Echo", "ExpressionUUID" -> \
 "d732b925-3693-44e7-92ee-2c9144444775"]
 }, Open  ]],
-Cell[553490, 14037, 198, 4, 46, "Output", "ExpressionUUID" -> \
+Cell[646252, 15802, 198, 4, 46, "Output", "ExpressionUUID" -> \
 "0d029e47-3ce2-4ddb-bcc5-abf54d3ccf76"]
 }, Open  ]],
-Cell[553703, 14044, 71, 0, 46, "Text", "ExpressionUUID" -> \
+Cell[646465, 15809, 71, 0, 46, "Text", "ExpressionUUID" -> \
 "32fc688f-3230-4e50-a2a3-c0ee3e9052c6"],
 Cell[CellGroupData[{
-Cell[553799, 14048, 421, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[646561, 15813, 421, 11, 46, "Input", "ExpressionUUID" -> \
 "24b0ecd0-52b8-4131-a22f-942c7aaac88b"],
-Cell[554223, 14061, 178, 3, 46, "Output", "ExpressionUUID" -> \
+Cell[646985, 15826, 178, 3, 46, "Output", "ExpressionUUID" -> \
 "0d4c8663-75bf-442c-8c8c-c22f7a6cb469"]
 }, Open  ]],
-Cell[554416, 14067, 129, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[647178, 15832, 129, 3, 46, "Input", "ExpressionUUID" -> \
 "8e0d7a63-0d20-4da8-9227-2a6f56ddb89e"],
 Cell[CellGroupData[{
-Cell[554570, 14074, 299, 7, 46, "Input", "ExpressionUUID" -> \
+Cell[647332, 15839, 299, 7, 46, "Input", "ExpressionUUID" -> \
 "0c4ed235-6664-4997-b456-edfc8365452e"],
-Cell[554872, 14083, 150, 3, 46, "Output", "ExpressionUUID" -> \
+Cell[647634, 15848, 150, 3, 46, "Output", "ExpressionUUID" -> \
 "8ed897cd-4384-4dd4-aa11-a3c27ee6f47a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[555059, 14091, 218, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[647821, 15856, 218, 4, 46, "Input", "ExpressionUUID" -> \
 "74d4260a-fb63-441d-be62-08b69a662651"],
-Cell[555280, 14097, 337, 8, 46, "Output", "ExpressionUUID" -> \
+Cell[648042, 15862, 337, 8, 46, "Output", "ExpressionUUID" -> \
 "73d286d0-9456-43fe-b049-768b9a693855"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[555654, 14110, 218, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[648416, 15875, 218, 4, 46, "Input", "ExpressionUUID" -> \
 "c4c985c1-dbfe-4e87-a4c6-825d37725691"],
-Cell[555875, 14116, 337, 8, 46, "Output", "ExpressionUUID" -> \
+Cell[648637, 15881, 337, 8, 46, "Output", "ExpressionUUID" -> \
 "228d2f98-0b69-4a18-aedd-0f574413a9f9"]
 }, Open  ]],
-Cell[556227, 14127, 317, 8, 46, "Input", "ExpressionUUID" -> \
+Cell[648989, 15892, 317, 8, 46, "Input", "ExpressionUUID" -> \
 "51f8f90c-6860-434e-850d-928db1691488"],
-Cell[556547, 14137, 193, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[649309, 15902, 193, 4, 46, "Input", "ExpressionUUID" -> \
 "fb033e4d-d92c-4cdb-b961-bb27e4415fad"],
 Cell[CellGroupData[{
-Cell[556765, 14145, 199, 4, 46, "Input", "ExpressionUUID" -> \
+Cell[649527, 15910, 199, 4, 46, "Input", "ExpressionUUID" -> \
 "236244ac-aca7-45f9-9242-6ef408211656"],
-Cell[556967, 14151, 1451, 32, 163, "Output", "ExpressionUUID" -> \
+Cell[649729, 15916, 1451, 32, 163, "Output", "ExpressionUUID" -> \
 "97c4849f-a436-4d05-9599-b2e541884406"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[558455, 14188, 450, 10, 46, "Input", "ExpressionUUID" -> \
+Cell[651217, 15953, 450, 10, 46, "Input", "ExpressionUUID" -> \
 "110356bf-1049-4bcc-bf90-64d474590d14"],
-Cell[558908, 14200, 387, 8, 46, "Output", "ExpressionUUID" -> \
+Cell[651670, 15965, 387, 8, 46, "Output", "ExpressionUUID" -> \
 "2f8f176b-a32b-410f-88cc-498b27b07797"]
 }, Open  ]],
-Cell[559310, 14211, 3333, 81, 395, "Input", "ExpressionUUID" -> \
+Cell[652072, 15976, 3333, 81, 395, "Input", "ExpressionUUID" -> \
 "1fa77908-9614-4ae1-8169-df4ce92b9f2a"],
-Cell[562646, 14294, 4943, 119, 482, "Input", "ExpressionUUID" -> \
+Cell[655408, 16059, 4943, 119, 482, "Input", "ExpressionUUID" -> \
 "a8754287-a484-4e7d-9d18-266ad4d7b9a5"],
 Cell[CellGroupData[{
-Cell[567614, 14417, 176, 3, 46, "Input", "ExpressionUUID" -> \
+Cell[660376, 16182, 176, 3, 46, "Input", "ExpressionUUID" -> \
 "26074061-991d-4313-9e12-76d6fae5911e"],
-Cell[567793, 14422, 1132, 29, 76, "Output", "ExpressionUUID" -> \
+Cell[660555, 16187, 1132, 29, 76, "Output", "ExpressionUUID" -> \
 "0891b2a9-acb8-48a1-aaa2-9537cd9bd043"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[568962, 14456, 408, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[661724, 16221, 408, 11, 46, "Input", "ExpressionUUID" -> \
 "56bfb688-497d-40c5-b61e-55ab8162926b"],
-Cell[569373, 14469, 431, 9, 46, "Output", "ExpressionUUID" -> \
+Cell[662135, 16234, 431, 9, 46, "Output", "ExpressionUUID" -> \
 "43841e0a-f264-4b11-91a3-1b33c5d0c115"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[569841, 14483, 499, 13, 46, "Input", "ExpressionUUID" -> \
+Cell[662603, 16248, 499, 13, 46, "Input", "ExpressionUUID" -> \
 "41b9a513-8954-4953-ae8c-58971ac2eed5"],
-Cell[570343, 14498, 559, 10, 76, "Output", "ExpressionUUID" -> \
+Cell[663105, 16263, 559, 10, 76, "Output", "ExpressionUUID" -> \
 "0e9add19-141e-4f65-9d4b-2a7153953861"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[570939, 14513, 400, 10, 46, "Input", "ExpressionUUID" -> \
+Cell[663701, 16278, 400, 10, 46, "Input", "ExpressionUUID" -> \
 "a5545cf4-e1a2-4229-b690-9c11e925b1c3"],
-Cell[571342, 14525, 592, 12, 76, "Output", "ExpressionUUID" -> \
+Cell[664104, 16290, 592, 12, 76, "Output", "ExpressionUUID" -> \
 "6b1a212e-bc2c-4419-b854-d8a42ec7478e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[571971, 14542, 146, 2, 46, "Input", "ExpressionUUID" -> \
+Cell[664733, 16307, 146, 2, 46, "Input", "ExpressionUUID" -> \
 "8b9b0fe7-e928-444a-bc1e-2a6f9594ab5a"],
-Cell[572120, 14546, 434, 9, 76, "Output", "ExpressionUUID" -> \
+Cell[664882, 16311, 434, 9, 76, "Output", "ExpressionUUID" -> \
 "e668f91c-d611-49a5-b133-0e438dd09087"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[572591, 14560, 366, 9, 46, "Input", "ExpressionUUID" -> \
+Cell[665353, 16325, 366, 9, 46, "Input", "ExpressionUUID" -> \
 "1180e7c7-9083-451f-a6c4-5c575656ff40"],
-Cell[572960, 14571, 507, 10, 76, "Output", "ExpressionUUID" -> \
+Cell[665722, 16336, 507, 10, 76, "Output", "ExpressionUUID" -> \
 "3fadf32f-92ed-40b5-9fa0-d741220bb83a"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[573504, 14586, 423, 11, 46, "Input", "ExpressionUUID" -> \
+Cell[666266, 16351, 423, 11, 46, "Input", "ExpressionUUID" -> \
 "2e124ca3-4e81-43f8-ba8c-da42916d6bfb"],
-Cell[573930, 14599, 414, 9, 46, "Output", "ExpressionUUID" -> \
+Cell[666692, 16364, 414, 9, 46, "Output", "ExpressionUUID" -> \
 "37e33118-962e-41a2-8b4d-f41b299fde94"]
-}, Open  ]]
-}, Open  ]]
+}, Open  ]],
+Cell[667121, 16376, 156, 3, 46, "Input", "ExpressionUUID" -> \
+"fef46788-74c8-4ed0-8856-4259bbd22945"]
+}, Closed]]
 }, Open  ]]
 }
 ]
